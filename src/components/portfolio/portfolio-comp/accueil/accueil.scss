@@ -1,0 +1,18 @@
+.section__accueil {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-content: center;
+    background-color: var(--color-3);
+}
+
+.section__accueil-bg-svg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 80vh;
+
+    #section__accueil-bg-svg-elt{
+        fill: var(--color-2);
+    }
+}

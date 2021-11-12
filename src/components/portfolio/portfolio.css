@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  /* for Internet Explorer, Edge */
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+  /* for Chrome, Safari, and Opera */
+}
+
+:root {
+  --color-1: #F8E9A1;
+  --color-2: #F76C6C;
+  --color-3: #A8D0E6;
+  --color-4: #374785;
+  --color-5: #24305E;
+}
+
+.spinner-container {
+  perspective: 2500px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.spinner {
+  width: 100vw;
+  height: 100vh;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% -50vw;
+  transition: transform 0.75s ease-in-out;
+}
+
+.face {
+  position: absolute;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  transform-origin: 50% 50% -50vw;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.face:first-child {
+  opacity: 1;
+}
+.face:nth-child(1) {
+  transform: rotateY(0deg);
+  background: #80ff00;
+}
+.face:nth-child(2) {
+  transform: rotateY(90deg);
+  background: aqua;
+}
+.face:nth-child(3) {
+  transform: rotateY(180deg);
+  background: #8000ff;
+}
+.face:nth-child(4) {
+  transform: rotateY(270deg);
+  background: red;
+}
+.face .content {
+  max-height: 80vh;
+  width: 100vw;
+}
+.face .arrow {
+  position: fixed;
+  top: calc(50vh - 2rem);
+  height: 4rem;
+  width: 4rem;
+  border: 2px solid purple;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 100;
+}
+.face .arrow-left {
+  left: 2vmin;
+}
+.face .arrow-right {
+  right: 2vmin;
+}/*# sourceMappingURL=Portfolio.css.map */

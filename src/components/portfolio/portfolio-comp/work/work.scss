@@ -1,0 +1,30 @@
+.section__work {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-content: center;
+    background-color: var(--color-3);
+}
+
+.section__work-bg-svg-1{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+
+    #section__work-bg-svg-1-elt{
+        fill: var(--color-2);
+    }
+}
+
+.section__work-bg-svg-2{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 87vh;
+
+    #section__work-bg-svg-2-elt{
+        fill: var(--color-2);
+    }
+}

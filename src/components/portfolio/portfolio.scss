@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+    }
+}
+
+:root{
+    --color-1 : #F8E9A1;
+--color-2 : #F76C6C;
+--color-3 : #A8D0E6;
+--color-4 : #374785;
+--color-5 : #24305E;
+}
+
+// $color-1 : #A64AC9;
+// $color-2 : #FCCD04;
+// $color-3 : #FFB48F;
+// $color-4 : #F5E6CC;
+// $color-5 : #17E9E0;
+
+$color-1 : #F8E9A1;
+$color-2 : #F76C6C;
+$color-3 : #A8D0E6;
+$color-4 : #374785;
+$color-5 : #24305E;
+
+
+// $color-1 : #F78888;
+// $color-2 : #F3D250;
+// $color-3 : #ECECEC;
+// $color-4 : #90CCF4;
+// $color-5 : #5DA2D5;
+
+
+// $color-1 : #026670;
+// $color-2 : #9FEDD7;
+// $color-3 : #FEF9C7;
+// $color-4 : #FCE181;
+// $color-5 : #EDEAE5;
+
+
+// $color-1 : #FBE8A6;
+// $color-2 : #F4976C;
+// $color-3 : #303C6C;
+// $color-4 : #B4DFE5;
+// $color-5 : #D2FDFF;
+
+.spinner-container{
+    perspective: 2500px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.spinner{
+    width: 100vw;
+    height: 100vh;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50% -50vw;
+    transition: transform .75s ease-in-out;
+}
+
+.face {
+    position: absolute;
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transform-origin: 50% 50% -50vw;
+    backface-visibility: hidden;
+
+    &:first-child{
+        opacity: 1;
+    }
+
+    @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+            transform: rotateY(90deg * ($i - 1));
+            background: hsl((90deg * $i), 100%, 50%);
+        }
+    }
+
+    .content{
+        max-height: 80vh;
+        width: 100vw;
+    }
+
+    .arrow{
+        position: fixed;
+        top: calc(50vh - 2rem);
+        height: 4rem;
+        width: 4rem;
+        border: 2px solid purple;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+            
+    .arrow-left{
+        left: 2vmin;
+    }
+    .arrow-right{
+        right: 2vmin
+    }
+}

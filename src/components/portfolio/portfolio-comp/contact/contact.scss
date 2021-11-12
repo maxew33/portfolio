@@ -1,0 +1,482 @@
+.section__contact {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-content: center;
+    background-color: var(--color-3);
+}
+
+.section__contact-bg-svg{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+
+    #section__contact-bg-svg-elt{
+        fill: var(--color-2);
+    }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Poiret+One&display=swap');
+
+:root{
+  --main-height: 600px;
+  --main-width: 800px;
+}
+
+.container{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Euphoria Script', cursive;
+    font-size: 2rem;
+}
+
+.animation-container{
+    display: none;
+}
+
+/* ------------- POSTCARD ------------- */
+
+.postcard-border{
+    position: absolute;
+    left: 50%;
+    margin-left: calc((var(--main-width)/-2));
+    top: 50%;
+    margin-top: calc((var(--main-height)/-2));
+    width: var(--main-width);
+    height: var(--main-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: repeating-linear-gradient(315deg, blue, blue 2%, white 2%, white 3%, red 3%, red 5%, white 5%, white 6%);
+    border: 2px solid black;
+}
+
+.postcard{
+    background: ivory;
+    width: calc((var(--main-width)*.95));
+    height: calc((var(--main-height) - (var(--main-width)*.05)));
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.postcard-left,
+.postcard-right{
+    padding: 5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.postcard-left{
+    width: 60%;
+    border-right: 1px solid black;
+}
+
+.postcard-left-form{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.postcard-left-input {
+    width: 100%;
+    margin: 1% 0;
+    position: relative;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+}
+
+.postcard-left-input input,
+.postcard-left-input textarea {
+    padding: 5%;
+    border: 0;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.postcard-left-input label {
+    font-family: 'Poiret One', cursive;
+    font-size: 0.9rem;
+    color: #191919;
+    padding: .5vw;
+    position: absolute;
+    left: 0;
+    transition: all .25s ease;
+    pointer-events: none;
+}
+
+input:focus ~ label,
+textarea:focus ~ label,
+input:valid ~ label,
+textarea:valid ~ label {
+    font-size: 0.5rem;
+    padding: 0;
+    transition: all .25s ease;
+}
+
+.postcard-left-message{
+    height: calc(var(--main-height)/5);
+}
+
+textarea {
+  height: 100%;
+}
+
+textarea, input {
+    font-family: 'Euphoria Script', cursive;
+    font-size: 2rem;
+}
+
+.postcard-left-submit-btn {
+    height: 3rem;
+    width: 40%;
+    align-self: end;
+    border-radius: 5px;
+    border: 2px solid #4b8cfb;
+    background-color: #4b8cfb;
+    font-family: 'Poiret One', cursive;
+    font-size : 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.postcard-left-submit-btn:hover {
+    background-color: ivory;
+    color: #4b8cfb;
+}
+
+.postcard-right{
+    height: 80%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.postcard-right-timbre{    
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 15%;
+    height: auto;
+}
+
+.postcard-right-timbre img{    
+    width: 100%;
+}
+
+.postcard-right-exp{
+    padding-bottom: 5%;
+}
+
+.postcard-right-exp>div{
+    border-bottom: 1px solid black;
+    padding-top: 7.5%;
+}
+
+@media (max-width: 800px){
+    :root{
+        --main-width: 80vw;
+        --main-height: 60vw;
+      }
+
+    html{
+        font-size: 2vw;
+    }
+}
+
+
+/* ------------- ENVELOPPE ------------- */
+
+.enveloppe-container{
+    transform: translateY(50vh);
+    animation: .5s ease-in 2s forwards disparition-enveloppe;
+}
+
+@keyframes disparition-enveloppe {
+    from{
+        transform: translateY(50vh);
+    }
+    to{
+        transform: translateY(100vh);
+    }    
+}
+
+.enveloppe{
+    position: absolute;
+    left: 50%;
+    margin-left: calc((var(--main-width)/-2));
+    top: 50%;
+    margin-top: calc((var(--main-height)/-2));
+    width: var(--main-width);
+    height: var(--main-height);
+    background: transparent;
+    animation: .5s ease-out forwards apparition-enveloppe, 1s linear 1s forwards reduction-deplacement;
+}
+
+@keyframes apparition-enveloppe {
+    from{
+        transform: translateY(var(--main-height));
+    }
+    to{
+        transform: translateY(0);
+    }    
+}
+
+@keyframes reduction-deplacement {
+    to{
+        transform: scale(0.05);
+    }        
+}
+
+.enveloppe::before{
+    /* languette */
+    content: '';
+    width: var(--main-width);
+    height: var(--main-height);
+    top: -40%;
+    position: absolute;
+    background: #E1E1E1;
+    clip-path: polygon(0% 40%, 50% 0%, 100% 40%);
+    animation: .5s ease-in-out .5s forwards fermeture;
+    transform-origin: 0 calc((var(--main-height)*.4));
+}
+
+@keyframes fermeture {
+    to{
+        transform: rotateX(-180deg);
+    }    
+}
+
+.enveloppe::after{
+    content: '';
+    width: var(--main-width);
+    height: var(--main-height);
+    position: absolute;
+    background: white;
+    clip-path: polygon(0 0, 50% 37.5%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ------------- MAIL BOX N VAN ------------- */
+
+    /* -- GROUND N MAILBOX -- */
+
+.ground{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 15vh;
+    transform: translateY(30vh);
+    border-top: 1vh solid #bada55;
+    background: grey;
+    animation: 1s ease-out 1s forwards ground-apparition;
+}
+
+@keyframes ground-apparition {
+    from{
+        transform: translateY(30vh);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+.ground::before{
+    /* mailbox */
+    content: '';
+    text-align: center;
+    padding-top: 3vh;
+    height: 15vh;
+    width: 10vh;
+    position: absolute;
+    bottom: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fffb2a;
+    border-radius: 2vh 2vh 0 0;
+}
+
+    /* -- VAN -- */
+
+.van{
+    display: grid;
+    position: absolute;
+    bottom: calc(10vh + 2.5vw);
+    height: 20vw;
+    width: 40vw;
+    transform: translate(-40vw);
+    background: #FFB100;
+    border-radius: 10vw 20vw 2vw 2vw;
+    grid-template: 50% 50%;
+    animation: 5s linear 2.5s forwards avance;
+    z-index: 150;
+}
+
+@keyframes avance{
+    0%{
+        transform: translate(-40vw);
+    }
+    40%{
+        transform: translate(30vw);
+    }
+    60%{
+        transform: translate(30vw);
+    }
+    100%{
+        transform: translateX(100vw);
+    }
+}
+
+.logo{
+    position: absolute;
+    left: 6vw;
+    top: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8vw;
+}
+
+.vitre{
+    grid-column: 2;
+    grid-row: 1;
+    position: relative;
+    top: 2vw;
+    left: 2vw;
+    height: 10vw;
+    width: 15vw;
+    background: rgb(189, 238, 238);
+    border-radius: 2vw 20vw 2vw 2vw;
+}
+
+.avant{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.arriere{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.roue{
+    position: relative;
+    bottom: -50%;
+    left: 20%;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 100%;
+    background: black;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    align-items: center;
+    justify-items: center;
+    padding: 2vw;
+    animation: 5s linear 2.5s roule;
+}
+
+@keyframes roule{
+    0%{
+        transform: rotate(0deg);
+    }
+    40%{
+        transform: rotate(360deg);
+    }
+    60%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(720deg);
+    }
+}
+
+
+.roue::after{
+    content:'';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 100%;
+    border: 1px dotted black;
+}
+
+.roue::before{
+    content:'';
+    position: absolute;
+    left: 50%;
+    margin-left: -3vw;
+    top: 50%;
+    margin-top: -3vw;
+    background: #cfcfcf;
+    height: 6vw;
+    width: 6vw;
+    border-radius: 100%;
+}
+
+.boulons {
+    position: relative;
+    width: 1vw; 
+    height: .5vw;
+    background-color: #64C7CC;
+}
+  
+.boulons::before,
+.boulons::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: .5vw solid transparent;
+    border-right: .5vw solid transparent;
+}
+  
+.boulons::before {
+    bottom: 100%;
+    border-bottom: .3vw solid #64C7CC;
+}
+  
+.boulons::after {
+    top: 100%;
+    width: 0;
+    border-top: .3vw solid #64C7CC;
+}
+
+/* ------------- MESSAGE ENVOYE ------------- */
+.confirmation-envoi{
+    position: absolute;
+    bottom: 20vh;
+    overflow: hidden;
+    width: 0;
+    font-family: 'Poiret One', cursive;
+    color: white;
+    font-size: 6rem;
+    animation: 5s linear forwards 2.5s confirmation-envoi;
+}
+
+.message-container{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+@keyframes confirmation-envoi {
+    40%{
+        width: 50vw;
+    }
+    60%{
+        width: 50vw;
+    }
+    100%{
+        width: 100vw;
+    }
+}
