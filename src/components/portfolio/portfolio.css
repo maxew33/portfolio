@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Festive&family=Sedgwick+Ave&family=Ubuntu:ital,wght@1,300&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +18,10 @@
   --color-3: #A8D0E6;
   --color-4: #374785;
   --color-5: #24305E;
+  --font-1: "Sedgwick Ave", cursive;
+  --font-1b: "Festive", cursive;
+  --font-2: "Ubuntu", sans-serif;
+  --font-2b: "Baloo Da 2", cursive;
 }
 
 .spinner-container {
@@ -42,43 +47,61 @@
   transform-origin: 50% 50% -50vw;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  background-color: var(--color-3);
 }
 .face:first-child {
   opacity: 1;
 }
 .face:nth-child(1) {
   transform: rotateY(0deg);
-  background: #80ff00;
 }
 .face:nth-child(2) {
   transform: rotateY(90deg);
-  background: aqua;
 }
 .face:nth-child(3) {
   transform: rotateY(180deg);
-  background: #8000ff;
 }
 .face:nth-child(4) {
   transform: rotateY(270deg);
-  background: red;
 }
-.face .content {
-  max-height: 80vh;
-  width: 100vw;
+.face .content > section {
+  position: absolute;
+  display: grid;
+  grid-template: repeat(8, 1fr)/repeat(6, 1fr);
+  z-index: 10;
 }
 .face .arrow {
   position: fixed;
   top: calc(50vh - 2rem);
-  height: 4rem;
-  width: 4rem;
-  border: 2px solid purple;
-  border-radius: 5px;
   cursor: pointer;
   z-index: 100;
+  border: none;
+  background: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+.face .arrow .component__navigation {
+  position: absolute;
+  transform: scale(0);
+  overflow: hidden;
+  transition: transform 0.25s ease-in-out;
+  font-size: 1rem;
+}
+.face .arrow .component__navigation-next-page {
+  right: 1.5rem;
+  transform-origin: right;
+}
+.face .arrow .component__navigation-prev-page {
+  left: 1.5rem;
+  transform-origin: left;
+}
+.face .arrow:hover .component__navigation {
+  transform: scale(1);
 }
 .face .arrow-left {
   left: 2vmin;
 }
 .face .arrow-right {
   right: 2vmin;
-}/*# sourceMappingURL=Portfolio.css.map */
+}/*# sourceMappingURL=portfolio.css.map */

@@ -1,7 +1,15 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
 import './skills.css'
 
-export default function Skills() {
+export default function Skills(props) {
+
+    useEffect(() => {
+        console.log('montage skills', props.page)
+    }, [props.page])
+
+    
+    console.log('montage skills', props.page)
+
     return (
         <section className="section__skills">
             <svg className="section__skills-bg-svg-1"

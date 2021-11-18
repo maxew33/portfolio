@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Festive&family=Sedgwick+Ave&family=Ubuntu:ital,wght@1,300&display=swap');
+
+// font-family: 'Baloo Da 2', cursive;
+
+// font-family: 'Festive', cursive;
+
+// font-family: 'Sedgwick Ave', cursive;
+
+// font-family: 'Ubuntu', sans-serif;
+
 * {
     margin: 0;
     padding: 0;
@@ -11,11 +21,16 @@
 }
 
 :root{
-    --color-1 : #F8E9A1;
+--color-1 : #F8E9A1;
 --color-2 : #F76C6C;
 --color-3 : #A8D0E6;
 --color-4 : #374785;
 --color-5 : #24305E;
+
+--font-1 : 'Sedgwick Ave', cursive;
+--font-1b : 'Festive', cursive;
+--font-2 : 'Ubuntu', sans-serif;
+--font-2b : 'Baloo Da 2', cursive;
 }
 
 // $color-1 : #A64AC9;
@@ -73,6 +88,7 @@ $color-5 : #24305E;
     overflow-y: scroll;
     transform-origin: 50% 50% -50vw;
     backface-visibility: hidden;
+    background-color: var(--color-3);
 
     &:first-child{
         opacity: 1;
@@ -81,26 +97,54 @@ $color-5 : #24305E;
     @for $i from 1 through 4 {
         &:nth-child(#{$i}) {
             transform: rotateY(90deg * ($i - 1));
-            background: hsl((90deg * $i), 100%, 50%);
         }
     }
 
     .content{
-        max-height: 80vh;
-        width: 100vw;
+        &>section{
+            position: absolute;
+            display: grid;
+            grid-template: repeat(8, 1fr) / repeat(6, 1fr);
+            z-index: 10;
+        }
     }
 
     .arrow{
         position: fixed;
         top: calc(50vh - 2rem);
-        height: 4rem;
-        width: 4rem;
-        border: 2px solid purple;
-        border-radius: 5px;
         cursor: pointer;
         z-index: 100;
-    }
+        border: none;
+        background: none;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
 
+        & .component__navigation{
+            position: absolute;
+            transform: scale(0);
+            overflow: hidden;
+            transition: transform .25s ease-in-out;
+            font-size: 1rem;
+        }
+
+        & .component__navigation-next-page{
+            right: 1.5rem;
+            transform-origin: right;
+        }
+
+        & .component__navigation-prev-page{
+            left: 1.5rem;
+            transform-origin: left;
+        }
+
+        &:hover{
+
+            & .component__navigation{
+                transform: scale(1);
+            }
+        }
+    }
             
     .arrow-left{
         left: 2vmin;
