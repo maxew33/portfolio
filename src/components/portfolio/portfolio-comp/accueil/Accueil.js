@@ -1,15 +1,15 @@
-import React, {useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRedo, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faLinkedin, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import body from '../../assets/body.png'
 import headCartoon from '../../assets/head-cartoon.png'
 import headReal from '../../assets/head-real.png'
-import avatartoon from '../../assets/avatartoon.png'
 import mustache from '../../assets/mustache.png'
 import glasses from '../../assets/glasses.png'
 import beard from '../../assets/beard.png'
@@ -20,6 +20,7 @@ import hat2 from '../../assets/hat2.png'
 import tie from '../../assets/tie.png'
 import helmet from '../../assets/helmet.png'
 import mustache2 from '../../assets/mustache2.png'
+
 import './accueil.css'
 
 export default function Accueil() {
@@ -98,6 +99,14 @@ export default function Accueil() {
     ]
     )
 
+    const [myStatusIdx, setMyStatusIdx] = useState({
+        index: 0,
+        preventSpam: false
+    })
+
+    const [reloadButtonRotation, setReloadButtonRotation] = useState(360)
+
+
     useEffect(() => {
         console.log('montage')
 
@@ -130,6 +139,20 @@ export default function Accueil() {
         })
     }, [])
 
+    const myStatus = [
+        'est un développeur front-end...',
+        'vous dit bonjour! 👋 ',
+        'est un mari 💑 ...',
+        'et un papa 👦👦...',
+        'a codé ce site avec ♥ ...',
+        'est aussi un grand gaillard de 2m ⇕ ...',
+        'aime jouer à Hearthstone 🎮 ...',
+        'sait se former tout seul 📚 ...',
+        'aime le rugby 🏉 ...',
+        'n\'a pas de chance aux dés 🎲 ...',
+        'fait des blagues à papa 😅 ...'
+    ]
+
     const handleStart = e => {
 
         /* when I take an accessory, set its z index to 20 */
@@ -149,15 +172,37 @@ export default function Accueil() {
     const handlePullMeDrag = (e, ui) => {
         const heightRef = document.querySelector('.pull-me-face-container').getBoundingClientRect().height - document.querySelector('.pull-me-face').getBoundingClientRect().height
 
-        const clipValue = (20*ui.y / heightRef) + '%'
+        const clipValue = (20 * ui.y / heightRef) + '%'
 
         document.documentElement.style.setProperty('--avatar-clip-value', clipValue)
     }
 
     const handleReloadStatus = () => {
-        console.log('click')
-    }
 
+        if (!myStatusIdx.preventSpam) {
+            document.querySelector('.status').style.height = 0
+
+            setReloadButtonRotation(reloadButtonRotation + 360)
+
+            document.querySelector('.reload-status').style.transform = 'rotate(' + reloadButtonRotation + 'deg)'
+
+            setMyStatusIdx({ index: myStatusIdx.index, preventSpam: true })
+
+            setTimeout(() => {
+                console.log('click')
+                let myNewStatusIdx = myStatusIdx.index
+                myNewStatusIdx++
+                myNewStatusIdx >= myStatus.length && (myNewStatusIdx = 0)
+                setMyStatusIdx({ index: myNewStatusIdx, preventSpam: true })
+                document.querySelector('.status').style.height = '3.5rem'
+                console.log(myStatusIdx)
+
+                setTimeout(() => {
+                    setMyStatusIdx({ index: myNewStatusIdx, preventSpam: false })
+                }, 250)
+            }, 250)
+        }
+    }
 
     return (
         <>
@@ -176,18 +221,18 @@ export default function Accueil() {
 
                 <div className="avatar-max">
 
-                    <img 
-                    className="avatar-body"
-                    src={body} 
-                    alt='avatar-body' />
-                    <img 
-                    className="avatar-head avatar-head1"
-                    src={headCartoon} 
-                    alt="avatar-head" />
-                    <img 
-                    className="avatar-head avatar-head2"
-                    src={headReal} 
-                    alt="avatar-head" />
+                    <img
+                        className="avatar-body"
+                        src={body}
+                        alt='avatar-body' />
+                    <img
+                        className="avatar-head avatar-head1"
+                        src={headCartoon}
+                        alt="avatar-head" />
+                    <img
+                        className="avatar-head avatar-head2"
+                        src={headReal}
+                        alt="avatar-head" />
 
 
                     <div className="pull-me-face-container">
@@ -197,23 +242,41 @@ export default function Accueil() {
                             onDrag={handlePullMeDrag}
                         >
                             <div className="pull-me-face">
+                                pull
                                 <FontAwesomeIcon icon={faChevronDown} />
                             </div>
                         </Draggable>
                     </div>
                 </div>
 
-                <p className="status">développeur front-end</p>
+                <p className="status">
+                    {myStatus[myStatusIdx.index]}
+                </p>
 
-                <button 
-                className="reload-status"
-                onClick = {handleReloadStatus}>
+                <button
+                    className="reload-status"
+                    onClick={handleReloadStatus}>
                     <FontAwesomeIcon icon={faRedo} />
                 </button>
 
-                <p className="presentation">
+                {/* <p className="presentation">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quam repellendus amet. Porro ad veniam laboriosam. Non placeat atque, tempore, consequuntur laudantium accusantium ad totam architecto blanditiis doloremque officiis? Explicabo eum nihil quas tempora aliquam, quos odit optio eligendi, porro minus, perferendis saepe vero id aliquid ab cumque deserunt necessitatibus.
-                </p>
+                </p> */}
+
+                <div className="social-network__accueil">
+                    <a href="https://github.com/maxew33" target="_blank">
+                        <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/maxime-malfilatre-1a3b97204/" target="_blank">
+                        <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                    <a href="https://twitter.com/m4xew" target="_blank">
+                        <FontAwesomeIcon icon={faTwitter} />
+                    </a>
+                    <a href="https://codepen.io/maxew33" target="_blank">
+                        <FontAwesomeIcon icon={faCodepen} />
+                    </a>
+                </div>
 
                 <div className="chest-container">
                     <div className="chest-top">

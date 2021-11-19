@@ -66,8 +66,6 @@
 }
 .face .content > section {
   position: absolute;
-  display: grid;
-  grid-template: repeat(8, 1fr)/repeat(6, 1fr);
   z-index: 10;
 }
 .face .arrow {

@@ -1,29 +1,110 @@
-.section__skills {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
-    place-content: center;
-    background-color: var(--color-3);
-}
-
-.section__skills-bg-svg-1{
+.section__skills-bg-svg-1 {
     position: absolute;
     left: 0;
     bottom: 0;
     height: 91.9vh;
 
-    #section__skills-bg-svg-1-elt{
+    #section__skills-bg-svg-1-elt {
         fill: var(--color-2);
     }
 }
 
-.section__skills-bg-svg-2{
+.section__skills-bg-svg-2 {
     position: absolute;
     right: 0;
     bottom: 0;
     height: 100vh;
 
-    #section__skills-bg-svg-2-elt{
+    #section__skills-bg-svg-2-elt {
         fill: var(--color-2);
+    }
+}
+
+.section__skills {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    border: 2px solid brown;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .intro-of-myself {
+        width: 100vw;
+        height: 15vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid brown;
+    }
+
+    .my-skills {
+        width: min(80vh, 100vw);
+        height: min(80vh, 100vw);
+        border: 2px solid brown;
+        display: grid;
+        grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+
+        .competence{
+            align-self: center;
+            justify-self: center;
+            font-family: var(--font-1);
+            font-weight: bold;
+            font-size: min(2.5vw, 2.5vh);    
+        }
+
+        .comp1{
+            grid-row: 3;
+            grid-column: 3 / 9;
+        }
+        .comp2{
+            grid-row: 1;
+            grid-column: 4 / 8 ;
+        }
+        .comp3{
+            grid-row: 5;
+            grid-column: 2 / 5;
+        }
+        .comp4{
+            grid-row: 5;
+            grid-column: 7 / 10;
+        }
+        .comp5{
+            grid-row: 7;
+            grid-column: 1 / 4;
+        }
+        .comp6{
+            grid-row: 7;
+            grid-column: 8 / 11;
+        }
+        .comp7{
+            grid-row: 8;
+            grid-column: 4 / 8 ;
+        }
+        .comp8{
+            grid-row: 9;
+            grid-column: 1 / 4;
+        }
+        .comp9{
+            grid-row: 9;
+            grid-column: 8 / 11;
+        }
+        .comp10{
+            grid-row: 10;
+            grid-column: 4 / 8;
+        }
+
+        svg {
+            grid-row: 1/11;
+            grid-column: 1/11;
+        }
+
+        path {
+            stroke: red;
+            stroke-witdh: 0.25rem;
+            fill: hsl(0deg, 0%, 100%, 0.25);
+        }
     }
 }

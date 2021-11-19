@@ -6,6 +6,8 @@
 .section__accueil {
     height: 100vh;
     width: 100vw;
+    display: grid;
+    grid-template: repeat(8, 1fr) / repeat(6, 1fr);
 }
 
 .section__accueil-bg-svg {
@@ -21,12 +23,13 @@
 
 h1 {
     font-family: var(--font-1);
-    font-size: 6rem;
+    font-size: 7.5vw;
+    text-shadow: .3rem .15rem 0 hsl(0deg, 0%, 0%, 0.25);
     letter-spacing: 0.25rem;
     grid-column: 1/4;
-    grid-row: 1/4;
+    grid-row: 1/5;
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
 
     span {
         display: inline-block;
@@ -35,12 +38,12 @@ h1 {
 
         &:nth-child(1) {
             grid-row: 1 / 3;
-            grid-column: 1 / 4;
+            grid-column: 1 / 3;
         }
 
         &:nth-child(2) {
-            grid-row: 2 / 4;
-            grid-column: 2 / 5;
+            grid-row: 3 / 5;
+            grid-column: 2 / 4;
         }
     }
 }
@@ -52,9 +55,8 @@ h1 {
     width: calc(100 * var(--avatar-length-unit));
     align-self: center;
     justify-self: center;
-    outline: 2px solid brown;
 
-    img{        
+    img {
         pointer-events: none;
     }
 
@@ -63,47 +65,39 @@ h1 {
         object-fit: contain;
     }
 
-    .avatar-head{
+    .avatar-head {
         position: absolute;
         bottom: 49.41%;
         left: 22.551%;
-        width: 50.157%;    
+        width: 50.157%;
     }
 
-    .avatar-head1 {   
+    .avatar-head1 {
         // clip-path: polygon(
         //     0% var(--avatar-clip-value), 100% var(--avatar-clip-value), 100% 100%, 0% 100%) ;
 
         clip-path: polygon(
-            /* 1st part*/             
-            0% calc(var(--avatar-clip-value)),
+            /* 1st part*/ 0% calc(var(--avatar-clip-value)),
             100% calc(var(--avatar-clip-value)),
             100% 20%,
-            0% 20%,            
-            /* 2nd part */             
-            0% calc(20% + var(--avatar-clip-value)),
+            0% 20%,
+            /* 2nd part */ 0% calc(20% + var(--avatar-clip-value)),
             100% calc(20% + var(--avatar-clip-value)),
             100% 40%,
             0% 40%,
-            /* 3rd part */ 
-            0% calc(40% + var(--avatar-clip-value)),
+            /* 3rd part */ 0% calc(40% + var(--avatar-clip-value)),
             100% calc(40% + var(--avatar-clip-value)),
             100% 60%,
             0% 60%,
-            
-            /* 4th part */ 
-            0% calc(60% + var(--avatar-clip-value)),
+            /* 4th part */ 0% calc(60% + var(--avatar-clip-value)),
             100% calc(60% + var(--avatar-clip-value)),
             100% 80%,
             0% 80%,
-            
-            /* 5th part*/ 
-            0% calc(80% + var(--avatar-clip-value)),
+            /* 5th part*/ 0% calc(80% + var(--avatar-clip-value)),
             100% calc(80% + var(--avatar-clip-value)),
             100% 100%,
             0% 100%
         );
-
     }
 
     .avatar-head2 {
@@ -111,33 +105,27 @@ h1 {
         //     0% 0%, 100% 0%, 100% var(--avatar-clip-value), 0% var(--avatar-clip-value));
 
         clip-path: polygon(
-            /* 1st part*/ 
-            0% 0%,
+            /* 1st part*/ 0% 0%,
             100% 0%,
             100% calc(0% + var(--avatar-clip-value)),
             0% calc(0% + var(--avatar-clip-value)),
-            /* 2nd part */ 
-            0% 20%,
+            /* 2nd part */ 0% 20%,
             100% 20%,
             100% calc(20% + var(--avatar-clip-value)),
             0% calc(20% + var(--avatar-clip-value)),
-            /* 3rd part */ 
-            0% 40%,
+            /* 3rd part */ 0% 40%,
             100% 40%,
             100% calc(40% + var(--avatar-clip-value)),
             0% calc(40% + var(--avatar-clip-value)),
-            /* 4th part */ 
-            0% 60%,
+            /* 4th part */ 0% 60%,
             100% 60%,
             100% calc(60% + var(--avatar-clip-value)),
             0% calc(60% + var(--avatar-clip-value)),
-            /* 5th part*/ 
-            0% 80%,
+            /* 5th part*/ 0% 80%,
             100% 80%,
             100% calc(80% + var(--avatar-clip-value)),
             0% calc(80% + var(--avatar-clip-value))
         );
-
     }
 
     .pull-me-face-container {
@@ -148,19 +136,25 @@ h1 {
 
         .pull-me-face {
             position: absolute;
+            font-size: 0.75rem;
             height: 2rem;
-            width: 1.5rem;
+            width: 1.75rem;
             background: navy;
+            font-family: var(--font-2);
+            font-weight: bolder;
             color: white;
             display: flex;
-            align-items: flex-end;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
             border-radius: 0 0 25px 25px;
             cursor: grab;
+            box-shadow: 2px 2px 0 hsl(0deg, 0%, 0%, 0.25), 0px 2px 0 hsl(0deg, 0%, 0%, 0.25),
+                2px 0px 0 hsl(0deg, 0%, 0%, 0.25);
 
-            &::after{
-                content: '';
-                position :absolute;
+            &::after {
+                content: "";
+                position: absolute;
                 width: 2rem;
                 border-top: 1px solid black;
                 top: 0;
@@ -209,21 +203,30 @@ h1 {
 
 .status {
     font-family: var(--font-2);
-    font-size: 2rem;
-    grid-row: 4;
+    font-size: 2.5rem;    
+    height: 3.5rem;
+    overflow: hidden;
+    grid-row: 5 / 7;
     grid-column: 1 / 4;
     align-self: center;
     text-align: center;
+    transition: height 0.25s ease-in-out;
 }
 
 .reload-status {
-    grid-row: 4;
+    grid-row: 6;
+    font-size: 1.5rem;    
     grid-column: 1 / 4;
-    align-self: end;
+    align-self: center;
     justify-self: center;
     border: none;
     background: none;
+    transition: transform 0.25s linear;
     cursor: pointer;
+
+    &:hover {
+        font-size: 1.75rem;
+    }
 }
 
 .presentation {
@@ -269,7 +272,7 @@ h1 {
     }
 
     .wide-open {
-        transform: rotate(-180deg);
+        transform: rotate(-120deg);
     }
 
     .chest-bottom {
@@ -278,5 +281,30 @@ h1 {
         height: 7.5rem;
         width: 15rem;
         background: hsl(30deg, 100%, 20%);
+    }
+}
+
+.social-network__accueil {
+    grid-row: 7 / 9;
+    grid-column: 1 / 3;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-evenly;
+    font-size: 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    a {
+        // transition: font-size .25s ease-in-out;
+        justify-self: center;
+        align-self: center;
+    }
+
+    a:hover {
+        font-size: 3.25rem;
+    }
+
+    a:visited {
+        color: black;
     }
 }
