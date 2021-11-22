@@ -126,53 +126,53 @@ h1 span:nth-child(2) {
 }
 
 .accessory-container1 {
-  left: 51%;
-  bottom: 49%;
+  left: 47%;
+  bottom: 37%;
 }
 
 .accessory-container2 {
-  left: 52%;
+  left: 47%;
   bottom: 48%;
 }
 
 .accessory-container3 {
-  left: 51%;
-  bottom: 37%;
+  left: 53%;
+  bottom: 43%;
 }
 
 .accessory-container4 {
-  left: 50%;
-  bottom: 46%;
+  left: 47%;
+  bottom: 43%;
 }
 
 .accessory-container5 {
-  left: 50%;
-  bottom: 46%;
-}
-
-.accessory-container6 {
-  left: 42%;
-  bottom: 37%;
-}
-
-.accessory-container7 {
-  left: 45%;
+  left: 57%;
   bottom: 41%;
 }
 
+.accessory-container6 {
+  left: 43%;
+  bottom: 45%;
+}
+
+.accessory-container7 {
+  left: 57%;
+  bottom: 39%;
+}
+
 .accessory-container8 {
-  left: 60%;
-  bottom: 46%;
+  left: 58%;
+  bottom: 41%;
 }
 
 .accessory-container9 {
-  left: 54%;
-  bottom: 50%;
+  left: 55%;
+  bottom: 36%;
 }
 
 .accessory-container10 {
-  left: 60%;
-  bottom: 37%;
+  left: 59%;
+  bottom: 47%;
 }
 
 .accessory-hidden {

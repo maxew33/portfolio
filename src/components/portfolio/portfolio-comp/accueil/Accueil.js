@@ -144,13 +144,15 @@ export default function Accueil() {
         'vous dit bonjour! 👋 ',
         'est un mari 💑 ...',
         'et un papa 👦👦...',
-        'a codé ce site avec ♥ ...',
-        'est aussi un grand gaillard de 2m ⇕ ...',
+        'a codé ce site avec 💜 et React...',
+        'est aussi un grand gaillard de 2m ☝ ...',
         'aime jouer à Hearthstone 🎮 ...',
         'sait se former tout seul 📚 ...',
         'aime le rugby 🏉 ...',
         'n\'a pas de chance aux dés 🎲 ...',
-        'fait des blagues à papa 😅 ...'
+        'fait des blagues à papa 😅 ...',
+        'a hâte de vous rencontrer 🤝... ',
+        'n\'a plus rien à dire 🤫 ...'
     ]
 
     const handleStart = e => {

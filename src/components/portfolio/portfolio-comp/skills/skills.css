@@ -1,5 +1,6 @@
 .section__skills-bg-svg-1 {
   position: absolute;
+  pointer-events: none;
   left: 0;
   bottom: 0;
   height: 91.9vh;
@@ -10,6 +11,7 @@
 
 .section__skills-bg-svg-2 {
   position: absolute;
+  pointer-events: none;
   right: 0;
   bottom: 0;
   height: 100vh;
@@ -22,11 +24,13 @@
   position: relative;
   height: 100vh;
   width: 100vw;
-  border: 2px solid brown;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  will-change: transform;
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out;
 }
 .section__skills .intro-of-myself {
   width: 100vw;
@@ -35,12 +39,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid brown;
 }
 .section__skills .my-skills {
   width: min(80vh, 100vw);
   height: min(80vh, 100vw);
-  border: 2px solid brown;
   display: grid;
   grid-template: repeat(10, 1fr)/repeat(10, 1fr);
 }
@@ -99,4 +101,20 @@
   stroke: red;
   stroke-witdh: 0.25rem;
   fill: rgba(255, 255, 255, 0.25);
+}
+
+.section__skills--hidden {
+  transform: translateY(100%) rotateX(90deg);
+}
+
+.section__my-life {
+  height: 100vh;
+  width: 100vw;
+  will-change: transform;
+  transform-origin: bottom;
+  transition: transform 0.5s ease-in-out;
+}
+
+.section__my-life--hidden {
+  transform: translateY(-100%) rotateX(-90deg);
 }/*# sourceMappingURL=skills.css.map */
