@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&family=Festive&family=Sedgwick+Ave&family=Ubuntu:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Baloo+Da+2&family=Festive&family=Sedgwick+Ave&family=Ubuntu:ital,wght@1,300&display=swap');
 
 // font-family: 'Baloo Da 2', cursive;
 
@@ -8,10 +8,9 @@
 
 // font-family: 'Ubuntu', sans-serif;
 
+// font-family: 'Kalam', cursive;
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none;
 
@@ -22,12 +21,12 @@
 
 :root{
 --color-1 : #F8E9A1;
---color-2 : #F76C6C;
---color-3 : #A8D0E6;
---color-4 : #374785;
---color-5 : #24305E;
+--color-2 : #F76C6C; // face svg background
+--color-3 : #A8D0E6; // face background
+--color-4 : #374785; // portfolio container
+--color-5 : #24305E; // portfolio container
 
---font-1 : 'Sedgwick Ave', cursive;
+--font-1 : 'Kalam', cursive;
 --font-1b : 'Festive', cursive;
 --font-2 : 'Ubuntu', sans-serif;
 --font-2b : 'Baloo Da 2', cursive;

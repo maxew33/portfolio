@@ -96,7 +96,6 @@ h1 span:nth-child(2) {
   border-radius: 0 0 25px 25px;
   cursor: -webkit-grab;
   cursor: grab;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25), 0px 2px 0 rgba(0, 0, 0, 0.25), 2px 0px 0 rgba(0, 0, 0, 0.25);
 }
 .avatar-max .pull-me-face-container .pull-me-face::after {
   content: "";
@@ -126,53 +125,53 @@ h1 span:nth-child(2) {
 }
 
 .accessory-container1 {
-  left: 47%;
-  bottom: 37%;
-}
-
-.accessory-container2 {
-  left: 47%;
-  bottom: 48%;
-}
-
-.accessory-container3 {
-  left: 53%;
-  bottom: 43%;
-}
-
-.accessory-container4 {
-  left: 47%;
-  bottom: 43%;
-}
-
-.accessory-container5 {
-  left: 57%;
-  bottom: 41%;
-}
-
-.accessory-container6 {
-  left: 43%;
+  left: 51%;
   bottom: 45%;
 }
 
+.accessory-container2 {
+  left: 44%;
+  bottom: 38%;
+}
+
+.accessory-container3 {
+  left: 41%;
+  bottom: 41%;
+}
+
+.accessory-container4 {
+  left: 51%;
+  bottom: 36%;
+}
+
+.accessory-container5 {
+  left: 45%;
+  bottom: 49%;
+}
+
+.accessory-container6 {
+  left: 54%;
+  bottom: 48%;
+}
+
 .accessory-container7 {
-  left: 57%;
-  bottom: 39%;
+  left: 56%;
+  bottom: 44%;
 }
 
 .accessory-container8 {
-  left: 58%;
-  bottom: 41%;
+  left: 42%;
+  bottom: 38%;
 }
 
 .accessory-container9 {
   left: 55%;
-  bottom: 36%;
+  bottom: 45%;
 }
 
 .accessory-container10 {
-  left: 59%;
-  bottom: 47%;
+  left: 54%;
+  bottom: 37%;
 }
 
 .accessory-hidden {

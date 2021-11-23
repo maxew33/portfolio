@@ -3,6 +3,9 @@ import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
 import portfolioBen from '../../assets/portfolio-ben.png'
 import carousel from '../../assets/carousel.png'
 import newsletter from '../../assets/newsletter.png'
@@ -45,33 +48,50 @@ export default function Work() {
         }
     ]
 
-    const portfolioContentPartII=[
+    const portfolioContentPartII = [
         {
             title: 'Maxamp',
             img: maxamp,
-            gitLink : '',
+            gitLink: '',
             txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
             id: uuidv4()
         },
         {
             title: 'Date Picker',
             img: datePicker,
-            gitLink : '',
+            gitLink: '',
             txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
             id: uuidv4()
         },
         {
             title: 'product page',
             img: productPage,
-            gitLink : '',
+            gitLink: '',
             txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
             id: uuidv4()
         },
     ]
 
+    const handleDrag = (e, ui) => {
 
+        // console.log(100*ui.y/(document.querySelector('.portfolio__card-btn-container').getBoundingClientRect().height - ui.node.clientHeight)+ '%')
+        // console.log(ui)
+        let clipPathY = 100 - (100 * ui.y / (document.querySelector('.portfolio__card-btn-container').getBoundingClientRect().height - ui.node.clientHeight))
 
-// toggle between work n tv
+        clipPathY < 0 && (clipPathY = 0)
+
+        console.log(ui.node.dataset.id)
+
+        document.querySelector('#' + ui.node.dataset.id).style.clipPath = 'polygon(0% 0%, 100% 0%, 100% ' + clipPathY + '%, 0% ' + clipPathY + '%)'
+
+        const grabbyElt = document.querySelector('[data-pullme='+ui.node.dataset.id)
+
+        console.log(grabbyElt)
+
+        grabbyElt.style.height = 'calc(4vmin + ' + ui.y + 'px'
+    }
+
+    // toggle between work n tv
     let portfolioTopAngle = 0,
         portfolioBottomAngle = 0
 
@@ -92,9 +112,9 @@ export default function Work() {
             document.documentElement.style.setProperty('--rotate-portfolio-container-bottom', portfolioBottomAngle + 'deg')
         }
 
-        document.querySelector('.portfolio-container__part1').style.backgroundColor = tab === 'part1' ? 'hsl(0deg, 0%, 75%)' : 'hsl(0deg, 0%, 50%)'
+        // document.querySelector('.portfolio-container__part1').style.backgroundColor = tab === 'part1' ? 'hsl(0deg, 0%, 75%)' : 'hsl(0deg, 0%, 50%)'
 
-        document.querySelector('.portfolio-container__part2').style.backgroundColor = tab === 'part2' ? 'hsl(0deg, 0%, 75%)' : 'hsl(0deg, 0%, 50%)'
+        // document.querySelector('.portfolio-container__part2').style.backgroundColor = tab === 'part2' ? 'hsl(0deg, 0%, 75%)' : 'hsl(0deg, 0%, 50%)'
 
         setTimeout(() => {
 
@@ -102,9 +122,9 @@ export default function Work() {
 
             document.querySelector('.portfolio-container__part2').classList.toggle('portfolio-container__part--set-index')
 
-            document.querySelector('.portfolio-container__part1-btn-txt').classList.toggle('portfolio-container__part--set-opacity')
+            document.querySelector('.portfolio-container__tab-part1').classList.toggle('portfolio-container__part--set-opacity')
 
-            document.querySelector('.portfolio-container__part2-btn-txt').classList.toggle('portfolio-container__part--set-opacity')
+            document.querySelector('.portfolio-container__tab-part2').classList.toggle('portfolio-container__part--set-opacity')
 
         }, 200)
     }
@@ -117,144 +137,74 @@ export default function Work() {
                     My work
                 </h2>
 
-                <button
-                    className="toggle-section-work"
-                    onClick={toggleSectionWork}>
-                    toggle
-                </button>
-
                 <div className="portfolio-container">
 
                     <div className="portfolio-container__part portfolio-container__part1 portfolio-container__part--set-index">
                         <button
-                            className="portfolio-container__tab"
+                            className="portfolio-container__tab portfolio-container__tab-part1 portfolio-container__part--set-opacity"
                             onClick={() => { changePortfolioPart('part1') }}>
-                            <div className="portfolio-container__part1-btn-txt portfolio-container__part--set-opacity">
+                            <div>
                                 click me
                             </div>
                         </button>
 
                         <ul className="portfolio__cards">
 
-                        {portfolioContentPartI.map((item, index) => {
-                            return(
-                                <li 
-                                className="portfolio__cards-item"
-                                key={portfolioContentPartI[index].id}>
-                                <div className="portfolio__card">
-                                    <div className="portfolio__card-work-wrapper">
-                                        <div className="portfolio__card-work-img">
-                                            <img
-                                                src={portfolioContentPartI[index].img}
-                                                alt={portfolioContentPartI[index].title} />
-                                        </div>
-                                        <h3 className="portfolio__card-work-title">
-                                            {portfolioContentPartI[index].title}
-                                        </h3>
-                                    </div>
-                                    <div className="portfolio__card-text">
-                                        <div className="portfolio__card-text-container">
-                                            <p>
-                                                {portfolioContentPartI[index].txt}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <button className="portfolio__card-pull-me"></button>
-                                </div>
-                            </li> 
-                            )
-                        })}
+                            {portfolioContentPartI.map((item, index) => {
+                                return (
+                                    <li
+                                        className="portfolio__cards-item"
+                                        key={portfolioContentPartI[index].id}>
+                                        <div className="portfolio__card">
 
-{/* 
-                            <li className="portfolio__cards-item">
-                                <div className="portfolio__card">
-                                    <div className="portfolio__card-work-wrapper">
-                                        <div className="portfolio__card-work-img">
-                                            <img
-                                                src={portfolioBen}
-                                                alt="portfolio photographe" />
+                                            <div className="portfolio__card-text">
+                                                <div className="portfolio__card-text-container">
+                                                    <p>
+                                                        {portfolioContentPartI[index].txt}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div className="portfolio__card-work-wrapper" id={"portfolio-container__part1-wrapper" + index}>
+                                                
+                                                <h3 className="portfolio__card-work-title">
+                                                    {portfolioContentPartI[index].title}
+                                                </h3>
+                                                <div className="portfolio__card-work-img">
+                                                    <img
+                                                        src={portfolioContentPartI[index].img}
+                                                        alt={portfolioContentPartI[index].title} />
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h3 className="portfolio__card-work-title">
-                                            Ben portfolio
-                                        </h3>
-                                    </div>
-                                    <div className="portfolio__card-text">
-                                        <div className="portfolio__card-text-container">
-                                            <p>
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?
-                                            </p>
+
+                                        {/* draggable btn, pull => hide img wtih clip path / let text appear*/}
+                                        <div className="portfolio__card-btn-container">
+                                            
+
+                                        <div 
+                                            className="portfolio__card-pull-me-front"
+                                            data-pullme={"portfolio-container__part1-wrapper" + index}
+                                            >
+                                            </div>
+                                            <Draggable
+                                                axis="y"
+                                                bounds="parent"
+                                                onDrag={handleDrag}>
+                                                <button
+                                                    className="portfolio__card-pull-me"
+                                                    data-id={"portfolio-container__part1-wrapper" + index}
+                                                >
+                                                pull
+                                                <FontAwesomeIcon icon={faChevronDown} />
+                                                </button>
+                                            </Draggable>
                                         </div>
-                                    </div>
-                                    <button className="portfolio__card-pull-me"></button>
-                                </div>
-                            </li>
-                            <li className="portfolio__cards-item">
-                                <div className="portfolio__card">
-                                    <div className="portfolio__card-work-wrapper">
-                                        <div className="portfolio__card-work-img">
-                                            <img
-                                                src={newsletter}
-                                                alt="newsletter" />
-                                        </div>
-                                        <h3 className="portfolio__card-work-title">
-                                            Newsletter
-                                        </h3>
-                                    </div>
-                                    <div className="portfolio__card-text">
-                                        <div className="portfolio__card-text-container">
-                                            <p>
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <button className="portfolio__card-pull-me"></button>
-                                </div>
-                            </li>
-                            <li className="portfolio__cards-item">
-                                <div className="portfolio__card">
-                                    <div className="portfolio__card-work-wrapper">
-                                        <div className="portfolio__card-work-img">
-                                            <img
-                                                src={cocktail}
-                                                alt="cocktail recipes" />
-                                        </div>
-                                        <h3 className="portfolio__card-work-title">
-                                            Cocktail
-                                        </h3>
-                                    </div>
-                                    <div className="portfolio__card-text">
-                                        <div className="portfolio__card-text-container">
-                                            <p>
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <button className="portfolio__card-pull-me"></button>
-                                </div>
-                            </li>
-                            <li className="portfolio__cards-item">
-                                <div className="portfolio__card">
-                                    <div className="portfolio__card-work-wrapper">
-                                        <div className="portfolio__card-work-img">
-                                            <img
-                                                src={carousel}
-                                                alt="Rick and Morty carousel" />
-                                        </div>
-                                        <h3 className="portfolio__card-work-title">
-                                            Carousel
-                                        </h3>
-                                    </div>
-                                    <div className="portfolio__card-text">
-                                        <div className="portfolio__card-text-container">
-                                            <p>
-                                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <button className="portfolio__card-pull-me"></button>
-                                </div>
-                            </li>
-                             */}
+
+                                    </li>
+                                )
+                            })}
+
                         </ul>
 
                     </div>
@@ -262,44 +212,77 @@ export default function Work() {
                     <div className="portfolio-container__part portfolio-container__part2">
 
                         <button
-                            className="portfolio-container__tab"
+                            className="portfolio-container__tab portfolio-container__tab-part2 "
                             onClick={() => { changePortfolioPart('part2') }}>
 
-                            <div className="portfolio-container__part2-btn-txt">
+                            <div>
                                 click me
                             </div>
                         </button>
 
                         <ul className="portfolio__cards">
 
-                        {portfolioContentPartII.map((item, index) => {
-                            return(
-                                <li 
-                                className="portfolio__cards-item"
-                                key={portfolioContentPartII[index].id}>
-                                <div className="portfolio__card">
-                                    <div className="portfolio__card-work-wrapper">
-                                        <div className="portfolio__card-work-img">
-                                            <img
-                                                src={portfolioContentPartII[index].img}
-                                                alt={portfolioContentPartII[index].title} />
+                            {portfolioContentPartII.map((item, index) => {
+                                return (
+                                    <li
+                                        className="portfolio__cards-item"
+                                        key={portfolioContentPartII[index].id}>
+                                        <div className="portfolio__card">
+
+                                            <div className="portfolio__card-text">
+                                                <div className="portfolio__card-text-container">
+                                                    <p>
+                                                        {portfolioContentPartII[index].txt}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            <div className="portfolio__card-work-wrapper"
+                                                id={"portfolio-container__part2-wrapper" + index}>                                                
+                                                <h3 className="portfolio__card-work-title">
+                                                    {portfolioContentPartII[index].title}
+                                                </h3>
+                                                <div
+                                                    className="portfolio__card-work-img">
+                                                    <img
+                                                        src={portfolioContentPartII[index].img}
+                                                        alt={portfolioContentPartII[index].title} />
+                                                </div>
+                                            </div>
                                         </div>
-                                        <h3 className="portfolio__card-work-title">
-                                            {portfolioContentPartII[index].title}
-                                        </h3>
-                                    </div>
-                                    <div className="portfolio__card-text">
-                                        <div className="portfolio__card-text-container">
-                                            <p>
-                                                {portfolioContentPartII[index].txt}
-                                            </p>
+                                        {/* draggable btn, pull => hide img wtih clip path / let text appear*/}
+                                        <div className="portfolio__card-btn-container">
+
+                                            <div 
+                                            className="portfolio__card-pull-me-front"
+                                            data-pullme={"portfolio-container__part2-wrapper" + index}
+                                            >
+                                            </div>
+
+                                            <Draggable
+                                                axis="y"
+                                                bounds="parent"
+                                                onDrag={handleDrag}>
+                                                <button
+                                                    className="portfolio__card-pull-me"
+                                                    data-id={"portfolio-container__part2-wrapper" + index}
+                                                >
+                                                pull
+                                                <FontAwesomeIcon icon={faChevronDown} />
+                                                </button>
+                                            </Draggable>
+                                            
                                         </div>
-                                    </div>
-                                    <button className="portfolio__card-pull-me"></button>
-                                </div>
-                            </li> 
-                            )
-                        })}
+                                    </li>
+                                )
+                            })}
+                            <li className = "work-to-tv">
+                                <button
+                                    className="toggle-section-work"
+                                    onClick={toggleSectionWork}>
+                                    vu à la tv
+                                </button>
+                            </li>
                         </ul>
 
                     </div>

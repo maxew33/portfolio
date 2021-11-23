@@ -149,8 +149,6 @@ h1 {
             justify-content: space-evenly;
             border-radius: 0 0 25px 25px;
             cursor: grab;
-            box-shadow: 2px 2px 0 hsl(0deg, 0%, 0%, 0.25), 0px 2px 0 hsl(0deg, 0%, 0%, 0.25),
-                2px 0px 0 hsl(0deg, 0%, 0%, 0.25);
 
             &::after {
                 content: "";
