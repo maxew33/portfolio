@@ -1,0 +1,102 @@
+.section__tv-show {
+    height: 100vh;
+    width: 100vw;
+    will-change: transform;
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+
+    .tv {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 26rem;
+        width: 40rem;
+        background: #5b4dcd;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border-radius: 5%;
+        border: 2px solid black;
+
+        .tv-screen {
+            position: relative;
+            background: #293450;
+            width: 80%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5%;
+            border: 2px solid #11103f;
+
+            .channel{
+                position: absolute;
+                font-family: 'VT323', monospace;
+                top: 2.5rem;
+                right: 4rem;
+                font-size: 1.5rem;
+                color: lime;
+            }
+
+            .my-video {
+                border-radius: 30% / 15%;
+                height: 90%;
+                width: 90%;
+                border: 2px solid black;
+                background: black;
+                object-fit: contain;
+            }
+        }
+
+        .rightSide {
+            width: 10%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            .rightSide--tvButton {
+                width: 4vw;
+                height: 4vw;
+                background: #38302e;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                border: 1px solid #283141;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                .rightSide--tvButton-line {
+                    height: 90%;
+                    width: 20%;
+                    background-color: #8eadcc;
+                    transform: rotate(90deg);
+                    border: 1px solid #283141;
+                }
+            }
+
+            .rightSide--sound {
+                width: 100%;
+                height: 40%;
+                background: #6e8dc8;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                border-radius: 5%;
+                border: 1px solid #283141;
+            }
+
+            .rightSide--sound > div {
+                height: 80%;
+                width: 10%;
+                background: #283141;
+            }
+        }
+    }
+}

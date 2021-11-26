@@ -40,69 +40,499 @@
   align-items: center;
   justify-content: center;
 }
-.section__skills .my-skills {
+.section__skills .my-skills-container {
   width: min(80vh, 100vw);
   height: min(80vh, 100vw);
+  background: whitesmoke;
+  border: 5px solid black;
+  border-radius: 5%;
+  box-shadow: 5px -2.5px 2.5px rgba(0, 0, 0, 0.25);
+}
+.section__skills .my-skills {
+  width: inherit;
+  height: inherit;
+  padding: 1%;
   display: grid;
   grid-template: repeat(10, 1fr)/repeat(10, 1fr);
+  display: none;
 }
 .section__skills .my-skills .competence {
   align-self: center;
   justify-self: center;
   font-family: var(--font-1);
   font-weight: bold;
-  font-size: min(2.5vw, 2.5vh);
+  font-size: min(3vw, 3vh);
+  opacity: 0;
 }
 .section__skills .my-skills .comp1 {
   grid-row: 3;
   grid-column: 3/9;
+  font-size: min(3.75vw, 3.75vh);
+  -webkit-animation: 0.1s comp-apparition linear forwards;
+          animation: 0.1s comp-apparition linear forwards;
 }
 .section__skills .my-skills .comp2 {
   grid-row: 1;
   grid-column: 4/8;
+  -webkit-animation: 0.1s comp-apparition 1.44s linear forwards;
+          animation: 0.1s comp-apparition 1.44s linear forwards;
 }
 .section__skills .my-skills .comp3 {
   grid-row: 5;
   grid-column: 2/5;
+  -webkit-animation: 0.1s comp-apparition 2.44s linear forwards;
+          animation: 0.1s comp-apparition 2.44s linear forwards;
 }
 .section__skills .my-skills .comp4 {
   grid-row: 5;
   grid-column: 7/10;
+  -webkit-animation: 0.1s comp-apparition 4.37s linear forwards;
+          animation: 0.1s comp-apparition 4.37s linear forwards;
 }
 .section__skills .my-skills .comp5 {
   grid-row: 7;
   grid-column: 1/4;
+  -webkit-animation: 0.1s comp-apparition 3.42s linear forwards;
+          animation: 0.1s comp-apparition 3.42s linear forwards;
 }
 .section__skills .my-skills .comp6 {
   grid-row: 7;
   grid-column: 8/11;
+  -webkit-animation: 0.1s comp-apparition 5.3s linear forwards;
+          animation: 0.1s comp-apparition 5.3s linear forwards;
 }
 .section__skills .my-skills .comp7 {
   grid-row: 8;
   grid-column: 4/8;
+  -webkit-animation: 0.1s comp-apparition 6.22s linear forwards;
+          animation: 0.1s comp-apparition 6.22s linear forwards;
 }
 .section__skills .my-skills .comp8 {
   grid-row: 9;
   grid-column: 1/4;
+  -webkit-animation: 0.1s comp-apparition 7.13s linear forwards;
+          animation: 0.1s comp-apparition 7.13s linear forwards;
 }
 .section__skills .my-skills .comp9 {
   grid-row: 9;
   grid-column: 8/11;
+  -webkit-animation: 0.1s comp-apparition 7.94s linear forwards;
+          animation: 0.1s comp-apparition 7.94s linear forwards;
 }
 .section__skills .my-skills .comp10 {
   grid-row: 10;
   grid-column: 4/8;
+  -webkit-animation: 0.1s comp-apparition 8.78s linear forwards;
+          animation: 0.1s comp-apparition 8.78s linear forwards;
 }
 .section__skills .my-skills svg {
   grid-row: 1/11;
   grid-column: 1/11;
+  display: block;
+}
+.section__skills .my-skills svg #front-end-dev {
+  stroke-dasharray: 125;
+  stroke-dashoffset: 125;
+  -webkit-animation: 1.25s drawing-front-end-dev 0.1s linear forwards;
+          animation: 1.25s drawing-front-end-dev 0.1s linear forwards;
+}
+.section__skills .my-skills svg #arrow-html {
+  stroke-dasharray: 9;
+  stroke-dashoffset: 9;
+  -webkit-animation: 0.09s drawing-arrow-html 1.35s linear forwards;
+          animation: 0.09s drawing-arrow-html 1.35s linear forwards;
+}
+.section__skills .my-skills svg #HTML {
+  stroke-dasharray: 75;
+  stroke-dashoffset: 75;
+  -webkit-animation: 0.75s drawing-html 1.54s linear forwards;
+          animation: 0.75s drawing-html 1.54s linear forwards;
+}
+.section__skills .my-skills svg #arrow-css {
+  stroke-dasharray: 15;
+  stroke-dashoffset: 15;
+  -webkit-animation: 0.15s drawing-arrow-css 2.29s linear forwards;
+          animation: 0.15s drawing-arrow-css 2.29s linear forwards;
+}
+.section__skills .my-skills svg #CSS {
+  stroke-dasharray: 73;
+  stroke-dashoffset: 73;
+  -webkit-animation: 0.73s drawing-css 2.54s linear forwards;
+          animation: 0.73s drawing-css 2.54s linear forwards;
+}
+.section__skills .my-skills svg #arrow-scss {
+  stroke-dasharray: 15;
+  stroke-dashoffset: 15;
+  -webkit-animation: 0.15s drawing-arrow-scss 3.27s linear forwards;
+          animation: 0.15s drawing-arrow-scss 3.27s linear forwards;
+}
+.section__skills .my-skills svg #scss {
+  stroke-dasharray: 72;
+  stroke-dashoffset: 72;
+  -webkit-animation: 0.72s drawing-scss 3.52s linear forwards;
+          animation: 0.72s drawing-scss 3.52s linear forwards;
+}
+.section__skills .my-skills svg #arrow-javascript {
+  stroke-dasharray: 13;
+  stroke-dashoffset: 13;
+  -webkit-animation: 0.13s drawing-arrow-javascript 4.24s linear forwards;
+          animation: 0.13s drawing-arrow-javascript 4.24s linear forwards;
+}
+.section__skills .my-skills svg #javascript {
+  stroke-dasharray: 72;
+  stroke-dashoffset: 72;
+  -webkit-animation: 0.72s drawing-javascript 4.47s linear forwards;
+          animation: 0.72s drawing-javascript 4.47s linear forwards;
+}
+.section__skills .my-skills svg #arrow-react {
+  stroke-dasharray: 11;
+  stroke-dashoffset: 11;
+  -webkit-animation: 0.11s drawing-arrow-react 5.19s linear forwards;
+          animation: 0.11s drawing-arrow-react 5.19s linear forwards;
+}
+.section__skills .my-skills svg #react {
+  stroke-dasharray: 71;
+  stroke-dashoffset: 71;
+  -webkit-animation: 0.71s drawing-react 5.4s linear forwards;
+          animation: 0.71s drawing-react 5.4s linear forwards;
+}
+.section__skills .my-skills svg #plus-vert {
+  stroke-dasharray: 5;
+  stroke-dashoffset: 5;
+  -webkit-animation: 0.05s drawing-plus-vert 6.11s linear forwards;
+          animation: 0.05s drawing-plus-vert 6.11s linear forwards;
+}
+.section__skills .my-skills svg #plus-hor {
+  stroke-dasharray: 6;
+  stroke-dashoffset: 6;
+  -webkit-animation: 0.06s drawing-plus-hor 6.16s linear forwards;
+          animation: 0.06s drawing-plus-hor 6.16s linear forwards;
+}
+.section__skills .my-skills svg #orthographe {
+  stroke-dasharray: 81;
+  stroke-dashoffset: 81;
+  -webkit-animation: 0.81s drawing-orthographe 6.32s linear forwards;
+          animation: 0.81s drawing-orthographe 6.32s linear forwards;
+}
+.section__skills .my-skills svg #figma {
+  stroke-dasharray: 71;
+  stroke-dashoffset: 71;
+  -webkit-animation: 0.71s drawing-figma 7.23s linear forwards;
+          animation: 0.71s drawing-figma 7.23s linear forwards;
+}
+.section__skills .my-skills svg #english-spoken {
+  stroke-dasharray: 74;
+  stroke-dashoffset: 74;
+  -webkit-animation: 0.74s drawing-english-spoken 8.04s linear forwards;
+          animation: 0.74s drawing-english-spoken 8.04s linear forwards;
+}
+.section__skills .my-skills svg #fast-learner {
+  stroke-dasharray: 72;
+  stroke-dashoffset: 72;
+  -webkit-animation: 0.72s drawing-fast-learner 8.88s linear forwards;
+          animation: 0.72s drawing-fast-learner 8.88s linear forwards;
 }
 .section__skills .my-skills path {
-  stroke: red;
-  stroke-witdh: 0.25rem;
-  fill: rgba(255, 255, 255, 0.25);
+  stroke-width: 0.5px;
+  stroke-linecap: round;
+  fill: transparent;
+}
+.section__skills .my-skills .line-drawn {
+  stroke: green;
+}
+.section__skills .my-skills .comp-drawn {
+  stroke: blue;
 }
 
+@-webkit-keyframes drawing-front-end-dev {
+  from {
+    stroke-dashoffset: 125;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawing-front-end-dev {
+  from {
+    stroke-dashoffset: 125;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-arrow-html {
+  from {
+    stroke-dashoffset: 9;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-arrow-html {
+  from {
+    stroke-dashoffset: 9;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-html {
+  from {
+    stroke-dashoffset: 75;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-html {
+  from {
+    stroke-dashoffset: 75;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-arrow-css {
+  from {
+    stroke-dashoffset: 15;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-arrow-css {
+  from {
+    stroke-dashoffset: 15;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-css {
+  from {
+    stroke-dashoffset: 73;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-css {
+  from {
+    stroke-dashoffset: 73;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-arrow-scss {
+  from {
+    stroke-dashoffset: 15;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-arrow-scss {
+  from {
+    stroke-dashoffset: 15;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-scss {
+  from {
+    stroke-dashoffset: 72;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-scss {
+  from {
+    stroke-dashoffset: 72;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-arrow-javascript {
+  from {
+    stroke-dashoffset: 13;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-arrow-javascript {
+  from {
+    stroke-dashoffset: 13;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-javascript {
+  from {
+    stroke-dashoffset: 72;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-javascript {
+  from {
+    stroke-dashoffset: 72;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-arrow-react {
+  from {
+    stroke-dashoffset: 11;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-arrow-react {
+  from {
+    stroke-dashoffset: 11;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-react {
+  from {
+    stroke-dashoffset: 71;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-react {
+  from {
+    stroke-dashoffset: 71;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-plus-vert {
+  from {
+    stroke-dashoffset: 5;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-plus-vert {
+  from {
+    stroke-dashoffset: 5;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-plus-hor {
+  from {
+    stroke-dashoffset: 6;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-plus-hor {
+  from {
+    stroke-dashoffset: 6;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-orthographe {
+  from {
+    stroke-dashoffset: 81;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-orthographe {
+  from {
+    stroke-dashoffset: 81;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-figma {
+  from {
+    stroke-dashoffset: 71;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-figma {
+  from {
+    stroke-dashoffset: 71;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-fast-learner {
+  from {
+    stroke-dashoffset: 72;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-fast-learner {
+  from {
+    stroke-dashoffset: 72;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes drawing-english-spoken {
+  from {
+    stroke-dashoffset: 74;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes drawing-english-spoken {
+  from {
+    stroke-dashoffset: 74;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes comp-apparition {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes comp-apparition {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .section__skills--hidden {
   transform: translateY(100%) rotateX(90deg);
 }

@@ -43,73 +43,238 @@
         justify-content: center;
     }
 
-    .my-skills {
+    .my-skills-container{
         width: min(80vh, 100vw);
         height: min(80vh, 100vw);
+        background: whitesmoke;
+        border: 5px solid black;
+        border-radius: 5%;
+        box-shadow: 5px -2.5px 2.5px hsl(0deg, 0%, 0%, .25);
+    }
+
+    .my-skills {
+        width: inherit;
+        height: inherit;
+        padding: 1%;
         display: grid;
         grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+        display: none;
 
         .competence{
             align-self: center;
             justify-self: center;
             font-family: var(--font-1);
             font-weight: bold;
-            font-size: min(2.5vw, 2.5vh);    
+            font-size: min(3vw, 3vh);    
+            opacity: 0;
         }
+
+        $drawing-duration: 0.01;
+        $apparition-txt: 10;
 
         .comp1{
             grid-row: 3;
-            grid-column: 3 / 9;
+            grid-column: 3 / 9;  
+            font-size: min(3.75vw, 3.75vh);            
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition linear forwards;
         }
         .comp2{
             grid-row: 1;
             grid-column: 4 / 8 ;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 1s) + 134s) linear forwards;
         }
         .comp3{
             grid-row: 5;
             grid-column: 2 / 5;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 2s) + 224s) linear forwards;
         }
         .comp4{
             grid-row: 5;
             grid-column: 7 / 10;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 4s) + 397s) linear forwards;
         }
         .comp5{
             grid-row: 7;
             grid-column: 1 / 4;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 3s) + 312s) linear forwards;
         }
         .comp6{
             grid-row: 7;
             grid-column: 8 / 11;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 5s) + 480s) linear forwards;
         }
         .comp7{
             grid-row: 8;
             grid-column: 4 / 8 ;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 6s) + 562s) linear forwards;
         }
         .comp8{
             grid-row: 9;
             grid-column: 1 / 4;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 7s) + 643s) linear forwards;
         }
         .comp9{
             grid-row: 9;
             grid-column: 8 / 11;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 8s) + 714s) linear forwards;
         }
         .comp10{
             grid-row: 10;
             grid-column: 4 / 8;
+            animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 9s) + 788s) linear forwards;
         }
 
         svg {
             grid-row: 1/11;
             grid-column: 1/11;
+            display: block;
+
+            #front-end-dev{
+                stroke-dasharray: 125;
+                stroke-dashoffset: 125;
+                animation: $drawing-duration * 125s drawing-front-end-dev $drawing-duration * ($apparition-txt * 1s) linear forwards;
+            }         
+
+            #arrow-html{
+                stroke-dasharray: 9;
+                stroke-dashoffset: 9;
+                animation: $drawing-duration * 9s drawing-arrow-html $drawing-duration * (($apparition-txt * 1s) + 125s) linear forwards;
+            }
+            
+            #HTML{
+                stroke-dasharray: 75;
+                stroke-dashoffset: 75;
+                animation: $drawing-duration * 75s drawing-html $drawing-duration * (($apparition-txt * 2s) + 134s) linear forwards;
+            }
+            
+            #arrow-css{
+                stroke-dasharray: 15;
+                stroke-dashoffset: 15;
+                animation: $drawing-duration * 15s drawing-arrow-css $drawing-duration * (($apparition-txt * 2s) + 209s) linear forwards;
+            }
+            
+            #CSS{
+                stroke-dasharray: 73;
+                stroke-dashoffset: 73;
+                animation: $drawing-duration * 73s drawing-css $drawing-duration * (($apparition-txt * 3s) + 224s) linear forwards;
+            }
+            
+            #arrow-scss{
+                stroke-dasharray: 15;
+                stroke-dashoffset: 15;
+                animation: $drawing-duration * 15s drawing-arrow-scss $drawing-duration * (($apparition-txt * 3s) + 297s) linear forwards;
+            }
+            
+            #scss{
+                stroke-dasharray: 72;
+                stroke-dashoffset: 72;
+                animation: $drawing-duration * 72s drawing-scss $drawing-duration * (($apparition-txt * 4s) + 312s) linear forwards;
+            }
+            
+            #arrow-javascript{
+                stroke-dasharray: 13;
+                stroke-dashoffset: 13;
+                animation: $drawing-duration * 13s drawing-arrow-javascript $drawing-duration * (($apparition-txt * 4s) + 384s) linear forwards;
+            }
+            
+            #javascript{
+                stroke-dasharray: 72;
+                stroke-dashoffset: 72;
+                animation: $drawing-duration * 72s drawing-javascript $drawing-duration * (($apparition-txt * 5s) + 397s) linear forwards;
+
+            }
+            
+            #arrow-react{
+                stroke-dasharray: 11;
+                stroke-dashoffset: 11;
+                animation: $drawing-duration * 11s drawing-arrow-react $drawing-duration * (($apparition-txt * 5s) + 469s) linear forwards;
+            }
+            
+            #react{
+                stroke-dasharray: 71;
+                stroke-dashoffset: 71;
+                animation: $drawing-duration * 71s drawing-react $drawing-duration * (($apparition-txt * 6s) + 480s) linear forwards;
+            }
+            
+            #plus-vert{
+                stroke-dasharray: 5;
+                stroke-dashoffset: 5;
+                animation: $drawing-duration * 5s drawing-plus-vert $drawing-duration * (($apparition-txt * 6s) + 551s) linear forwards;
+            }
+            
+            #plus-hor{
+                stroke-dasharray: 6;
+                stroke-dashoffset: 6;
+                animation: $drawing-duration * 6s drawing-plus-hor $drawing-duration * (($apparition-txt * 6s) + 556s) linear forwards;
+            }
+            
+            #orthographe{
+                stroke-dasharray: 81;
+                stroke-dashoffset: 81;
+                animation: $drawing-duration * 81s drawing-orthographe $drawing-duration * (($apparition-txt * 7s) + 562s) linear forwards;
+            }
+            
+            #figma{
+                stroke-dasharray: 71;
+                stroke-dashoffset: 71;
+                animation: $drawing-duration * 71s drawing-figma $drawing-duration * (($apparition-txt * 8s) + 643s) linear forwards;
+            }
+            
+            #english-spoken{
+                stroke-dasharray: 74;
+                stroke-dashoffset: 74;
+                animation: $drawing-duration * 74s drawing-english-spoken $drawing-duration * (($apparition-txt * 9s) + 714s) linear forwards;
+            }
+            
+            #fast-learner{
+                stroke-dasharray: 72;
+                stroke-dashoffset: 72;
+                animation: $drawing-duration * 72s drawing-fast-learner $drawing-duration * (($apparition-txt * 10s) + 788s) linear forwards;
+            }
         }
 
         path {
-            stroke: red;
-            stroke-witdh: 0.25rem;
-            fill: hsl(0deg, 0%, 100%, 0.25);
+            stroke-width: .5px;
+            stroke-linecap: round;
+            fill: transparent;
+        }
+
+        .line-drawn{
+            stroke: green;            
+        }
+
+        .comp-drawn{
+            stroke: blue;
         }
     }
 }
+
+
+$boardparts: drawing-front-end-dev 125, drawing-arrow-html 9, drawing-html 75, drawing-arrow-css 15, drawing-css 73, drawing-arrow-scss 15, drawing-scss 72, drawing-arrow-javascript 13, drawing-javascript 72, drawing-arrow-react 11, drawing-react 71, drawing-plus-vert 5, drawing-plus-hor 6, drawing-orthographe 81, drawing-figma 71, drawing-fast-learner 72, drawing-english-spoken 74;
+
+@each $part, $dashoffset in $boardparts {
+    @keyframes #{$part} {
+        from {
+            stroke-dashoffset: $dashoffset;
+        }
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+}
+
+@keyframes comp-apparition {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+
+
+
 .section__skills--hidden{
     transform: translateY(100%) rotateX(90deg);
 }

@@ -79,10 +79,6 @@
         transform: rotate(var(--rotate-portfolio-container-top));
         background: var(--color-4);
 
-        .portfolio__card-work-wrapper {
-            background: var(--color-4);
-        }
-
         .portfolio-container__tab {
             top: 0;
         }
@@ -93,10 +89,6 @@
         clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%, 10% 50%);
         transform: rotate(var(--rotate-portfolio-container-bottom));
         background: var(--color-5);
-
-        .portfolio__card-work-wrapper {
-            background: var(--color-5);
-        }
 
         .portfolio-container__tab {
             bottom: 0;
@@ -170,21 +162,24 @@
         }
 
         .portfolio__card-work-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 7vmin;
             font-family: var(--font-2);
             font-size: 1.75rem;
-            line-height: 3rem;
-            text-align: center;
         }
     }
 
     .portfolio__card-text {
         position: absolute;
-        top: 0;
+        top: 7vmin;
         left: 0;
-        height: inherit;
+        height: 25vmin;
         width: inherit;
 
         .portfolio__card-text-container {
+            padding: 1vmin;
             line-height: 1.25rem;
             font-size: 1rem;
         }
@@ -263,130 +258,6 @@
 
 .section__work--hidden {
     transform: translateY(-100%) rotateX(-90deg);
-}
-
-.section__tv-show {
-    height: 100vh;
-    width: 100vw;
-    will-change: transform;
-    transform-origin: top;
-    transition: transform 0.5s ease-in-out;
-
-    body {
-        height: 100vh;
-        width: 100vw;
-        background: whitesmoke;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .tv {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        height: 28vw;
-        width: 40vw;
-        background: #5b4dcd;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: space-evenly;
-        border-radius: 5%;
-        border: 2px solid black;
-    }
-
-    .tv-screen {
-        background: #293450;
-        width: 75%;
-        height: 90%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 5%;
-        border: 2px solid #11103f;
-    }
-
-    .tv-screen > div {
-        border-radius: 40% / 20%;
-        height: 90%;
-        width: 90%;
-        border: 2px solid black;
-    }
-
-    .rightSide {
-        width: 10%;
-        height: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-    }
-
-    .rightSide--tvButton {
-        width: 4vw;
-        height: 4vw;
-        background: #38302e;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        border: 1px solid #283141;
-    }
-
-    .rightSide--tvButton:hover {
-        cursor: pointer;
-    }
-
-    .rightSide--tvButton-line {
-        height: 90%;
-        width: 20%;
-        background-color: #8eadcc;
-        transform: rotate(90deg);
-        border: 1px solid #283141;
-    }
-
-    .rightSide--pourLeStyle {
-        width: 100%;
-        height: 40%;
-        background: #6e8dc8;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        border-radius: 5%;
-        border: 1px solid #283141;
-    }
-
-    .rightSide--pourLeStyle > div {
-        height: 80%;
-        width: 10%;
-        background: #283141;
-    }
-
-    .tvContent {
-        position: relative;
-        overflow: hidden;
-    }
-
-    /* Animation TV noise */
-
-    .tvNoise {
-        width: 150%;
-        height: auto;
-        position: relative;
-        left: -25%;
-        animation: noise 0.1s linear infinite;
-    }
-
-    @keyframes noise {
-        0% {
-            transform: translateX(-15%);
-        }
-        100% {
-            transform: translateX(15%);
-        }
-    }
 }
 
 .section__tv-show--hidden {

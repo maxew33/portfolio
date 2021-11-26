@@ -1,7 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
+
+import TvShow from '../tv-show/TvShow'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
@@ -16,6 +18,8 @@ import maxamp from '../../assets/maxamp.png'
 
 import './work.css'
 export default function Work() {
+
+    const [faceDisplayed, setFaceDisplayed] = useState('work')
 
     const portfolioContentPartI = [
         {
@@ -74,32 +78,44 @@ export default function Work() {
 
     const handleDrag = (e, ui) => {
 
-        // console.log(100*ui.y/(document.querySelector('.portfolio__card-btn-container').getBoundingClientRect().height - ui.node.clientHeight)+ '%')
-        // console.log(ui)
+        /* when i drag the image will disappear with a clip path*/
+
+        /* percentage of the y deplacement */
+
         let clipPathY = 100 - (100 * ui.y / (document.querySelector('.portfolio__card-btn-container').getBoundingClientRect().height - ui.node.clientHeight))
 
         clipPathY < 0 && (clipPathY = 0)
 
-        console.log(ui.node.dataset.id)
-
         document.querySelector('#' + ui.node.dataset.id).style.clipPath = 'polygon(0% 0%, 100% 0%, 100% ' + clipPathY + '%, 0% ' + clipPathY + '%)'
 
-        const grabbyElt = document.querySelector('[data-pullme='+ui.node.dataset.id)
+        /* the element above the grab element will grow when i pull down */
 
-        console.log(grabbyElt)
+        const grabbyElt = document.querySelector('[data-pullme=' + ui.node.dataset.id)
 
         grabbyElt.style.height = 'calc(4vmin + ' + ui.y + 'px'
     }
 
-    // toggle between work n tv
     let portfolioTopAngle = 0,
         portfolioBottomAngle = 0
 
+        
+    // toggle between work n tv
+
     const toggleSectionWork = () => {
-        console.log('toggle')
+
+        console.log(faceDisplayed)
+               
+        let newFaceDisplayed
+        faceDisplayed === 'work' ? newFaceDisplayed = 'tv' : newFaceDisplayed = 'work'
+        setFaceDisplayed(newFaceDisplayed)
+
+        console.log(faceDisplayed)
+
         document.querySelector('.section__work').classList.toggle('section__work--hidden')
         document.querySelector('.section__tv-show').classList.toggle('section__tv-show--hidden')
     }
+
+    // change the portfolio container
 
     const changePortfolioPart = (tab) => {
 
@@ -165,12 +181,12 @@ export default function Work() {
                                                 </div>
                                             </div>
 
-                                            <div className="portfolio__card-work-wrapper" id={"portfolio-container__part1-wrapper" + index}>
-                                                
+                                            <div className="portfolio__card-work-wrapper" >
+
                                                 <h3 className="portfolio__card-work-title">
                                                     {portfolioContentPartI[index].title}
                                                 </h3>
-                                                <div className="portfolio__card-work-img">
+                                                <div className="portfolio__card-work-img" id={"portfolio-container__part1-wrapper" + index}>
                                                     <img
                                                         src={portfolioContentPartI[index].img}
                                                         alt={portfolioContentPartI[index].title} />
@@ -180,11 +196,11 @@ export default function Work() {
 
                                         {/* draggable btn, pull => hide img wtih clip path / let text appear*/}
                                         <div className="portfolio__card-btn-container">
-                                            
 
-                                        <div 
-                                            className="portfolio__card-pull-me-front"
-                                            data-pullme={"portfolio-container__part1-wrapper" + index}
+
+                                            <div
+                                                className="portfolio__card-pull-me-front"
+                                                data-pullme={"portfolio-container__part1-wrapper" + index}
                                             >
                                             </div>
                                             <Draggable
@@ -195,8 +211,8 @@ export default function Work() {
                                                     className="portfolio__card-pull-me"
                                                     data-id={"portfolio-container__part1-wrapper" + index}
                                                 >
-                                                pull
-                                                <FontAwesomeIcon icon={faChevronDown} />
+                                                    pull
+                                                    <FontAwesomeIcon icon={faChevronDown} />
                                                 </button>
                                             </Draggable>
                                         </div>
@@ -237,13 +253,13 @@ export default function Work() {
                                                 </div>
                                             </div>
 
-                                            <div className="portfolio__card-work-wrapper"
-                                                id={"portfolio-container__part2-wrapper" + index}>                                                
+                                            <div className="portfolio__card-work-wrapper">
                                                 <h3 className="portfolio__card-work-title">
                                                     {portfolioContentPartII[index].title}
                                                 </h3>
                                                 <div
-                                                    className="portfolio__card-work-img">
+                                                    className="portfolio__card-work-img"
+                                                    id={"portfolio-container__part2-wrapper" + index}>
                                                     <img
                                                         src={portfolioContentPartII[index].img}
                                                         alt={portfolioContentPartII[index].title} />
@@ -253,9 +269,9 @@ export default function Work() {
                                         {/* draggable btn, pull => hide img wtih clip path / let text appear*/}
                                         <div className="portfolio__card-btn-container">
 
-                                            <div 
-                                            className="portfolio__card-pull-me-front"
-                                            data-pullme={"portfolio-container__part2-wrapper" + index}
+                                            <div
+                                                className="portfolio__card-pull-me-front"
+                                                data-pullme={"portfolio-container__part2-wrapper" + index}
                                             >
                                             </div>
 
@@ -267,16 +283,16 @@ export default function Work() {
                                                     className="portfolio__card-pull-me"
                                                     data-id={"portfolio-container__part2-wrapper" + index}
                                                 >
-                                                pull
-                                                <FontAwesomeIcon icon={faChevronDown} />
+                                                    pull
+                                                    <FontAwesomeIcon icon={faChevronDown} />
                                                 </button>
                                             </Draggable>
-                                            
+
                                         </div>
                                     </li>
                                 )
                             })}
-                            <li className = "work-to-tv">
+                            <li className="work-to-tv">
                                 <button
                                     className="toggle-section-work"
                                     onClick={toggleSectionWork}>
@@ -305,36 +321,13 @@ export default function Work() {
             </section>
 
             <section className="section__tv-show section__tv-show--hidden">
-                <div>tv show</div>
 
                 <button
                     className="toggle-section-work"
                     onClick={toggleSectionWork}>
                     toggle
                 </button>
-
-                <div class="tv">
-                    <div className="tv-screen">
-                        <div className="tvContent">
-                            <img src="https://zupimages.net/up/21/16/gwdh.png" alt="" class="tvNoise" />
-                        </div>
-                    </div>
-                    <div className="rightSide">
-                        <div className="rightSide--tvButton">
-                            <div className="rightSide--tvButton-line">
-                            </div>
-                        </div>
-                        <div className="rightSide--tvButton">
-                            <div className="rightSide--tvButton-line">
-                            </div>
-                        </div>
-                        <div className="rightSide--pourLeStyle">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
+                <TvShow face={faceDisplayed}/>
 
             </section>
         </>
