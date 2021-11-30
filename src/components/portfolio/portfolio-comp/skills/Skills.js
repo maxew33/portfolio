@@ -1,5 +1,8 @@
 import { React, useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+
+import MyLife from '../mylife/MyLife'
+
 import './skills.css'
 
 export default function Skills() {
@@ -28,19 +31,6 @@ export default function Skills() {
         <>
 
             <section className="section__skills">
-
-                <svg className="section__skills-bg-svg-1"
-                    viewBox="0 0 330 941">
-                    <path id="section__skills-bg-svg-1-elt"
-                        d="M 16.5 0 L 329.25 940.5 H 0 V 50 L 16.5 0 Z"
-                    />
-                </svg>
-                <svg className="section__skills-bg-svg-2"
-                    viewBox="0 0 328 1024">
-                    <path id="section__skills-bg-svg-2-elt"
-                        d="M 327.5 526 L 0 1024 H 328 V 0 H 1.5 L 327.5 526 Z"
-                    />
-                </svg>
                 <div className="intro-of-myself">
                     <h2>Mes compétences</h2>
                     <p>
@@ -48,11 +38,11 @@ export default function Skills() {
                     </p>
                 </div>
 
-                <button
+                {/* <button
                     className="toggle-section-skills"
                     onClick={toggleSectionSkills}>
                     toggle
-                </button>
+                </button> */}
 
                 <div className="my-skills-container">
 
@@ -149,6 +139,21 @@ export default function Skills() {
 
             </section>
 
+            
+
+            <svg className="section__skills-bg-svg-1 section-bg-svg"
+                    viewBox="0 0 100 100">
+                    <path id="section__skills-bg-svg-1-elt"
+                        d="M 0,100 V 13 C 0,13 36.163647,10.04591 46.464456,21.994335 63.45852,41.706604 57.202187,75.805111 49.85,100 Z"
+                    />
+                </svg>
+                <svg className="section__skills-bg-svg-2 section-bg-svg"
+                    viewBox="0 0 100 100">
+                    <path id="section__skills-bg-svg-2-elt"
+                        d="M 100,100 V 0 H 60 c 0,0 35,30 35,50 0,20 -37,50 -37,50 z"
+                    />
+                </svg>
+{/* 
             <section className="section__my-life section__my-life--hidden">
                 <div>my life</div>
                 <button
@@ -156,10 +161,8 @@ export default function Skills() {
                     onClick={toggleSectionSkills}>
                     toggle
                 </button>
-                <p className="lorem">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo itaque repellat possimus. Id laborum itaque magni quas fugiat nemo, quasi ab voluptatibus repellendus ullam nulla culpa. Magni sint, consequuntur tempora ipsum beatae, natus dolore laudantium minus aliquid eveniet rerum est similique fugiat possimus eius corrupti, commodi ut aliquam iure modi non ea asperiores? Maxime porro atque, veniam tempora necessitatibus deleniti consectetur explicabo distinctio eveniet quae velit dolorem amet unde accusamus pariatur laboriosam at incidunt ipsam molestias voluptatem officia. Saepe harum at, obcaecati recusandae aspernatur, impedit iusto assumenda iste beatae dolorum dolores ipsum ut! Cumque laudantium ad molestias optio possimus officiis amet quis tempore deleniti dicta vel ullam ducimus, at voluptas eligendi? Hic minus magni quam ullam iure quis tempore odit inventore at repudiandae eligendi alias numquam laboriosam, facere, nemo possimus! Ut rem quia alias voluptas saepe ullam suscipit ipsam numquam deserunt placeat, soluta cumque laborum sunt sit aperiam excepturi blanditiis facere officia ipsum. Illum dolores, sunt fugit totam consectetur unde facere quas animi recusandae accusantium harum, doloremque voluptatibus ipsum quos ullam provident! Consequuntur quas alias autem eaque obcaecati, culpa blanditiis, doloribus voluptatem ipsum ipsa sed repudiandae voluptate fuga eius quis illum iusto? Laboriosam optio est eum assumenda quibusdam vel veniam ea illum fuga, exercitationem rerum voluptatibus quia maxime doloremque repellat reprehenderit doloribus. Nam blanditiis ab hic in reprehenderit temporibus incidunt dolore! Aspernatur consequatur reprehenderit temporibus quidem non molestias nam officiis cumque mollitia, earum sit. Veniam, sapiente. Officiis illo repellat quo architecto nostrum quas adipisci facilis laborum voluptas temporibus dolore laudantium, accusantium ducimus assumenda veritatis. Ab fuga nihil nostrum, eius facere provident? Sequi voluptatibus iusto eum neque quia delectus quis ratione hic blanditiis ipsa? Dolore amet impedit, temporibus earum fugit ipsam, ut perferendis magni quasi tenetur culpa, quam voluptatum accusamus consectetur expedita quo iste in itaque officia veritatis! Dolorem rerum natus beatae aspernatur similique molestias, fuga nesciunt? Distinctio, maxime veritatis minima ipsum nobis quod eos cum obcaecati error enim incidunt? Cumque quidem ipsam nam, inventore rem quae eveniet sit natus possimus, doloribus reprehenderit id, ullam repellat libero perspiciatis sint. Ex quasi libero provident eum velit aut quidem, delectus quam nemo error, quod nesciunt cumque quisquam iure minus nihil fugiat. Aspernatur quo quidem qui maiores culpa, beatae praesentium, libero nobis quam enim nihil vero esse ab ducimus vitae cumque ratione repellendus veniam at id possimus. Dolore alias ad rem, beatae fugiat reprehenderit, optio nihil reiciendis dicta officiis aliquam excepturi laboriosam iste animi non a aperiam in asperiores maxime saepe neque fuga? Aut itaque beatae eaque, quo, facere, sed earum doloremque perferendis alias aliquid assumenda eius ratione! Temporibus facilis adipisci autem ut corporis rerum tempore, tenetur pariatur dolor voluptatibus perspiciatis obcaecati optio magnam sed fugit necessitatibus reiciendis aperiam iste. Ab atque omnis cumque!
-                </p>
-            </section>
+                <MyLife/>
+            </section> */}
         </>
     )
 }

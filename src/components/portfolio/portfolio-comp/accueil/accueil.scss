@@ -1,5 +1,5 @@
 :root {
-    --avatar-length-unit: 0.3rem;
+    --avatar-length-unit: .55vmin;
     --avatar-clip-value: 0%;
 }
 
@@ -11,21 +11,14 @@
 }
 
 .section__accueil-bg-svg {
-    position: absolute;
     right: 0;
-    bottom: 0;
-    height: 80vh;
-
-    #section__accueil-bg-svg-elt {
-        fill: var(--color-2);
-    }
 }
 
 h1 {
     font-family: var(--font-1);
-    font-size: 7.5vw;
-    text-shadow: .3rem .15rem 0 hsl(0deg, 0%, 0%, 0.25);
-    letter-spacing: 0.25rem;
+    font-size: 8.5vw;
+    text-shadow: .3vw .1vw 0 hsl(0deg, 0%, 0%, 0.25);
+    letter-spacing: 0.25vw;
     grid-column: 1/4;
     grid-row: 1/5;
     display: grid;
@@ -132,34 +125,7 @@ h1 {
         position: absolute;
         top: 55%;
         left: 55%;
-        height: 5rem;
-
-        .pull-me-face {
-            position: absolute;
-            font-size: 0.75rem;
-            height: 2rem;
-            width: 1.75rem;
-            background: navy;
-            font-family: var(--font-2);
-            font-weight: bolder;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-evenly;
-            border-radius: 0 0 25px 25px;
-            cursor: grab;
-
-            &::after {
-                content: "";
-                position: absolute;
-                width: 2rem;
-                border-top: 1px solid black;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
+        height: 11.25vmin;
     }
 }
 
@@ -191,8 +157,8 @@ h1 {
 .accessory-hidden {
     bottom: 0;
     pointer-events: none;
-    bottom: 2rem;
-    left: calc(50% - 7.5rem); /* 50% - chest width / 2 */
+    bottom: 2vw;
+    left: calc(50% - 7.5vw); /* 50% - chest width / 2 */
 }
 
 .react-draggable-dragging {
@@ -200,9 +166,10 @@ h1 {
 }
 
 .status {
+    position: relative;
     font-family: var(--font-2);
-    font-size: 2.5rem;    
-    height: 3.5rem;
+    font-size: 2.75vw;    
+    height: 4.5vw;
     overflow: hidden;
     grid-row: 5 / 7;
     grid-column: 1 / 4;
@@ -213,7 +180,7 @@ h1 {
 
 .reload-status {
     grid-row: 6;
-    font-size: 1.5rem;    
+    font-size: 1.5vw;    
     grid-column: 1 / 4;
     align-self: center;
     justify-self: center;
@@ -223,7 +190,7 @@ h1 {
     cursor: pointer;
 
     &:hover {
-        font-size: 1.75rem;
+        font-size: 1.75vw;
     }
 }
 
@@ -233,33 +200,31 @@ h1 {
     grid-column: 1 / 4;
     align-self: top;
     justify-self: center;
-    width: 30rem;
+    width: 30vw;
 }
 
 .chest-container {
-    height: 15rem;
-    width: 15rem;
+    height: 15vw;
+    width: 15vw;
     position: relative;
     cursor: pointer;
     grid-column: 3 / 5;
     grid-row: 6 / 9;
     justify-self: center;
-    align-self: end;
+    align-self: bottom;
 
     .chest-top {
         position: relative;
-        height: 6.5rem;
-        width: 15rem;
-        border-bottom: 1px solid black;
+        height: 7vw;
+        width: 15vw;
 
         .chest-top-front {
             position: absolute;
             bottom: 0;
-            height: 6.5rem;
-            width: 15rem;
-            background: hsl(30deg, 100%, 20%);
-            border: 1.25vmin solid silver;
-            border-radius: 50% 50% 0 0;
+            height: 6.5vw;
+            width: 15vw;
+            background: var(--color-1);
+            border-radius: 999px 999px 0 0;
             transition: transform 0.25s ease-in-out;
             transform-origin: bottom left;
         }
@@ -274,11 +239,15 @@ h1 {
     }
 
     .chest-bottom {
-        position: relative;
-        border: 1.25vmin solid silver;
-        height: 7.5rem;
-        width: 15rem;
-        background: hsl(30deg, 100%, 20%);
+        height: 6.5vw;
+        width: 15vw;
+        background: var(--color-1);
+        text-align: center;
+        color: whitesmoke;
+        font-family: var(--font-1);
+        font-size: 1.5vw;
+        padding: 1vw;
+        border-radius: 0% 0% 50% 50%;
     }
 }
 
@@ -288,7 +257,7 @@ h1 {
     // display: flex;
     // align-items: center;
     // justify-content: space-evenly;
-    font-size: 3rem;
+    font-size: 3vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 
@@ -299,7 +268,7 @@ h1 {
     }
 
     a:hover {
-        font-size: 3.25rem;
+        font-size: 3.25vw;
     }
 
     a:visited {

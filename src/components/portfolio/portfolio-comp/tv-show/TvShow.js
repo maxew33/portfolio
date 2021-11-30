@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faYoutube, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import './tvShow.css'
 
@@ -7,9 +9,9 @@ import dataTvShow from './dataTvShow'
 export default function TvShow(props) {
 
     const [channel, setChannel] = useState(0)
-    
+
     const [topBtnAngle, setTopBtnAngle] = useState(180)
-    
+
     const [bottomBtnAngle, setBottomBtnAngle] = useState(180)
 
     const handleClick = (deltaChannel) => {
@@ -42,15 +44,15 @@ export default function TvShow(props) {
         [props.face])
 
 
-        useEffect(()=> {
+    useEffect(() => {
 
-            playVideo()
+        playVideo()
 
-            Array.from(document.querySelectorAll('.rightSide--tvButton-line'))[0].style.transform = 'rotate(' + topBtnAngle + 'deg)'
-            
-            Array.from(document.querySelectorAll('.rightSide--tvButton-line'))[1].style.transform = 'rotate(' + bottomBtnAngle + 'deg)'
+        Array.from(document.querySelectorAll('.rightSide--tvButton-line'))[0].style.transform = 'rotate(' + topBtnAngle + 'deg)'
 
-        },[channel])
+        Array.from(document.querySelectorAll('.rightSide--tvButton-line'))[1].style.transform = 'rotate(' + bottomBtnAngle + 'deg)'
+
+    }, [channel])
 
     const playVideo = () => {
 
@@ -66,6 +68,9 @@ export default function TvShow(props) {
 
     return (
         <>
+
+            <div className="h3">{dataTvShow[channel].name}</div>
+
             <div class="tv">
                 <div className="tv-screen">
                     <div className="channel">
@@ -105,6 +110,28 @@ export default function TvShow(props) {
                 </div>
 
             </div>
+
+            <p>{dataTvShow[channel].txt}</p>
+
+            {dataTvShow[channel].youtubeLink && (
+                <a href={dataTvShow[channel].youtubeLink} target="_blank" rel="noopener">
+                    <FontAwesomeIcon icon={faYoutube} />
+                </a>
+            )}
+
+            {dataTvShow[channel].gitHubLink && (
+                <a href={dataTvShow[channel].gitHubLink} target="_blank" rel="noopener">
+                    <FontAwesomeIcon icon={faGithub} />
+                </a>
+            )}
+
+            {dataTvShow[channel].codePenLink && (
+                <a href={dataTvShow[channel].codePenLink} target="_blank" rel="noopener">
+                    <FontAwesomeIcon icon={faCodepen} />
+                </a>
+            )}
+
+
         </>
     )
 }

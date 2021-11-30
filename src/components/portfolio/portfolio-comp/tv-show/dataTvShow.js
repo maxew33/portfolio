@@ -24,7 +24,7 @@ const dataTvShow = [
         name: 'Hello',
         src: process.env.PUBLIC_URL + ' /video/defi-7.mp4',
         txt: 'Une animation sur du svg (dessin vectoriel)',
-        youtubeLink: false,
+        youtubeLink: 'https://youtu.be/CbWv29ar71c?t=683',
         gitHubLink: false,
         codePenLink: false
     },
@@ -42,7 +42,7 @@ const dataTvShow = [
         name: 'Hello',
         src: process.env.PUBLIC_URL + ' /video/defi-5.mp4',
         txt: 'Une animation sur du svg (dessin vectoriel)',
-        youtubeLink: false,
+        youtubeLink: 'https://youtu.be/2ogH9PKILqY?t=339',
         gitHubLink: false,
         codePenLink: false
     },
@@ -60,7 +60,7 @@ const dataTvShow = [
         name: 'Hello',
         src: process.env.PUBLIC_URL + ' /video/defi-3.mp4',
         txt: 'Une animation sur du svg (dessin vectoriel)',
-        youtubeLink: false,
+        youtubeLink: 'https://youtu.be/tBN16ReqkUw?t=1148',
         gitHubLink: false,
         codePenLink: false
     },

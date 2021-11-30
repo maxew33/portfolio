@@ -1,8 +1,9 @@
 import React from 'react'
+import './myLife.css'
 
 export default function MyLife() {
     return (
-        <div>
+        <div className="caca">
             my life
         </div>
     )

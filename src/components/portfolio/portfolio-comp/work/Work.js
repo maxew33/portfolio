@@ -150,7 +150,7 @@ export default function Work() {
             <section className="section__work">
 
                 <h2>
-                    My work
+                    Mes réalisations
                 </h2>
 
                 <div className="portfolio-container">
@@ -208,7 +208,7 @@ export default function Work() {
                                                 bounds="parent"
                                                 onDrag={handleDrag}>
                                                 <button
-                                                    className="portfolio__card-pull-me"
+                                                    className="portfolio__card-pull-me pull-me"
                                                     data-id={"portfolio-container__part1-wrapper" + index}
                                                 >
                                                     pull
@@ -280,7 +280,7 @@ export default function Work() {
                                                 bounds="parent"
                                                 onDrag={handleDrag}>
                                                 <button
-                                                    className="portfolio__card-pull-me"
+                                                    className="portfolio__card-pull-me pull-me"
                                                     data-id={"portfolio-container__part2-wrapper" + index}
                                                 >
                                                     pull
@@ -304,17 +304,17 @@ export default function Work() {
                     </div>
                 </div>
 
-                <svg className="section__work-bg-svg-1"
-                    viewBox="0 0 628 1024">
+                <svg className="section__work-bg-svg-1 section-bg-svg"
+                    viewBox="0 0 100 100">
                     <path id="section__work-bg-svg-1-elt"
-                        d="M 342.5 0 L 628 1024 H 0 V 500.166 L 342.5 0 Z"
+                        d="m 77,14 c 24,16 2.8,86 2.8,86 H 0 V 43 C 0,43 54,-1 77,14 Z"
                     />
                 </svg>
 
-                <svg className="section__work-bg-svg-2"
-                    viewBox="0 0 305 891">
+                <svg className="section__work-bg-svg-2 section-bg-svg"
+                    viewBox="0 0 100 100">
                     <path id="section__work-bg-svg-2-elt"
-                        d="M 305 0 L 0 891 H 305 L 305 0 Z"
+                        d="M 100,100 H 52 c 0,0 -8.38193,-37.800392 -2,-55 4.266893,-11.499481 14.356887,-20.903396 25,-27 7.40394,-4.241136 25,-5.5 25,-5.5 z"
                     />
                 </svg>
 
@@ -322,12 +322,32 @@ export default function Work() {
 
             <section className="section__tv-show section__tv-show--hidden">
 
-                <button
-                    className="toggle-section-work"
-                    onClick={toggleSectionWork}>
-                    toggle
-                </button>
-                <TvShow face={faceDisplayed}/>
+                <div className="tv-show-container">
+
+<button
+    className="toggle-section-work"
+    onClick={toggleSectionWork}>
+    toggle
+</button>
+<TvShow face={faceDisplayed}/>
+
+                </div>
+
+                
+
+            <svg className="section__work-bg-svg-1 section-bg-svg"
+                viewBox="0 0 100 100">
+                <path id="section__work-bg-svg-1-elt"
+                    d="M 0,0 V 0 C 2,5 70,5 80,0 Z m 77,14 c 24,16 2.8,86 2.8,86 H 0 V 43 C 0,43 54,-1 77,14 Z"
+                />
+            </svg>
+
+            <svg className="section__work-bg-svg-2 section-bg-svg"
+                viewBox="0 0 100 100">
+                <path id="section__work-bg-svg-2-elt"
+                    d="m 51.867461,-0.132292 c 0,0 16.796301,2.180679 25.239682,2.1419652 7.620296,-0.03494 22.760563,-2.1419652 22.760563,-2.1419652 z M 100,100 H 52 c 0,0 -8.38193,-37.800392 -2,-55 4.266893,-11.499481 14.356887,-20.903396 25,-27 7.40394,-4.241136 25,-5.5 25,-5.5 z"
+                />
+            </svg>
 
             </section>
         </>

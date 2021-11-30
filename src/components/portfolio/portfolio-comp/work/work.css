@@ -15,25 +15,11 @@
 }
 
 .section__work-bg-svg-1 {
-  pointer-events: none;
-  position: absolute;
   left: 0;
-  bottom: 0;
-  height: 100vh;
-}
-.section__work-bg-svg-1 #section__work-bg-svg-1-elt {
-  fill: var(--color-2);
 }
 
 .section__work-bg-svg-2 {
-  pointer-events: none;
-  position: absolute;
   right: 0;
-  bottom: 0;
-  height: 87vh;
-}
-.section__work-bg-svg-2 #section__work-bg-svg-2-elt {
-  fill: var(--color-2);
 }
 
 /* Set classes for portfolio animation : index opacity */
@@ -70,8 +56,8 @@
 }
 .portfolio-container .portfolio-container__part1 {
   transform-origin: bottom right;
-  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%, 10% 50%, 0% 50%);
-          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%, 10% 50%, 0% 50%);
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%, 10% 55%, 0% 55%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%, 10% 55%, 0% 55%);
   transform: rotate(var(--rotate-portfolio-container-top));
   background: var(--color-4);
 }
@@ -80,8 +66,8 @@
 }
 .portfolio-container .portfolio-container__part2 {
   transform-origin: top right;
-  -webkit-clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%, 10% 50%);
-          clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 50%, 10% 50%);
+  -webkit-clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 45%, 10% 45%);
+          clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 45%, 10% 45%);
   transform: rotate(var(--rotate-portfolio-container-bottom));
   background: var(--color-5);
 }
@@ -178,7 +164,7 @@
   height: 4vmin;
   width: 5vmin;
   left: calc(50% - 2vmin);
-  background: navy;
+  background: var(--color-1);
   border: none;
   border-radius: 0 0 25px 25px;
   transform-origin: top;
@@ -192,25 +178,6 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-}
-.portfolio__cards .portfolio__card-btn-container .portfolio__card-pull-me {
-  position: absolute;
-  height: 4vmin;
-  width: 5vmin;
-  left: calc(50% - 2vmin);
-  background: navy;
-  font-size: 0.75rem;
-  font-family: var(--font-2);
-  font-weight: bolder;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border: none;
-  border-radius: 0 0 25px 25px;
-  cursor: -webkit-grab;
-  cursor: grab;
 }
 .portfolio__cards .portfolio__card-btn-container .react-draggable-dragging {
   cursor: -webkit-grabbing;
@@ -241,4 +208,11 @@
 
 .section__tv-show--hidden {
   transform: translateY(100%) rotateX(90deg);
+}
+
+.tv-show-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
 }/*# sourceMappingURL=work.css.map */

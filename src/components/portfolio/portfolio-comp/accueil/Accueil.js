@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRedo, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faRedo, faChevronDown, faHandPointLeft } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faLinkedin, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import body from '../../assets/body.png'
@@ -112,6 +112,7 @@ export default function Accueil() {
 
         const chest = document.querySelector('.chest-container'),
             chestTop = document.querySelector('.chest-top-front'),
+            chestBottom = document.querySelector('.chest-bottom'),
             accessoryContainer = [...document.querySelectorAll('.accessory-container')],
             accessory = [...document.querySelectorAll('.avatar-accessory')]
 
@@ -123,7 +124,13 @@ export default function Accueil() {
         chest.addEventListener('click', () => {
 
             if (!chestOpen && accessoryThrown < accessory.length) {
-                accessoryThrown < (accessory.length - 1) ? chestTop.classList.toggle('open') : (chestTop.classList.add('wide-open'))
+                if (accessoryThrown < (accessory.length - 1)) {
+                    chestTop.classList.toggle('open')
+                }
+                else {
+                    chestTop.classList.add('wide-open')
+                    chestBottom.innerText = ''
+                }
                 accessory[accessoryThrown].classList.add('accessory-ejection')
                 accessoryContainer[accessoryThrown].classList.remove('accessory-hidden')
 
@@ -196,7 +203,7 @@ export default function Accueil() {
                 myNewStatusIdx++
                 myNewStatusIdx >= myStatus.length && (myNewStatusIdx = 0)
                 setMyStatusIdx({ index: myNewStatusIdx, preventSpam: true })
-                document.querySelector('.status').style.height = '3.5rem'
+                document.querySelector('.status').style.height = '4.5vw'
                 console.log(myStatusIdx)
 
                 setTimeout(() => {
@@ -208,12 +215,13 @@ export default function Accueil() {
 
     return (
         <>
-            <svg className="section__accueil-bg-svg"
-                viewBox="0 0 659 810">
+            <svg className="section__accueil-bg-svg section-bg-svg"
+                viewBox="0 0 100 100">
                 <path id="section__accueil-bg-svg-elt"
-                    d="M 316.24 0 L 0 810 H 659 V 286.161 L 316.24 0 Z"
+                    d="m 12,100 c 0,0 -38,-118 34,-87 20.5,9 54,30 54,30 v 57 z"
                 />
             </svg>
+
             <section className="section__accueil">
 
                 <h1 className="full-name">
@@ -243,7 +251,7 @@ export default function Accueil() {
                             bounds="parent"
                             onDrag={handlePullMeDrag}
                         >
-                            <div className="pull-me-face">
+                            <div className="pull-me-face pull-me">
                                 pull
                                 <FontAwesomeIcon icon={faChevronDown} />
                             </div>
@@ -251,9 +259,19 @@ export default function Accueil() {
                     </div>
                 </div>
 
-                <p className="status">
+                <div className="chest-container">
+                    <div className="chest-top">
+                        <div className="chest-top-front">
+                        </div>
+                    </div>
+                    <div className="chest-bottom">
+                        click me <FontAwesomeIcon icon={faHandPointLeft} />
+                    </div>
+                </div>
+
+                <div className="status">
                     {myStatus[myStatusIdx.index]}
-                </p>
+                </div>
 
                 <button
                     className="reload-status"
@@ -266,27 +284,18 @@ export default function Accueil() {
                 </p> */}
 
                 <div className="social-network__accueil">
-                    <a href="https://github.com/maxew33" target="_blank">
+                    <a href="https://github.com/maxew33" target="_blank" rel="noopener">
                         <FontAwesomeIcon icon={faGithub} />
                     </a>
-                    <a href="https://www.linkedin.com/in/maxime-malfilatre-1a3b97204/" target="_blank">
+                    <a href="https://www.linkedin.com/in/maxime-malfilatre-1a3b97204/" target="_blank" rel="noopener">
                         <FontAwesomeIcon icon={faLinkedin} />
                     </a>
-                    <a href="https://twitter.com/m4xew" target="_blank">
+                    <a href="https://twitter.com/m4xew" target="_blank" rel="noopener">
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>
-                    <a href="https://codepen.io/maxew33" target="_blank">
+                    <a href="https://codepen.io/maxew33" target="_blank" rel="noopener">
                         <FontAwesomeIcon icon={faCodepen} />
                     </a>
-                </div>
-
-                <div className="chest-container">
-                    <div className="chest-top">
-                        <div className="chest-top-front">
-                        </div>
-                    </div>
-                    <div className="chest-bottom">
-                    </div>
                 </div>
 
                 {chestObjects.map((item, index) => {

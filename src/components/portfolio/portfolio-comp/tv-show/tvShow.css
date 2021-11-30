@@ -7,11 +7,12 @@
 }
 .section__tv-show .tv {
   position: absolute;
+  z-index: 10;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  height: 26rem;
-  width: 40rem;
+  height: 52vmin;
+  width: 80vmin;
   background: #5b4dcd;
   display: flex;
   align-items: center;
@@ -34,9 +35,9 @@
 .section__tv-show .tv .tv-screen .channel {
   position: absolute;
   font-family: "VT323", monospace;
-  top: 2.5rem;
-  right: 4rem;
-  font-size: 1.5rem;
+  top: 5vmin;
+  right: 8vmin;
+  font-size: 3vmin;
   color: lime;
 }
 .section__tv-show .tv .tv-screen .my-video {
@@ -56,8 +57,8 @@
   justify-content: space-evenly;
 }
 .section__tv-show .tv .rightSide .rightSide--tvButton {
-  width: 4vw;
-  height: 4vw;
+  width: 8vmin;
+  height: 8vmin;
   background: #38302e;
   display: flex;
   justify-content: center;

@@ -22,11 +22,11 @@
 }
 
 :root{
---color-1 : #F8E9A1;
---color-2 : #F76C6C; // face svg background
---color-3 : #A8D0E6; // face background
---color-4 : #374785; // portfolio container
---color-5 : #24305E; // portfolio container
+--color-1 : #374785;
+--color-2 : #e63946; // face svg background
+--color-3 : #d7e3fc; // face background
+--color-4 : #b6ccfe; // portfolio container
+--color-5 : #abc4ff; // portfolio container
 
 --font-1 : 'Kalam', cursive;
 --font-1b : 'Festive', cursive;
@@ -152,4 +152,32 @@ $color-5 : #24305E;
     .arrow-right{
         right: 2vmin
     }
+
+    .section-bg-svg{
+        position: absolute;
+        bottom: 0;
+        max-height: 100vmin;
+        width: 100vmin;
+
+        fill: var(--color-2);
+    }
+}
+
+.pull-me{
+    position: absolute;
+    height: 4.5vmin;
+    width: 5vmin;
+    left: calc(50% - 2vmin);
+    background: var(--color-1);
+    font-size: 1rem;
+    font-family: var(--font-2);
+    font-weight: bolder;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: none;
+    border-radius: 0 0 25px 25px;
+    cursor: grab;
 }
