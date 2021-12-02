@@ -37,8 +37,20 @@
         height: inherit;
         width: inherit;
         border-radius: 25px;
-        transition: transform 0.5s ease-in-out, background-color 0.5s ease-in;
-        background: hsl(0deg, 0%, 50%);
+        transition: transform 0.5s ease-in-out;
+        background: hsl(0deg, 0%, 50%);       
+        
+        &::before {
+            content: "";
+            position: absolute;
+            height: inherit;
+            width: inherit;
+            bottom: 0;
+            right: 0;
+            box-shadow: .3vw .15vw .1vw hsl(0deg, 0%, 0%, 0.125);
+            border-radius: 25px;
+        }
+        
 
         .portfolio-container__tab {
             position: absolute;
@@ -59,7 +71,7 @@
 
     .portfolio-container__part1 {
         transform-origin: bottom right;
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 10% 100%, 10% 55%, 0% 55%);
+        clip-path: polygon(0% 0%, 110% 0%, 110% 110%, 10% 110%, 10% 55%, 0% 55%);
         transform: rotate(var(--rotate-portfolio-container-top));
         background: var(--color-4);
 
@@ -70,7 +82,7 @@
 
     .portfolio-container__part2 {
         transform-origin: top right;
-        clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 45%, 10% 45%);
+        clip-path: polygon(10% 0%, 110% 0%, 110% 110%, 0% 110%, 0% 45%, 10% 45%);
         transform: rotate(var(--rotate-portfolio-container-bottom));
         background: var(--color-5);
 
@@ -206,13 +218,13 @@
     cursor: pointer;
 }
 
-.work-to-tv{
+.work-to-tv {
     height: 40vmin;
     width: 45vmin;
     display: grid;
     place-content: center;
 
-    button{
+    button {
         border: none;
         border-radius: 50%;
         height: 22.5vmin;
@@ -229,7 +241,7 @@
     transform: translateY(100%) rotateX(90deg);
 }
 
-.tv-show-container{
+.tv-show-container {
     position: absolute;
     height: 100vh;
     width: 100vw;

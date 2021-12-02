@@ -1,5 +1,5 @@
 :root {
-    --avatar-length-unit: .55vmin;
+    --avatar-length-unit: 0.55vmin;
     --avatar-clip-value: 0%;
 }
 
@@ -17,7 +17,7 @@
 h1 {
     font-family: var(--font-1);
     font-size: 8.5vw;
-    text-shadow: .3vw .1vw 0 hsl(0deg, 0%, 0%, 0.25);
+    text-shadow: 0.3vw 0.1vw 0 hsl(0deg, 0%, 0%, 0.25);
     letter-spacing: 0.25vw;
     grid-column: 1/4;
     grid-row: 1/5;
@@ -168,7 +168,7 @@ h1 {
 .status {
     position: relative;
     font-family: var(--font-2);
-    font-size: 2.75vw;    
+    font-size: 2.75vw;
     height: 4.5vw;
     overflow: hidden;
     grid-row: 5 / 7;
@@ -180,7 +180,7 @@ h1 {
 
 .reload-status {
     grid-row: 6;
-    font-size: 1.5vw;    
+    font-size: 1.5vw;
     grid-column: 1 / 4;
     align-self: center;
     justify-self: center;
@@ -198,7 +198,7 @@ h1 {
     font-family: var(--font-2);
     grid-row: 6 / 8;
     grid-column: 1 / 4;
-    align-self: top;
+    align-self: start;
     justify-self: center;
     width: 30vw;
 }
@@ -211,7 +211,7 @@ h1 {
     grid-column: 3 / 5;
     grid-row: 6 / 9;
     justify-self: center;
-    align-self: bottom;
+    align-self: end;
 
     .chest-top {
         position: relative;
@@ -250,6 +250,51 @@ h1 {
         border-radius: 0% 0% 50% 50%;
     }
 }
+
+.to-chest-arrow {
+    width: 6vw;
+    height: auto;
+    grid-row: 5;
+    grid-column: 4;
+    align-self: end;
+
+    & path {
+        stroke: var(--color-1);
+        stroke-width: 2.5px;
+        stroke-linecap: round;
+        fill: transparent;
+        stroke-dasharray: 170;
+        stroke-dashoffset: 170;
+        animation: draw-chest-arrow 1s ease-in-out forwards;
+    }
+}
+
+@keyframes draw-chest-arrow {
+    from {
+        stroke-dashoffset: 170;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+// .to-chest-arrow-txt {
+//     position: relative;
+//     bottom: 5.25vw;
+//     width: auto;
+//     height: 2vw;
+//     grid-row: 5;
+//     grid-column: 4;
+//     align-self: end;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: 1.5vw;
+//     font-weight: bold;    
+//     font-family: var(--font-2);
+//     color: var(--color-1);
+// }
+
 
 .social-network__accueil {
     grid-row: 7 / 9;

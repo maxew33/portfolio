@@ -113,6 +113,8 @@ export default function Work() {
 
         document.querySelector('.section__work').classList.toggle('section__work--hidden')
         document.querySelector('.section__tv-show').classList.toggle('section__tv-show--hidden')
+
+        Array.from(document.querySelectorAll('.arrow')).forEach(arrow => arrow.classList.toggle('arrow--hidden'))
     }
 
     // change the portfolio container
@@ -302,6 +304,7 @@ export default function Work() {
                         </ul>
 
                     </div>
+
                 </div>
 
                 <svg className="section__work-bg-svg-1 section-bg-svg"

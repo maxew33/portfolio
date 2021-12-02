@@ -1,5 +1,5 @@
 :root {
-  --avatar-length-unit: .55vmin;
+  --avatar-length-unit: 0.55vmin;
   --avatar-clip-value: 0%;
 }
 
@@ -93,53 +93,53 @@ h1 span:nth-child(2) {
 }
 
 .accessory-container1 {
-  left: 57%;
-  bottom: 48%;
+  left: 48%;
+  bottom: 36%;
 }
 
 .accessory-container2 {
-  left: 49%;
-  bottom: 42%;
+  left: 54%;
+  bottom: 41%;
 }
 
 .accessory-container3 {
-  left: 44%;
+  left: 58%;
   bottom: 47%;
 }
 
 .accessory-container4 {
-  left: 47%;
-  bottom: 38%;
+  left: 58%;
+  bottom: 43%;
 }
 
 .accessory-container5 {
-  left: 54%;
-  bottom: 39%;
-}
-
-.accessory-container6 {
-  left: 52%;
-  bottom: 44%;
-}
-
-.accessory-container7 {
-  left: 43%;
-  bottom: 41%;
-}
-
-.accessory-container8 {
-  left: 42%;
+  left: 55%;
   bottom: 36%;
 }
 
-.accessory-container9 {
+.accessory-container6 {
+  left: 60%;
+  bottom: 46%;
+}
+
+.accessory-container7 {
+  left: 47%;
+  bottom: 49%;
+}
+
+.accessory-container8 {
   left: 58%;
-  bottom: 45%;
+  bottom: 47%;
+}
+
+.accessory-container9 {
+  left: 50%;
+  bottom: 46%;
 }
 
 .accessory-container10 {
   left: 53%;
-  bottom: 44%;
+  bottom: 41%;
 }
 
 .accessory-hidden {
@@ -187,7 +187,7 @@ h1 span:nth-child(2) {
   font-family: var(--font-2);
   grid-row: 6/8;
   grid-column: 1/4;
-  align-self: top;
+  align-self: start;
   justify-self: center;
   width: 30vw;
 }
@@ -200,7 +200,7 @@ h1 span:nth-child(2) {
   grid-column: 3/5;
   grid-row: 6/9;
   justify-self: center;
-  align-self: bottom;
+  align-self: end;
 }
 .chest-container .chest-top {
   position: relative;
@@ -235,6 +235,41 @@ h1 span:nth-child(2) {
   border-radius: 0% 0% 50% 50%;
 }
 
+.to-chest-arrow {
+  width: 6vw;
+  height: auto;
+  grid-row: 5;
+  grid-column: 4;
+  align-self: end;
+}
+.to-chest-arrow path {
+  stroke: var(--color-1);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  fill: transparent;
+  stroke-dasharray: 170;
+  stroke-dashoffset: 170;
+  -webkit-animation: draw-chest-arrow 1s ease-in-out forwards;
+          animation: draw-chest-arrow 1s ease-in-out forwards;
+}
+
+@-webkit-keyframes draw-chest-arrow {
+  from {
+    stroke-dashoffset: 170;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-chest-arrow {
+  from {
+    stroke-dashoffset: 170;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 .social-network__accueil {
   grid-row: 7/9;
   grid-column: 1/3;

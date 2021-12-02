@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import MyLife from '../mylife/MyLife'
+import avatar from '../../assets/avatar.png'
 
 import './skills.css'
 
@@ -132,6 +133,12 @@ export default function Skills() {
                                 className="comp-drawn"
                                 d="m 86.867967,79.826523 c -6.689687,-2.18012 -20.517676,1.271998 -17.578342,6.828465 3.022341,5.713383 29.909444,5.219592 30.33509,-0.731967 0.178816,-2.500273 -3.01002,-4.378611 -5.34539,-5.289317 -3.322291,-1.295569 -10.690781,0.39016 -10.690781,0.39016" />
                         </svg>
+
+                        {/* <img
+                        className="avatar"
+                        src={avatar}
+                        alt='avatar'
+                        /> */}
 
                     </div>
 

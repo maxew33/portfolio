@@ -67,8 +67,10 @@
   z-index: 10;
 }
 .face .arrow {
-  position: fixed;
+  position: absolute;
   top: calc(50vh - 2rem);
+  width: max(2.5vw, 2.5vh);
+  height: max(2.5vw, 2.5vh);
   cursor: pointer;
   z-index: 100;
   border: none;
@@ -76,30 +78,59 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
+  transform-origin: calc(50vh + 2rem);
+}
+.face .arrow::after, .face .arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% - max(0.625vh, 0.625vw));
+  width: max(1.25vh, 1.25vw);
+  border: 1px solid black;
+  border-radius: 50%;
+  transition: 0.25s transform ease-in-out;
 }
 .face .arrow .component__navigation {
   position: absolute;
   transform: scale(0);
   overflow: hidden;
   transition: transform 0.25s ease-in-out;
-  font-size: 1rem;
+  font-size: 1.5vw;
 }
 .face .arrow .component__navigation-next-page {
-  right: 1.5rem;
+  right: 1.25vw;
   transform-origin: right;
 }
 .face .arrow .component__navigation-prev-page {
-  left: 1.5rem;
+  left: 1.25vw;
   transform-origin: left;
 }
-.face .arrow:hover .component__navigation {
-  transform: scale(1);
+.face .arrow:hover .component__navigation-prev-page {
+  transform: scale(1) translateX(1.25vw);
+}
+.face .arrow:hover .component__navigation-next-page {
+  transform: scale(1) translateX(-1.25vw);
+}
+.face .arrow:hover::before {
+  transform: rotate(45deg);
+}
+.face .arrow:hover::after {
+  transform: rotate(-45deg);
 }
 .face .arrow-left {
   left: 2vmin;
 }
+.face .arrow-left::before, .face .arrow-left::after {
+  transform-origin: left;
+}
 .face .arrow-right {
   right: 2vmin;
+}
+.face .arrow-right::before, .face .arrow-right::after {
+  transform-origin: right;
+}
+.face .arrow--hidden {
+  transform: translateY(calc(-50vh - 2rem)) rotateX(-90deg);
 }
 .face .section-bg-svg {
   position: absolute;

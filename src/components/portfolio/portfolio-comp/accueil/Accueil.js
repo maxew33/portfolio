@@ -181,9 +181,12 @@ export default function Accueil() {
     const handlePullMeDrag = (e, ui) => {
         const heightRef = document.querySelector('.pull-me-face-container').getBoundingClientRect().height - document.querySelector('.pull-me-face').getBoundingClientRect().height
 
-        const clipValue = (20 * ui.y / heightRef) + '%'
+        let clipValue = (21 * ui.y / heightRef)
+        clipValue > 20 && (clipValue = 20)
 
-        document.documentElement.style.setProperty('--avatar-clip-value', clipValue)
+        console.log(clipValue)
+
+        document.documentElement.style.setProperty('--avatar-clip-value', clipValue + '%')
     }
 
     const handleReloadStatus = () => {
@@ -259,6 +262,15 @@ export default function Accueil() {
                     </div>
                 </div>
 
+                <svg
+                    className="to-chest-arrow"
+                    viewBox="-5 -5 105 105">
+                    <path
+                        d="M 95,4 C 56,5 23,29 8.2,84 c -1,3 -4,-5 -5,-3 -3,8 -1,18 -1,17 3,1 9,-4 13,-9" />
+                </svg>
+{/* 
+                <div className="to-chest-arrow-txt">clic</div> */}
+
                 <div className="chest-container">
                     <div className="chest-top">
                         <div className="chest-top-front">
@@ -278,10 +290,6 @@ export default function Accueil() {
                     onClick={handleReloadStatus}>
                     <FontAwesomeIcon icon={faRedo} />
                 </button>
-
-                {/* <p className="presentation">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quam repellendus amet. Porro ad veniam laboriosam. Non placeat atque, tempore, consequuntur laudantium accusantium ad totam architecto blanditiis doloremque officiis? Explicabo eum nihil quas tempora aliquam, quos odit optio eligendi, porro minus, perferendis saepe vero id aliquid ab cumque deserunt necessitatibus.
-                </p> */}
 
                 <div className="social-network__accueil">
                     <a href="https://github.com/maxew33" target="_blank" rel="noopener">

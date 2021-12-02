@@ -27,15 +27,17 @@
   justify-content: center;
 }
 .section__skills .my-skills-container {
-  width: min(80vh, 100vw);
-  height: min(80vh, 100vw);
+  width: min(100vh, 100vw);
+  height: min(75vh, 75vw);
   background: whitesmoke;
-  border: 5px solid black;
+  border: 5px solid rgba(0, 0, 0, 0.85);
   border-radius: 5%;
-  box-shadow: 5px -2.5px 2.5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0.3vw 0.15vw 0.1vw rgba(0, 0, 0, 0.25);
+  display: grid;
+  place-content: center;
 }
 .section__skills .my-skills {
-  width: inherit;
+  width: min(75vh, 75vw);
   height: inherit;
   padding: 1%;
   display: grid;

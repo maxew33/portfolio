@@ -30,20 +30,12 @@ export default function Portfolio() {
 
         value < 0 ? dispatch({ type: 'TURN_LEFT' }) : dispatch({ type: 'TURN_RIGHT' })
 
+        Array.from(document.querySelectorAll('.component__navigation')).forEach(navigation => {
+            navigation.style.display = 'none'
+            console.log("toto")
+            setTimeout(() => { navigation.style.display = 'block' }, 250)
+        })
     }
-
-    /* Pour connaître le nb de tours complets faits */
-    // let turnNb = Math.floor(faceAngle / 360)
-
-    /* Pour savoir quelle est la face affichée */
-    // let faceVisible = 4 - (faceAngle - (360 * turnNb)) / 90
-    // faceVisible === 4 && (faceVisible = 0)
-
-    // let prevPage = faceVisible - 1
-    // prevPage < 0 && (prevPage = 3)
-
-    // let nextPage = faceVisible + 1
-    // nextPage > 3 && (nextPage = 0)
 
     let prevPage = face - 1
     prevPage < 0 && (prevPage = 3)
@@ -69,7 +61,7 @@ export default function Portfolio() {
                 id: uuidv4()
             },
             {
-                pageDisplayed: <Skills/* page={faceVisible}*/ />,
+                pageDisplayed: <Skills />,
                 id: uuidv4()
             },
             {
@@ -88,15 +80,12 @@ export default function Portfolio() {
                             <div key={arrayPages[index].id} className="face">
                                 <div className="content">
                                     <button className="arrow arrow-left" onClick={() => changeAngle(90)}>
-                                        <FontAwesomeIcon icon={faChevronLeft} />
-                                        {face}
                                         <span className="component__navigation component__navigation-prev-page">
                                             {pagesName[prevPage]}
                                         </span>
                                     </button>
                                     {arrayPages[index].pageDisplayed}
                                     <button className="arrow arrow-right" onClick={() => changeAngle(-90)}>
-                                        <FontAwesomeIcon icon={faChevronRight} />
                                         <span className="component__navigation component__navigation-next-page">
                                             {pagesName[nextPage]}
                                         </span>

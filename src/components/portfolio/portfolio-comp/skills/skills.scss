@@ -28,16 +28,18 @@
     }
 
     .my-skills-container{
-        width: min(80vh, 100vw);
-        height: min(80vh, 100vw);
+        width: min(100vh, 100vw);
+        height: min(75vh, 75vw);
         background: whitesmoke;
-        border: 5px solid black;
+        border: 5px solid hsl(0deg, 0%, 0%, .85);
         border-radius: 5%;
-        box-shadow: 5px -2.5px 2.5px hsl(0deg, 0%, 0%, .25);
+        box-shadow: .3vw .15vw .1vw hsl(0deg, 0%, 0%, 0.25);
+        display: grid;
+        place-content: center;
     }
 
     .my-skills {
-        width: inherit;
+        width: min(75vh, 75vw);
         height: inherit;
         padding: 1%;
         display: grid;
