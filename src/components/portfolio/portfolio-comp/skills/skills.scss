@@ -259,20 +259,25 @@ $boardparts: drawing-front-end-dev 125, drawing-arrow-html 9, drawing-html 75, d
     
 }
 
-
-
-.section__skills--hidden{
-    transform: translateY(100%) rotateX(90deg);
-}
-
-.section__my-life {
-    height: 100vh;
-    width: 100vw;
-    will-change: transform;
-    transform-origin: bottom;
-    transition: transform .5s ease-in-out;
-}
-
-.section__my-life--hidden{
-    transform: translateY(-100%) rotateX(-90deg);
+@media (orientation: portrait){
+    .section__skills {
+    
+        .my-skills-container{
+            width: 95vw;
+            height: 65vh;
+        }
+    
+        .my-skills {
+            width: 90vw;
+            height: 90vw;
+    
+            .competence{
+                font-size: 2rem;
+            }
+        
+            .comp1{
+                font-size: 2.25rem;           
+            }
+        }
+    }
 }

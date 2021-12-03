@@ -521,18 +521,19 @@
     opacity: 1;
   }
 }
-.section__skills--hidden {
-  transform: translateY(100%) rotateX(90deg);
-}
-
-.section__my-life {
-  height: 100vh;
-  width: 100vw;
-  will-change: transform;
-  transform-origin: bottom;
-  transition: transform 0.5s ease-in-out;
-}
-
-.section__my-life--hidden {
-  transform: translateY(-100%) rotateX(-90deg);
+@media (orientation: portrait) {
+  .section__skills .my-skills-container {
+    width: 95vw;
+    height: 65vh;
+  }
+  .section__skills .my-skills {
+    width: 90vw;
+    height: 90vw;
+  }
+  .section__skills .my-skills .competence {
+    font-size: 2rem;
+  }
+  .section__skills .my-skills .comp1 {
+    font-size: 2.25rem;
+  }
 }/*# sourceMappingURL=skills.css.map */

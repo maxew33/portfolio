@@ -49,7 +49,7 @@ export default function Contact() {
               </div>
               <div className="postcard-right">
                 <div className="postcard-right-timbre">
-                  <img className="postcard-right-timbre-img" src="https://www.lecarredencre.fr/wp-content/uploads/2020/10/1120900-France-Fete-du-TP-204-Cabriolet-TP-scaled.jpg" />
+                  TIMBRE
                 </div>
                 <div className="postcard-right-exp">
                   <div className="postcard-right-nom">maxew</div>

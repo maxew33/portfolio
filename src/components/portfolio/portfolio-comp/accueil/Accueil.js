@@ -7,19 +7,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRedo, faChevronDown, faHandPointLeft } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faLinkedin, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import body from '../../assets/body.png'
-import headCartoon from '../../assets/head-cartoon.png'
-import headReal from '../../assets/head-real.png'
-import mustache from '../../assets/mustache.png'
-import glasses from '../../assets/glasses.png'
-import beard from '../../assets/beard.png'
-import bowTie from '../../assets/bow-tie.png'
-import fancy from '../../assets/fancy.png'
-import hat1 from '../../assets/hat1.png'
-import hat2 from '../../assets/hat2.png'
-import tie from '../../assets/tie.png'
-import helmet from '../../assets/helmet.png'
-import mustache2 from '../../assets/mustache2.png'
+import body from '../../assets/body.svg'
+import headCartoon from '../../assets/head-cartoon.svg'
+import headReal from '../../assets/head-real.webp'
+import mustache from '../../assets/mustache.svg'
+import glasses from '../../assets/glasses.svg'
+import beard from '../../assets/beard.svg'
+import beard2 from '../../assets/beard2.svg'
+import bowTie from '../../assets/bow-tie.svg'
+import fancy from '../../assets/fancy.svg'
+import hat1 from '../../assets/hat1.svg'
+import hat2 from '../../assets/hat2.svg'
+import tie from '../../assets/tie.svg'
+import helmet from '../../assets/helmet.svg'
+import mustache2 from '../../assets/mustache2.svg'
 
 import './accueil.css'
 
@@ -42,8 +43,8 @@ export default function Accueil() {
         },
         {
             src: beard,
-            alt: "goat beard",
-            width: 'calc(25 * var(--avatar-length-unit))',
+            alt: "big beard",
+            width: 'calc(35* var(--avatar-length-unit))',
             zIndex: 10,
             id: uuidv4()
         },
@@ -65,6 +66,13 @@ export default function Accueil() {
             src: hat1,
             alt: "hat",
             width: 'calc(55 * var(--avatar-length-unit))',
+            zIndex: 10,
+            id: uuidv4()
+        },
+        {
+            src: beard2,
+            alt: "small beard",
+            width: 'calc(35 * var(--avatar-length-unit))',
             zIndex: 10,
             id: uuidv4()
         },
@@ -192,6 +200,7 @@ export default function Accueil() {
     const handleReloadStatus = () => {
 
         if (!myStatusIdx.preventSpam) {
+            const statusHeight = document.querySelector('.status').getBoundingClientRect().height
             document.querySelector('.status').style.height = 0
 
             setReloadButtonRotation(reloadButtonRotation + 360)
@@ -201,12 +210,11 @@ export default function Accueil() {
             setMyStatusIdx({ index: myStatusIdx.index, preventSpam: true })
 
             setTimeout(() => {
-                console.log('click')
                 let myNewStatusIdx = myStatusIdx.index
                 myNewStatusIdx++
                 myNewStatusIdx >= myStatus.length && (myNewStatusIdx = 0)
                 setMyStatusIdx({ index: myNewStatusIdx, preventSpam: true })
-                document.querySelector('.status').style.height = '4.5vw'
+                document.querySelector('.status').style.height = statusHeight + 'px'
                 console.log(myStatusIdx)
 
                 setTimeout(() => {
@@ -261,15 +269,6 @@ export default function Accueil() {
                         </Draggable>
                     </div>
                 </div>
-
-                <svg
-                    className="to-chest-arrow"
-                    viewBox="-5 -5 105 105">
-                    <path
-                        d="M 95,4 C 56,5 23,29 8.2,84 c -1,3 -4,-5 -5,-3 -3,8 -1,18 -1,17 3,1 9,-4 13,-9" />
-                </svg>
-{/* 
-                <div className="to-chest-arrow-txt">clic</div> */}
 
                 <div className="chest-container">
                     <div className="chest-top">

@@ -158,7 +158,6 @@ $color-5: #24305e;
                 transform: scale(1) translateX(-1.25vw);
             }
 
-
             &::before {
                 transform: rotate(45deg);
             }
@@ -166,6 +165,10 @@ $color-5: #24305e;
             &::after {
                 transform: rotate(-45deg);
             }
+        }
+
+        .chevron {
+            display: none;
         }
     }
 
@@ -216,4 +219,37 @@ $color-5: #24305e;
     border: none;
     border-radius: 0 0 25px 25px;
     cursor: grab;
+}
+
+@media (orientation: portrait) {
+    .face .arrow {
+        position: absolute;
+        top: 5vh;
+        width: max(2.5vw, 2.5vh);
+        height: max(2.5vw, 2.5vh);
+        cursor: pointer;
+        z-index: 100;
+        border: none;
+        background: none;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        transform-origin: calc(50vh + 2rem);
+
+        &::after,
+        &::before {
+            content: "";
+            display: none;
+        }
+
+        .chevron {
+            display: block;
+        }
+    }
+
+    .pull-me {
+        height: 7.5vmin;
+        width: 10vmin;
+        left: calc(50% - 5vmin);
+    }
 }

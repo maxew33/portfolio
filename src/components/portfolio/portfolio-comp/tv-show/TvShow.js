@@ -55,7 +55,7 @@ export default function TvShow(props) {
     }, [channel])
 
     const playVideo = () => {
-
+        if (props.face === 'tv'){
         document.querySelector('.my-video').src = dataTvShow[channel].src
 
         document.querySelector('.my-video').play().then(() => {
@@ -63,6 +63,7 @@ export default function TvShow(props) {
         }).catch((error) => {
             console.error('pb avec la video:', error)
         })
+    }
 
     }
 
@@ -71,14 +72,14 @@ export default function TvShow(props) {
 
             <div className="h3">{dataTvShow[channel].name}</div>
 
-            <div class="tv">
+            <div className="tv">
                 <div className="tv-screen">
                     <div className="channel">
                         {channel + 1}
                     </div>
                     <video
                         className="my-video"
-                        loop="true">
+                        loop={true}>
 
                         <source
                             src={dataTvShow[channel].src}
@@ -89,20 +90,20 @@ export default function TvShow(props) {
                     </video>
                 </div>
 
-                <div class="rightSide">
+                <div className="rightSide">
                     <div
-                        class="rightSide--tvButton"
+                        className="rightSide--tvButton"
                         onClick={() => handleClick(1)}>
-                        <div class="rightSide--tvButton-line">
+                        <div className="rightSide--tvButton-line">
                         </div>
                     </div>
                     <div
-                        class="rightSide--tvButton"
+                        className="rightSide--tvButton"
                         onClick={() => handleClick(-1)}>
-                        <div class="rightSide--tvButton-line">
+                        <div className="rightSide--tvButton-line">
                         </div>
                     </div>
-                    <div class="rightSide--sound">
+                    <div className="rightSide--sound">
                         <div></div>
                         <div></div>
                         <div></div>

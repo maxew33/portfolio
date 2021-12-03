@@ -1,8 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import MyLife from '../mylife/MyLife'
-import avatar from '../../assets/avatar.png'
+// import avatar from '../../assets/avatar.png'
 
 import './skills.css'
 
@@ -39,12 +38,6 @@ export default function Skills() {
                     </p>
                 </div>
 
-                {/* <button
-                    className="toggle-section-skills"
-                    onClick={toggleSectionSkills}>
-                    toggle
-                </button> */}
-
                 <div className="my-skills-container">
 
                     <div className="my-skills">
@@ -55,10 +48,10 @@ export default function Skills() {
                         <p className="competence comp4">Javascript</p>
                         <p className="competence comp5">Scss</p>
                         <p className="competence comp6">React</p>
-                        <p className="competence comp7">Orthographe</p>
+                        <p className="competence comp7">Github</p>
                         <p className="competence comp8">Figma</p>
                         <p className="competence comp9">English spoken</p>
-                        <p className="competence comp10">Fast learner</p>
+                        <p className="competence comp10">Emailing</p>
 
                         <svg
                             id="whiteboard"
@@ -134,19 +127,11 @@ export default function Skills() {
                                 d="m 86.867967,79.826523 c -6.689687,-2.18012 -20.517676,1.271998 -17.578342,6.828465 3.022341,5.713383 29.909444,5.219592 30.33509,-0.731967 0.178816,-2.500273 -3.01002,-4.378611 -5.34539,-5.289317 -3.322291,-1.295569 -10.690781,0.39016 -10.690781,0.39016" />
                         </svg>
 
-                        {/* <img
-                        className="avatar"
-                        src={avatar}
-                        alt='avatar'
-                        /> */}
-
                     </div>
 
                 </div>
 
             </section>
-
-            
 
             <svg className="section__skills-bg-svg-1 section-bg-svg"
                     viewBox="0 0 100 100">
@@ -160,16 +145,6 @@ export default function Skills() {
                         d="M 100,100 V 0 H 60 c 0,0 35,30 35,50 0,20 -37,50 -37,50 z"
                     />
                 </svg>
-{/* 
-            <section className="section__my-life section__my-life--hidden">
-                <div>my life</div>
-                <button
-                    className="toggle-section-skills"
-                    onClick={toggleSectionSkills}>
-                    toggle
-                </button>
-                <MyLife/>
-            </section> */}
         </>
     )
 }

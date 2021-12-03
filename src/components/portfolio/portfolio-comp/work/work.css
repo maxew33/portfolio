@@ -225,4 +225,92 @@
   height: 100vh;
   width: 100vw;
   z-index: 5;
+}
+
+@media (orientation: portrait) {
+  /* Set classes for portfolio animation : index opacity */
+  .portfolio-container {
+    width: 100vmin;
+    height: 80vh;
+    transform: translate(-50%, calc(10vh - 50%));
+  }
+  .portfolio-container .portfolio-container__part {
+    border-radius: 25px 25px 0 0;
+  }
+  .portfolio-container .portfolio-container__part::before {
+    display: none;
+  }
+  .portfolio-container .portfolio-container__part .portfolio-container__tab {
+    height: 10%;
+    width: 50%;
+    top: 0;
+  }
+  .portfolio-container .portfolio-container__part .portfolio-container__tab div {
+    font-size: 2.5rem;
+    transform: rotate(0deg);
+  }
+  .portfolio-container .portfolio-container__part1 {
+    -webkit-clip-path: polygon(0% 0%, 55% 0%, 55% 10%, 110% 10%, 110% 110%, 0% 110%);
+            clip-path: polygon(0% 0%, 55% 0%, 55% 10%, 110% 10%, 110% 110%, 0% 110%);
+  }
+  .portfolio-container .portfolio-container__part1 .portfolio-container__tab {
+    left: 0;
+  }
+  .portfolio-container .portfolio-container__part2 {
+    transform-origin: bottom left;
+    -webkit-clip-path: polygon(0% 10%, 45% 10%, 45% 0%, 110% 0%, 110% 110%, 0% 110%);
+            clip-path: polygon(0% 10%, 45% 10%, 45% 0%, 110% 0%, 110% 110%, 0% 110%);
+  }
+  .portfolio-container .portfolio-container__part2 .portfolio-container__tab {
+    left: 50vw;
+  }
+
+  /* Set portfolio container content*/
+  .portfolio__cards {
+    position: relative;
+    left: 0;
+    top: 8vh;
+    width: 100vw;
+    height: 72vh;
+  }
+  .portfolio__cards .portfolio__cards-item {
+    height: 36vh;
+  }
+  .portfolio__cards .portfolio__card {
+    height: 28.8vh;
+  }
+  .portfolio__cards .portfolio__card-work-wrapper .portfolio__card-work-img {
+    height: 22.5vh;
+  }
+  .portfolio__cards .portfolio__card-work-wrapper .portfolio__card-work-img img {
+    height: 22.5vh;
+  }
+  .portfolio__cards .portfolio__card-work-wrapper .portfolio__card-work-title {
+    height: 6.3vh;
+    font-size: 2rem;
+  }
+  .portfolio__cards .portfolio__card-text {
+    top: 6.3vh;
+    height: 22.5vh;
+    width: inherit;
+  }
+  .portfolio__cards .portfolio__card-text .portfolio__card-text-container {
+    line-height: 2rem;
+    font-size: 1.75rem;
+  }
+  .portfolio__cards .portfolio__card-btn-container {
+    position: relative;
+    width: inherit;
+    height: 7vh;
+  }
+  .portfolio__cards .portfolio__card-btn-container .portfolio__card-pull-me-front {
+    position: absolute;
+    height: 4vmin;
+    width: 10vmin;
+    left: calc(50% - 5vmin);
+    background: var(--color-1);
+  }
+  .portfolio__cards .portfolio__card-btn-container .portfolio__card-pull-me-front::after {
+    width: 15vmin;
+  }
 }/*# sourceMappingURL=work.css.map */

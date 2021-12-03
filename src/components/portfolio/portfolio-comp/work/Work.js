@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
@@ -8,13 +8,13 @@ import TvShow from '../tv-show/TvShow'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-import portfolioBen from '../../assets/portfolio-ben.png'
-import carousel from '../../assets/carousel.png'
-import newsletter from '../../assets/newsletter.png'
-import cocktail from '../../assets/cocktail.png'
-import datePicker from '../../assets/date-picker.png'
-import productPage from '../../assets/product-page.png'
-import maxamp from '../../assets/maxamp.png'
+import portfolioBen from '../../assets/portfolio-ben.webp'
+import carousel from '../../assets/carousel.webp'
+import newsletter from '../../assets/newsletter.webp'
+import cocktail from '../../assets/cocktail.webp'
+import datePicker from '../../assets/date-picker.webp'
+import productPage from '../../assets/product-page.webp'
+import maxamp from '../../assets/maxamp.webp'
 
 import './work.css'
 export default function Work() {
@@ -98,13 +98,13 @@ export default function Work() {
     let portfolioTopAngle = 0,
         portfolioBottomAngle = 0
 
-        
+
     // toggle between work n tv
 
     const toggleSectionWork = () => {
 
         console.log(faceDisplayed)
-               
+
         let newFaceDisplayed
         faceDisplayed === 'work' ? newFaceDisplayed = 'tv' : newFaceDisplayed = 'work'
         setFaceDisplayed(newFaceDisplayed)
@@ -129,10 +129,6 @@ export default function Work() {
             portfolioBottomAngle -= 360
             document.documentElement.style.setProperty('--rotate-portfolio-container-bottom', portfolioBottomAngle + 'deg')
         }
-
-        // document.querySelector('.portfolio-container__part1').style.backgroundColor = tab === 'part1' ? 'hsl(0deg, 0%, 75%)' : 'hsl(0deg, 0%, 50%)'
-
-        // document.querySelector('.portfolio-container__part2').style.backgroundColor = tab === 'part2' ? 'hsl(0deg, 0%, 75%)' : 'hsl(0deg, 0%, 50%)'
 
         setTimeout(() => {
 
@@ -198,7 +194,6 @@ export default function Work() {
 
                                         {/* draggable btn, pull => hide img wtih clip path / let text appear*/}
                                         <div className="portfolio__card-btn-container">
-
 
                                             <div
                                                 className="portfolio__card-pull-me-front"
@@ -327,30 +322,28 @@ export default function Work() {
 
                 <div className="tv-show-container">
 
-<button
-    className="toggle-section-work"
-    onClick={toggleSectionWork}>
-    toggle
-</button>
-<TvShow face={faceDisplayed}/>
+                    <button
+                        className="toggle-section-work"
+                        onClick={toggleSectionWork}>
+                        toggle
+                    </button>
+                    <TvShow face={faceDisplayed} />
 
                 </div>
 
-                
+                <svg className="section__work-bg-svg-1 section-bg-svg"
+                    viewBox="0 0 100 100">
+                    <path id="section__work-bg-svg-1-elt"
+                        d="M 0,0 V 0 C 2,5 70,5 80,0 Z m 77,14 c 24,16 2.8,86 2.8,86 H 0 V 43 C 0,43 54,-1 77,14 Z"
+                    />
+                </svg>
 
-            <svg className="section__work-bg-svg-1 section-bg-svg"
-                viewBox="0 0 100 100">
-                <path id="section__work-bg-svg-1-elt"
-                    d="M 0,0 V 0 C 2,5 70,5 80,0 Z m 77,14 c 24,16 2.8,86 2.8,86 H 0 V 43 C 0,43 54,-1 77,14 Z"
-                />
-            </svg>
-
-            <svg className="section__work-bg-svg-2 section-bg-svg"
-                viewBox="0 0 100 100">
-                <path id="section__work-bg-svg-2-elt"
-                    d="m 51.867461,-0.132292 c 0,0 16.796301,2.180679 25.239682,2.1419652 7.620296,-0.03494 22.760563,-2.1419652 22.760563,-2.1419652 z M 100,100 H 52 c 0,0 -8.38193,-37.800392 -2,-55 4.266893,-11.499481 14.356887,-20.903396 25,-27 7.40394,-4.241136 25,-5.5 25,-5.5 z"
-                />
-            </svg>
+                <svg className="section__work-bg-svg-2 section-bg-svg"
+                    viewBox="0 0 100 100">
+                    <path id="section__work-bg-svg-2-elt"
+                        d="m 51.867461,-0.132292 c 0,0 16.796301,2.180679 25.239682,2.1419652 7.620296,-0.03494 22.760563,-2.1419652 22.760563,-2.1419652 z M 100,100 H 52 c 0,0 -8.38193,-37.800392 -2,-55 4.266893,-11.499481 14.356887,-20.903396 25,-27 7.40394,-4.241136 25,-5.5 25,-5.5 z"
+                    />
+                </svg>
 
             </section>
         </>

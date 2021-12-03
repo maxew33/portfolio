@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useSwipeable } from 'react-swipeable'
 import { useSelector, useDispatch } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -32,10 +33,16 @@ export default function Portfolio() {
 
         Array.from(document.querySelectorAll('.component__navigation')).forEach(navigation => {
             navigation.style.display = 'none'
-            console.log("toto")
             setTimeout(() => { navigation.style.display = 'block' }, 250)
         })
     }
+
+    const handlers = useSwipeable({
+        onSwipedLeft: () => changeAngle(-90),
+        onSwipedRight: () => changeAngle(90),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true
+    })
 
     let prevPage = face - 1
     prevPage < 0 && (prevPage = 3)
@@ -73,13 +80,16 @@ export default function Portfolio() {
 
     return (
         <>
-            <div className="spinner-container">
+            <div className="spinner-container" {...handlers}>
                 <div className="spinner" style={{ transform: "rotateY(" + faceAngle + "deg)" }}>
                     {arrayPages.map((item, index) => {
                         return (
                             <div key={arrayPages[index].id} className="face">
                                 <div className="content">
                                     <button className="arrow arrow-left" onClick={() => changeAngle(90)}>
+                                        <div className="chevron">
+                                            <FontAwesomeIcon icon={faChevronLeft} />
+                                        </div>
                                         <span className="component__navigation component__navigation-prev-page">
                                             {pagesName[prevPage]}
                                         </span>
@@ -89,6 +99,9 @@ export default function Portfolio() {
                                         <span className="component__navigation component__navigation-next-page">
                                             {pagesName[nextPage]}
                                         </span>
+                                        <div className="chevron">
+                                            <FontAwesomeIcon icon={faChevronRight} />
+                                        </div>
                                     </button>
                                 </div>
                             </div>
