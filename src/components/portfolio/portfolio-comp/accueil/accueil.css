@@ -94,58 +94,58 @@ h1 span:nth-child(2) {
 }
 
 .accessory-container1 {
-  left: 41%;
-  bottom: 50%;
+  left: 54%;
+  bottom: 49%;
 }
 
 .accessory-container2 {
-  left: 52%;
-  bottom: 45%;
+  left: 58%;
+  bottom: 41%;
 }
 
 .accessory-container3 {
-  left: 49%;
-  bottom: 36%;
+  left: 51%;
+  bottom: 48%;
 }
 
 .accessory-container4 {
-  left: 48%;
-  bottom: 50%;
+  left: 47%;
+  bottom: 38%;
 }
 
 .accessory-container5 {
-  left: 44%;
-  bottom: 45%;
+  left: 46%;
+  bottom: 48%;
 }
 
 .accessory-container6 {
-  left: 52%;
-  bottom: 39%;
+  left: 50%;
+  bottom: 36%;
 }
 
 .accessory-container7 {
-  left: 53%;
-  bottom: 50%;
+  left: 60%;
+  bottom: 40%;
 }
 
 .accessory-container8 {
-  left: 48%;
-  bottom: 46%;
+  left: 56%;
+  bottom: 38%;
 }
 
 .accessory-container9 {
   left: 41%;
-  bottom: 38%;
+  bottom: 36%;
 }
 
 .accessory-container10 {
-  left: 59%;
-  bottom: 42%;
+  left: 52%;
+  bottom: 48%;
 }
 
 .accessory-container11 {
-  left: 41%;
-  bottom: 47%;
+  left: 53%;
+  bottom: 43%;
 }
 
 .accessory-hidden {
@@ -293,6 +293,9 @@ h1 span:nth-child(2) {
     justify-self: center;
     align-self: flex-end;
   }
+  .reload-status:hover {
+    font-size: 1.75rem;
+  }
 
   .chest-container {
     height: 15rem;
@@ -316,47 +319,47 @@ h1 span:nth-child(2) {
   }
 
   .accessory-container1 {
-    left: 24%;
-  }
-
-  .accessory-container2 {
-    left: 29%;
-  }
-
-  .accessory-container3 {
-    left: 28%;
-  }
-
-  .accessory-container4 {
     left: 20%;
   }
 
+  .accessory-container2 {
+    left: 27%;
+  }
+
+  .accessory-container3 {
+    left: 20%;
+  }
+
+  .accessory-container4 {
+    left: 16%;
+  }
+
   .accessory-container5 {
-    left: 30%;
+    left: 12%;
   }
 
   .accessory-container6 {
-    left: 19%;
+    left: 25%;
   }
 
   .accessory-container7 {
-    left: 25%;
+    left: 16%;
   }
 
   .accessory-container8 {
-    left: 18%;
+    left: 21%;
   }
 
   .accessory-container9 {
-    left: 26%;
-  }
-
-  .accessory-container10 {
     left: 25%;
   }
 
+  .accessory-container10 {
+    left: 13%;
+  }
+
   .accessory-container11 {
-    left: 28%;
+    left: 11%;
   }
 
   .accessory-hidden {

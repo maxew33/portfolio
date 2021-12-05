@@ -306,6 +306,10 @@ h1 {
         grid-column: 2/4;
         justify-self: center;
         align-self: flex-end;
+
+        &:hover {
+            font-size: 1.75rem;
+        }
     }
 
     .chest-container {

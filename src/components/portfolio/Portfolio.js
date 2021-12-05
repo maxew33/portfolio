@@ -15,19 +15,21 @@ export default function Portfolio() {
 
     const [faceAngle, setFaceAngle] = useState(0)
 
-    const { face } = useSelector(state => ({
-        ...state.faceDisplayedReducer
+    const { face, drag } = useSelector(state => ({
+        ...state.faceDisplayedReducer,
+        ...state.dragWatchReducer
     }))
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         console.log('montage portfolio')
-
     }, [])
 
     const changeAngle = (value) => {
         setFaceAngle(faceAngle + value)
+
+        console.log(drag)
 
         value < 0 ? dispatch({ type: 'TURN_LEFT' }) : dispatch({ type: 'TURN_RIGHT' })
 
@@ -38,10 +40,16 @@ export default function Portfolio() {
     }
 
     const handlers = useSwipeable({
-        onSwipedLeft: () => changeAngle(-90),
-        onSwipedRight: () => changeAngle(90),
+        onSwipedLeft: () => {
+            console.log('drag ', drag)
+            !drag && changeAngle(-90)
+        },
+        onSwipedRight: () => {
+            console.log('drag ', drag)
+            !drag && changeAngle(90)
+        },
         preventDefaultTouchmoveEvent: true,
-        trackMouse: true
+        trackMouse: false
     })
 
     let prevPage = face - 1

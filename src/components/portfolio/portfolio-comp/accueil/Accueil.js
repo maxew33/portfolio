@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
@@ -25,6 +26,12 @@ import mustache2 from '../../assets/mustache2.svg'
 import './accueil.css'
 
 export default function Accueil() {
+
+    const dispatch = useDispatch()
+
+    const { drag } = useSelector(state => ({
+        ...state.dragWatchReducer
+    }))
 
     const [chestObjects, setChestObjects] = useState([
         {
@@ -172,6 +179,10 @@ export default function Accueil() {
 
     const handleStart = e => {
 
+        dispatch({ type: 'DRAG_START' })
+
+        console.log(drag)
+
         /* when I take an accessory, set its z index to 20 */
 
         const myId = parseInt(e.target.dataset.id)
@@ -184,6 +195,13 @@ export default function Accueil() {
         }
 
         setChestObjects(newArr)
+    }
+
+    const handleStop = () => {
+        setTimeout(() =>
+            dispatch({ type: 'DRAG_STOP' }), 50)
+
+        console.log(drag)
     }
 
     const handlePullMeDrag = (e, ui) => {
@@ -310,7 +328,8 @@ export default function Accueil() {
                         <Draggable
                             bounds="parent"
                             key={chestObjects[index].id}
-                            onStart={handleStart}>
+                            onStart={handleStart}
+                            onStop={handleStop}>
                             <div className={'accessory-container accessory-container' + (index + 1)}
                                 data-id={index}
                                 style={{
