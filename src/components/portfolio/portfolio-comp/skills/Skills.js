@@ -24,15 +24,17 @@ export default function Skills() {
     }, [face])
 
     useEffect(() => {
-        writeOnBoard && (setTimeout(function(){ document.querySelector('.my-skills').style.display='grid'}, 750))
+        writeOnBoard && (setTimeout(function () { document.querySelector('.my-skills').style.display = 'grid' }, 750))
     }, [writeOnBoard])
 
     return (
         <>
 
             <section className="section__skills">
+
+                <h2 className="section__title">Mes compétences</h2>
+
                 <div className="intro-of-myself">
-                    <h2>Mes compétences</h2>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil iusto eius impedit, saepe animi, aperiam modi blanditiis asperiores quo magnam dolor molestias nostrum quaerat? Explicabo.
                     </p>
@@ -134,17 +136,17 @@ export default function Skills() {
             </section>
 
             <svg className="section__skills-bg-svg-1 section-bg-svg"
-                    viewBox="0 0 100 100">
-                    <path id="section__skills-bg-svg-1-elt"
-                        d="M 0,100 V 13 C 0,13 36.163647,10.04591 46.464456,21.994335 63.45852,41.706604 57.202187,75.805111 49.85,100 Z"
-                    />
-                </svg>
-                <svg className="section__skills-bg-svg-2 section-bg-svg"
-                    viewBox="0 0 100 100">
-                    <path id="section__skills-bg-svg-2-elt"
-                        d="M 100,100 V 0 H 60 c 0,0 35,30 35,50 0,20 -37,50 -37,50 z"
-                    />
-                </svg>
+                viewBox="0 0 100 100">
+                <path id="section__skills-bg-svg-1-elt"
+                    d="M 0,100 V 13 C 0,13 36.163647,10.04591 46.464456,21.994335 63.45852,41.706604 57.202187,75.805111 49.85,100 Z"
+                />
+            </svg>
+            <svg className="section__skills-bg-svg-2 section-bg-svg"
+                viewBox="0 0 100 100">
+                <path id="section__skills-bg-svg-2-elt"
+                    d="M 100,100 V 0 H 60 c 0,0 35,30 35,50 0,20 -37,50 -37,50 z"
+                />
+            </svg>
         </>
     )
 }

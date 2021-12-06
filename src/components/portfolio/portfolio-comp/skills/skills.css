@@ -13,7 +13,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
   will-change: transform;
   transform-origin: top;
   transition: transform 0.5s ease-in-out;
@@ -27,8 +26,8 @@
   justify-content: center;
 }
 .section__skills .my-skills-container {
-  width: min(100vh, 100vw);
-  height: min(75vh, 75vw);
+  width: 100vmin;
+  height: 75vh;
   background: whitesmoke;
   border: 5px solid rgba(0, 0, 0, 0.85);
   border-radius: 5%;
@@ -37,7 +36,7 @@
   place-content: center;
 }
 .section__skills .my-skills {
-  width: min(75vh, 75vw);
+  width: 75vmin;
   height: inherit;
   padding: 1%;
   display: grid;
@@ -49,13 +48,13 @@
   justify-self: center;
   font-family: var(--font-1);
   font-weight: bold;
-  font-size: min(3vw, 3vh);
+  font-size: 3vmin;
   opacity: 0;
 }
 .section__skills .my-skills .comp1 {
   grid-row: 3;
   grid-column: 3/9;
-  font-size: min(3.75vw, 3.75vh);
+  font-size: 3.75vmin;
   -webkit-animation: 0.1s comp-apparition linear forwards;
           animation: 0.1s comp-apparition linear forwards;
 }
@@ -113,108 +112,108 @@
   -webkit-animation: 0.1s comp-apparition 8.78s linear forwards;
           animation: 0.1s comp-apparition 8.78s linear forwards;
 }
-.section__skills .my-skills svg {
+.section__skills .my-skills #whiteboard {
   grid-row: 1/11;
   grid-column: 1/11;
   display: block;
 }
-.section__skills .my-skills svg #front-end-dev {
+.section__skills .my-skills #whiteboard #front-end-dev {
   stroke-dasharray: 125;
   stroke-dashoffset: 125;
   -webkit-animation: 1.25s drawing-front-end-dev 0.1s linear forwards;
           animation: 1.25s drawing-front-end-dev 0.1s linear forwards;
 }
-.section__skills .my-skills svg #arrow-html {
+.section__skills .my-skills #whiteboard #arrow-html {
   stroke-dasharray: 9;
   stroke-dashoffset: 9;
   -webkit-animation: 0.09s drawing-arrow-html 1.35s linear forwards;
           animation: 0.09s drawing-arrow-html 1.35s linear forwards;
 }
-.section__skills .my-skills svg #HTML {
+.section__skills .my-skills #whiteboard #HTML {
   stroke-dasharray: 75;
   stroke-dashoffset: 75;
   -webkit-animation: 0.75s drawing-html 1.54s linear forwards;
           animation: 0.75s drawing-html 1.54s linear forwards;
 }
-.section__skills .my-skills svg #arrow-css {
+.section__skills .my-skills #whiteboard #arrow-css {
   stroke-dasharray: 15;
   stroke-dashoffset: 15;
   -webkit-animation: 0.15s drawing-arrow-css 2.29s linear forwards;
           animation: 0.15s drawing-arrow-css 2.29s linear forwards;
 }
-.section__skills .my-skills svg #CSS {
+.section__skills .my-skills #whiteboard #CSS {
   stroke-dasharray: 73;
   stroke-dashoffset: 73;
   -webkit-animation: 0.73s drawing-css 2.54s linear forwards;
           animation: 0.73s drawing-css 2.54s linear forwards;
 }
-.section__skills .my-skills svg #arrow-scss {
+.section__skills .my-skills #whiteboard #arrow-scss {
   stroke-dasharray: 15;
   stroke-dashoffset: 15;
   -webkit-animation: 0.15s drawing-arrow-scss 3.27s linear forwards;
           animation: 0.15s drawing-arrow-scss 3.27s linear forwards;
 }
-.section__skills .my-skills svg #scss {
+.section__skills .my-skills #whiteboard #scss {
   stroke-dasharray: 72;
   stroke-dashoffset: 72;
   -webkit-animation: 0.72s drawing-scss 3.52s linear forwards;
           animation: 0.72s drawing-scss 3.52s linear forwards;
 }
-.section__skills .my-skills svg #arrow-javascript {
+.section__skills .my-skills #whiteboard #arrow-javascript {
   stroke-dasharray: 13;
   stroke-dashoffset: 13;
   -webkit-animation: 0.13s drawing-arrow-javascript 4.24s linear forwards;
           animation: 0.13s drawing-arrow-javascript 4.24s linear forwards;
 }
-.section__skills .my-skills svg #javascript {
+.section__skills .my-skills #whiteboard #javascript {
   stroke-dasharray: 72;
   stroke-dashoffset: 72;
   -webkit-animation: 0.72s drawing-javascript 4.47s linear forwards;
           animation: 0.72s drawing-javascript 4.47s linear forwards;
 }
-.section__skills .my-skills svg #arrow-react {
+.section__skills .my-skills #whiteboard #arrow-react {
   stroke-dasharray: 11;
   stroke-dashoffset: 11;
   -webkit-animation: 0.11s drawing-arrow-react 5.19s linear forwards;
           animation: 0.11s drawing-arrow-react 5.19s linear forwards;
 }
-.section__skills .my-skills svg #react {
+.section__skills .my-skills #whiteboard #react {
   stroke-dasharray: 71;
   stroke-dashoffset: 71;
   -webkit-animation: 0.71s drawing-react 5.4s linear forwards;
           animation: 0.71s drawing-react 5.4s linear forwards;
 }
-.section__skills .my-skills svg #plus-vert {
+.section__skills .my-skills #whiteboard #plus-vert {
   stroke-dasharray: 5;
   stroke-dashoffset: 5;
   -webkit-animation: 0.05s drawing-plus-vert 6.11s linear forwards;
           animation: 0.05s drawing-plus-vert 6.11s linear forwards;
 }
-.section__skills .my-skills svg #plus-hor {
+.section__skills .my-skills #whiteboard #plus-hor {
   stroke-dasharray: 6;
   stroke-dashoffset: 6;
   -webkit-animation: 0.06s drawing-plus-hor 6.16s linear forwards;
           animation: 0.06s drawing-plus-hor 6.16s linear forwards;
 }
-.section__skills .my-skills svg #orthographe {
+.section__skills .my-skills #whiteboard #orthographe {
   stroke-dasharray: 81;
   stroke-dashoffset: 81;
   -webkit-animation: 0.81s drawing-orthographe 6.32s linear forwards;
           animation: 0.81s drawing-orthographe 6.32s linear forwards;
 }
-.section__skills .my-skills svg #figma {
+.section__skills .my-skills #whiteboard #figma {
   stroke-dasharray: 71;
   stroke-dashoffset: 71;
   -webkit-animation: 0.71s drawing-figma 7.23s linear forwards;
           animation: 0.71s drawing-figma 7.23s linear forwards;
 }
-.section__skills .my-skills svg #english-spoken {
+.section__skills .my-skills #whiteboard #english-spoken {
   stroke-dasharray: 74;
   stroke-dashoffset: 74;
   -webkit-animation: 0.74s drawing-english-spoken 8.04s linear forwards;
           animation: 0.74s drawing-english-spoken 8.04s linear forwards;
 }
-.section__skills .my-skills svg #fast-learner {
+.section__skills .my-skills #whiteboard #fast-learner {
   stroke-dasharray: 72;
   stroke-dashoffset: 72;
   -webkit-animation: 0.72s drawing-fast-learner 8.88s linear forwards;
@@ -527,8 +526,8 @@
     height: 65vh;
   }
   .section__skills .my-skills {
-    width: 90vw;
-    height: 90vw;
+    width: 65vh;
+    height: 65vh;
   }
   .section__skills .my-skills .competence {
     font-size: 2rem;

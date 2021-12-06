@@ -142,11 +142,20 @@
   fill: var(--color-2);
 }
 
+.section__title {
+  display: block;
+  height: 8rem;
+  line-height: 8rem;
+  font-family: var(--font-1);
+  text-align: center;
+  font-size: 5rem;
+}
+
 .pull-me {
   position: absolute;
   height: 4.5vmin;
   width: 5vmin;
-  left: calc(50% - 2vmin);
+  left: calc(50% - 2.5vmin);
   background: var(--color-1);
   font-size: 1rem;
   font-family: var(--font-2);

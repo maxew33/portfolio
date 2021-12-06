@@ -31,9 +31,9 @@
 .postcard-border{
     position: absolute;
     left: 50%;
-    margin-left: calc((var(--main-width)/-2));
+    margin-left: calc((var(--main-width) / -2));
     top: 50%;
-    margin-top: calc((var(--main-height)/-2));
+    margin-top: calc((var(--main-height) / -2));
     width: var(--main-width);
     height: var(--main-height);
     display: flex;
@@ -45,8 +45,8 @@
 
 .postcard{
     background: ivory;
-    width: calc((var(--main-width)*.95));
-    height: calc((var(--main-height) - (var(--main-width)*.05)));
+    width: calc((var(--main-width) * .95));
+    height: calc((var(--main-height) - calc(var(--main-width) * .05)));
     border: 1px solid grey;
     display: flex;
     flex-direction: row;
@@ -110,7 +110,7 @@ textarea:valid ~ label {
 }
 
 .postcard-left-message{
-    height: calc(var(--main-height)/5);
+    height: calc(var(--main-height) / 5);
 }
 
 textarea {
@@ -201,9 +201,9 @@ textarea, input {
 .enveloppe{
     position: absolute;
     left: 50%;
-    margin-left: calc((var(--main-width)/-2));
+    margin-left: calc((var(--main-width) / -2));
     top: 50%;
-    margin-top: calc((var(--main-height)/-2));
+    margin-top: calc((var(--main-height) / -2));
     width: var(--main-width);
     height: var(--main-height);
     background: transparent;
@@ -235,7 +235,7 @@ textarea, input {
     background: #E1E1E1;
     clip-path: polygon(0% 40%, 50% 0%, 100% 40%);
     animation: .5s ease-in-out .5s forwards fermeture;
-    transform-origin: 0 calc((var(--main-height)*.4));
+    transform-origin: 0 calc((var(--main-height) * .4));
 }
 
 @keyframes fermeture {

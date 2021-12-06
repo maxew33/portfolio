@@ -29,8 +29,6 @@ export default function Portfolio() {
     const changeAngle = (value) => {
         setFaceAngle(faceAngle + value)
 
-        console.log(drag)
-
         value < 0 ? dispatch({ type: 'TURN_LEFT' }) : dispatch({ type: 'TURN_RIGHT' })
 
         Array.from(document.querySelectorAll('.component__navigation')).forEach(navigation => {
@@ -41,11 +39,9 @@ export default function Portfolio() {
 
     const handlers = useSwipeable({
         onSwipedLeft: () => {
-            console.log('drag ', drag)
             !drag && changeAngle(-90)
         },
         onSwipedRight: () => {
-            console.log('drag ', drag)
             !drag && changeAngle(90)
         },
         preventDefaultTouchmoveEvent: true,

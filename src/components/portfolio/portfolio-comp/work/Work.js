@@ -6,75 +6,17 @@ import Draggable from 'react-draggable'
 import TvShow from '../tv-show/TvShow'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faLevelUpAlt, faChevronDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import portfolioBen from '../../assets/portfolio-ben.webp'
-import carousel from '../../assets/carousel.webp'
-import newsletter from '../../assets/newsletter.webp'
-import cocktail from '../../assets/cocktail.webp'
-import datePicker from '../../assets/date-picker.webp'
-import productPage from '../../assets/product-page.webp'
-import maxamp from '../../assets/maxamp.webp'
+import portfolioContentPartI from './portfolioContentPartI'
+import portfolioContentPartII from './portfolioContentPartII'
 
 import './work.css'
+
 export default function Work() {
 
     const [faceDisplayed, setFaceDisplayed] = useState('work')
-
-    const portfolioContentPartI = [
-        {
-            title: 'Portfolio Ben Priam',
-            img: portfolioBen,
-            gitLink: '',
-            txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
-            id: uuidv4()
-        },
-        {
-            title: 'Carousel',
-            img: carousel,
-            gitLink: '',
-            txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
-            id: uuidv4()
-        },
-        {
-            title: 'newsletter',
-            img: newsletter,
-            gitLink: '',
-            txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
-            id: uuidv4()
-        },
-        {
-            title: 'cocktail',
-            img: cocktail,
-            gitLink: '',
-            txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
-            id: uuidv4()
-        }
-    ]
-
-    const portfolioContentPartII = [
-        {
-            title: 'Maxamp',
-            img: maxamp,
-            gitLink: '',
-            txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
-            id: uuidv4()
-        },
-        {
-            title: 'Date Picker',
-            img: datePicker,
-            gitLink: '',
-            txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
-            id: uuidv4()
-        },
-        {
-            title: 'product page',
-            img: productPage,
-            gitLink: '',
-            txt: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus accusamus accusantium at a eius? Unde quo adipisci pariatur sed distinctio aut a illo asperiores dolore?',
-            id: uuidv4()
-        },
-    ]
 
     const handleDrag = (e, ui) => {
 
@@ -147,7 +89,7 @@ export default function Work() {
         <>
             <section className="section__work">
 
-                <h2>
+                <h2 className="section__title">
                     Mes réalisations
                 </h2>
 
@@ -171,19 +113,40 @@ export default function Work() {
                                         key={portfolioContentPartI[index].id}>
                                         <div className="portfolio__card">
 
-                                            <div className="portfolio__card-text">
-                                                <div className="portfolio__card-text-container">
-                                                    <p>
-                                                        {portfolioContentPartI[index].txt}
-                                                    </p>
-                                                </div>
-                                            </div>
-
                                             <div className="portfolio__card-work-wrapper" >
 
                                                 <h3 className="portfolio__card-work-title">
                                                     {portfolioContentPartI[index].title}
                                                 </h3>
+
+                                                <div className="portfolio__card-text">
+                                                    <div className="portfolio__card-text-container">
+                                                        <p>
+                                                            {portfolioContentPartI[index].prez}
+                                                            <span className="text-separation"></span>
+                                                            {portfolioContentPartI[index].txt}
+                                                        </p>
+                                                    </div>
+                                                    <div className="portfolio__card--links">
+
+                                                        {portfolioContentPartI[index].directLink && (
+                                                            <a href={portfolioContentPartI[index].directLink} target="_blank" rel="noopener">
+                                                                <FontAwesomeIcon icon={faExternalLinkAlt} />
+                                                            </a>
+                                                        )}
+                                                        {portfolioContentPartI[index].gitLink && (
+                                                            <a href={portfolioContentPartI[index].gitLink} target="_blank" rel="noopener">
+                                                                <FontAwesomeIcon icon={faGithub} />
+                                                            </a>
+                                                        )}
+                                                        {portfolioContentPartI[index].codePenLink && (
+                                                            <a href={portfolioContentPartI[index].codePenLink} target="_blank" rel="noopener">
+                                                                <FontAwesomeIcon icon={faCodepen} />
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                </div>
+
                                                 <div className="portfolio__card-work-img" id={"portfolio-container__part1-wrapper" + index}>
                                                     <img
                                                         src={portfolioContentPartI[index].img}
@@ -242,18 +205,40 @@ export default function Work() {
                                         key={portfolioContentPartII[index].id}>
                                         <div className="portfolio__card">
 
-                                            <div className="portfolio__card-text">
-                                                <div className="portfolio__card-text-container">
-                                                    <p>
-                                                        {portfolioContentPartII[index].txt}
-                                                    </p>
-                                                </div>
-                                            </div>
-
                                             <div className="portfolio__card-work-wrapper">
+
                                                 <h3 className="portfolio__card-work-title">
                                                     {portfolioContentPartII[index].title}
                                                 </h3>
+
+                                                <div className="portfolio__card-text">
+                                                    <div className="portfolio__card-text-container">
+                                                        <p>
+                                                            {portfolioContentPartII[index].prez}
+                                                            <span className="text-separation"></span>
+                                                            {portfolioContentPartII[index].txt}
+                                                        </p>
+                                                    </div>
+                                                    <div className="portfolio__card--links">
+
+                                                        {portfolioContentPartII[index].directLink && (
+                                                            <a href={portfolioContentPartII[index].directLink} target="_blank" rel="noopener">
+                                                                <FontAwesomeIcon icon={faExternalLinkAlt} />
+                                                            </a>
+                                                        )}
+                                                        {portfolioContentPartII[index].gitLink && (
+                                                            <a href={portfolioContentPartII[index].gitLink} target="_blank" rel="noopener">
+                                                                <FontAwesomeIcon icon={faGithub} />
+                                                            </a>
+                                                        )}
+                                                        {portfolioContentPartII[index].codePenLink && (
+                                                            <a href={portfolioContentPartII[index].codePenLink} target="_blank" rel="noopener">
+                                                                <FontAwesomeIcon icon={faCodepen} />
+                                                            </a>
+                                                        )}
+                                                    </div>
+                                                </div>
+
                                                 <div
                                                     className="portfolio__card-work-img"
                                                     id={"portfolio-container__part2-wrapper" + index}>
@@ -290,11 +275,30 @@ export default function Work() {
                                 )
                             })}
                             <li className="work-to-tv">
-                                <button
-                                    className="toggle-section-work"
-                                    onClick={toggleSectionWork}>
-                                    vu à la tv
-                                </button>
+                                <div className="work-to-tv__btn-container">
+                                    <button
+                                        className="toggle-section-work"
+                                        onClick={toggleSectionWork}>
+                                        Davantage en vidéo
+                                    </button>
+
+                                    <div className="work-to-tv__rightSide">
+                                        <div className="work-to-tv__rightSide--tvButton">
+                                            <div className="work-to-tv__rightSide--tvButton-line">
+                                            </div>
+                                        </div>
+                                        <div
+                                            className="work-to-tv__rightSide--tvButton">
+                                            <div className="work-to-tv__rightSide--tvButton-line">
+                                            </div>
+                                        </div>
+                                        <div className="work-to-tv__rightSide--sound">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
 
@@ -304,14 +308,14 @@ export default function Work() {
 
                 <svg className="section__work-bg-svg-1 section-bg-svg"
                     viewBox="0 0 100 100">
-                    <path id="section__work-bg-svg-1-elt"
+                    <path
                         d="m 77,14 c 24,16 2.8,86 2.8,86 H 0 V 43 C 0,43 54,-1 77,14 Z"
                     />
                 </svg>
 
                 <svg className="section__work-bg-svg-2 section-bg-svg"
                     viewBox="0 0 100 100">
-                    <path id="section__work-bg-svg-2-elt"
+                    <path
                         d="M 100,100 H 52 c 0,0 -8.38193,-37.800392 -2,-55 4.266893,-11.499481 14.356887,-20.903396 25,-27 7.40394,-4.241136 25,-5.5 25,-5.5 z"
                     />
                 </svg>
@@ -323,25 +327,47 @@ export default function Work() {
                 <div className="tv-show-container">
 
                     <button
-                        className="toggle-section-work"
+                        className="toggle-section-work toggle-section-work--right"
                         onClick={toggleSectionWork}>
-                        toggle
+                        Retour <FontAwesomeIcon icon={faLevelUpAlt} />
+                    </button>
+                    <button
+                        className="toggle-section-work toggle-section-work--left"
+                        onClick={toggleSectionWork}>
+                        <span className="toggle-section-work-icon"
+                        style={{display:'inline-block',transform:'rotateY(180deg'}}><FontAwesomeIcon icon={faLevelUpAlt} /></span> Retour
                     </button>
                     <TvShow face={faceDisplayed} />
 
                 </div>
 
+                <svg className="section__work-bg-svg-1 section-bg-svg section__work-bg-svg-top"
+                    viewBox="0 0 100 100">
+                    <path
+                        d="M 0,0 V 0 C 2,5 70,5 80,0 Z"
+                    />
+                </svg>
+
+                <svg className="section__work-bg-svg-2 section-bg-svg section__work-bg-svg-top"
+                    viewBox="0 0 100 100">
+                    <path
+                        d="m 51.867461,-0.132292 c 0,0 16.796301,2.180679 25.239682,2.1419652 7.620296,-0.03494 22.760563,-2.1419652 22.760563,-2.1419652 z"
+                    />
+                </svg>
+
+
+
                 <svg className="section__work-bg-svg-1 section-bg-svg"
                     viewBox="0 0 100 100">
-                    <path id="section__work-bg-svg-1-elt"
-                        d="M 0,0 V 0 C 2,5 70,5 80,0 Z m 77,14 c 24,16 2.8,86 2.8,86 H 0 V 43 C 0,43 54,-1 77,14 Z"
+                    <path
+                        d="m 77,14 c 24,16 2.8,86 2.8,86 H 0 V 43 C 0,43 54,-1 77,14 Z"
                     />
                 </svg>
 
                 <svg className="section__work-bg-svg-2 section-bg-svg"
                     viewBox="0 0 100 100">
-                    <path id="section__work-bg-svg-2-elt"
-                        d="m 51.867461,-0.132292 c 0,0 16.796301,2.180679 25.239682,2.1419652 7.620296,-0.03494 22.760563,-2.1419652 22.760563,-2.1419652 z M 100,100 H 52 c 0,0 -8.38193,-37.800392 -2,-55 4.266893,-11.499481 14.356887,-20.903396 25,-27 7.40394,-4.241136 25,-5.5 25,-5.5 z"
+                    <path
+                        d="M 100,100 H 52 c 0,0 -8.38193,-37.800392 -2,-55 4.266893,-11.499481 14.356887,-20.903396 25,-27 7.40394,-4.241136 25,-5.5 25,-5.5 z"
                     />
                 </svg>
 

@@ -5,14 +5,23 @@
     transform-origin: top;
     transition: transform 0.5s ease-in-out;
 
+    .tv-show-wrapper{
+        width: 100vw;
+        height: calc(100vh - 8rem);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .tv-show-prez{
+        width: 60vmin;
+        border: 2px solid green;
+    }
+
     .tv {
-        position: absolute;
-        z-index: 10;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        height: 52vmin;
-        width: 80vmin;
+        height: 65vmin;
+        width: 100vmin;
         background: #5b4dcd;
         display: flex;
         align-items: center;

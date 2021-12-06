@@ -26,6 +26,11 @@ export default function Contact() {
     <>
       <section className="section__contact">
 
+
+        <h2 className="section__title">
+          Contact
+        </h2>
+
         <div className="container">
           <div className="postcard-border">
             <div className="postcard">

@@ -13,7 +13,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     will-change: transform;
     transform-origin: top;
     transition: transform .5s ease-in-out;
@@ -28,8 +27,8 @@
     }
 
     .my-skills-container{
-        width: min(100vh, 100vw);
-        height: min(75vh, 75vw);
+        width: 100vmin;
+        height: 75vh;
         background: whitesmoke;
         border: 5px solid hsl(0deg, 0%, 0%, .85);
         border-radius: 5%;
@@ -39,7 +38,7 @@
     }
 
     .my-skills {
-        width: min(75vh, 75vw);
+        width: 75vmin;
         height: inherit;
         padding: 1%;
         display: grid;
@@ -51,7 +50,7 @@
             justify-self: center;
             font-family: var(--font-1);
             font-weight: bold;
-            font-size: min(3vw, 3vh);    
+            font-size: 3vmin;    
             opacity: 0;
         }
 
@@ -61,7 +60,7 @@
         .comp1{
             grid-row: 3;
             grid-column: 3 / 9;  
-            font-size: min(3.75vw, 3.75vh);            
+            font-size: 3.75vmin;            
             animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition linear forwards;
         }
         .comp2{
@@ -110,7 +109,7 @@
             animation: $drawing-duration * ($apparition-txt * 1s) comp-apparition $drawing-duration * (($apparition-txt * 9s) + 788s) linear forwards;
         }
 
-        svg {
+        #whiteboard {
             grid-row: 1/11;
             grid-column: 1/11;
             display: block;
@@ -268,8 +267,8 @@ $boardparts: drawing-front-end-dev 125, drawing-arrow-html 9, drawing-html 75, d
         }
     
         .my-skills {
-            width: 90vw;
-            height: 90vw;
+            width: 65vh;
+            height: 65vh;
     
             .competence{
                 font-size: 2rem;

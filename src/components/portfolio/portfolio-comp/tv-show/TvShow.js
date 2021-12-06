@@ -55,82 +55,94 @@ export default function TvShow(props) {
     }, [channel])
 
     const playVideo = () => {
-        if (props.face === 'tv'){
-        document.querySelector('.my-video').src = dataTvShow[channel].src
+        if (props.face === 'tv') {
+            document.querySelector('.my-video').src = dataTvShow[channel].src
 
-        document.querySelector('.my-video').play().then(() => {
-            console.log("Yay ! La vidéo est lancée !");
-        }).catch((error) => {
-            console.error('pb avec la video:', error)
-        })
-    }
+            document.querySelector('.my-video').play().then(() => {
+                console.log("Yay ! La vidéo est lancée !");
+            }).catch((error) => {
+                console.error('pb avec la video:', error)
+            })
+        }
 
     }
 
     return (
         <>
+            <h2 className="section__title">
+                En vidéo
+            </h2>
 
-            <div className="h3">{dataTvShow[channel].name}</div>
+            <div className="tv-show-wrapper">
 
-            <div className="tv">
-                <div className="tv-screen">
-                    <div className="channel">
-                        {channel + 1}
+                <div className="tv">
+                    <div className="tv-screen">
+                        <div className="channel">
+                            {channel + 1}
+                        </div>
+                        <video
+                            className="my-video"
+                            loop={true}>
+
+                            <source
+                                src={dataTvShow[channel].src}
+                                type="video/mp4"
+                            />
+
+                            Sorry, your browser doesn't support embedded videos.
+                        </video>
                     </div>
-                    <video
-                        className="my-video"
-                        loop={true}>
 
-                        <source
-                            src={dataTvShow[channel].src}
-                            type="video/mp4"
-                        />
-
-                        Sorry, your browser doesn't support embedded videos.
-                    </video>
-                </div>
-
-                <div className="rightSide">
-                    <div
-                        className="rightSide--tvButton"
-                        onClick={() => handleClick(1)}>
-                        <div className="rightSide--tvButton-line">
+                    <div className="rightSide">
+                        <button
+                            className="rightSide--tvButton"
+                            onClick={() => handleClick(1)}>
+                            <div className="rightSide--tvButton-line">
+                            </div>
+                        </button>
+                        <button
+                            className="rightSide--tvButton"
+                            onClick={() => handleClick(-1)}>
+                            <div className="rightSide--tvButton-line">
+                            </div>
+                        </button>
+                        <div className="rightSide--sound">
+                            <div></div>
+                            <div></div>
+                            <div></div>
                         </div>
                     </div>
-                    <div
-                        className="rightSide--tvButton"
-                        onClick={() => handleClick(-1)}>
-                        <div className="rightSide--tvButton-line">
-                        </div>
-                    </div>
-                    <div className="rightSide--sound">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
+
                 </div>
+
+                <div className="tv-show-prez">
+                    <div className="h3">CH : {channel+1} - {dataTvShow[channel].name}</div>
+                    <p>{dataTvShow[channel].prez}</p>
+                    <p>{dataTvShow[channel].txt}</p>
+
+                    {dataTvShow[channel].youtubeLink && (
+                        <a href={dataTvShow[channel].youtubeLink} target="_blank" rel="noopener">
+                            <FontAwesomeIcon icon={faYoutube} />
+                        </a>
+                    )}
+
+                    {dataTvShow[channel].gitHubLink && (
+                        <a href={dataTvShow[channel].gitHubLink} target="_blank" rel="noopener">
+                            <FontAwesomeIcon icon={faGithub} />
+                        </a>
+                    )}
+
+                    {dataTvShow[channel].codePenLink && (
+                        <a href={dataTvShow[channel].codePenLink} target="_blank" rel="noopener">
+                            <FontAwesomeIcon icon={faCodepen} />
+                        </a>
+                    )}
+                </div>
+
 
             </div>
 
-            <p>{dataTvShow[channel].txt}</p>
 
-            {dataTvShow[channel].youtubeLink && (
-                <a href={dataTvShow[channel].youtubeLink} target="_blank" rel="noopener">
-                    <FontAwesomeIcon icon={faYoutube} />
-                </a>
-            )}
-
-            {dataTvShow[channel].gitHubLink && (
-                <a href={dataTvShow[channel].gitHubLink} target="_blank" rel="noopener">
-                    <FontAwesomeIcon icon={faGithub} />
-                </a>
-            )}
-
-            {dataTvShow[channel].codePenLink && (
-                <a href={dataTvShow[channel].codePenLink} target="_blank" rel="noopener">
-                    <FontAwesomeIcon icon={faCodepen} />
-                </a>
-            )}
 
 
         </>
