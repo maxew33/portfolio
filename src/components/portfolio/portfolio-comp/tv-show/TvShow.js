@@ -116,35 +116,40 @@ export default function TvShow(props) {
                 </div>
 
                 <div className="tv-show-prez">
-                    <div className="h3">CH : {channel+1} - {dataTvShow[channel].name}</div>
+
+                    <p><span>CH : {channel + 1}</span><span>  {dataTvShow[channel].name}</span></p>
                     <p>{dataTvShow[channel].prez}</p>
                     <p>{dataTvShow[channel].txt}</p>
 
-                    {dataTvShow[channel].youtubeLink && (
-                        <a href={dataTvShow[channel].youtubeLink} target="_blank" rel="noopener">
-                            <FontAwesomeIcon icon={faYoutube} />
-                        </a>
-                    )}
+{/* I check if there is a link, if so, I publish it */}
 
-                    {dataTvShow[channel].gitHubLink && (
-                        <a href={dataTvShow[channel].gitHubLink} target="_blank" rel="noopener">
-                            <FontAwesomeIcon icon={faGithub} />
-                        </a>
-                    )}
+                    {(dataTvShow[channel].youtubeLink || dataTvShow[channel].gitHubLink || dataTvShow[channel].codePenLink) && (
+                        <p>En savoir plus : &nbsp;
 
-                    {dataTvShow[channel].codePenLink && (
-                        <a href={dataTvShow[channel].codePenLink} target="_blank" rel="noopener">
-                            <FontAwesomeIcon icon={faCodepen} />
-                        </a>
-                    )}
+                            {dataTvShow[channel].youtubeLink && (
+                                <a href={dataTvShow[channel].youtubeLink} target="_blank" rel="noreferrer">
+                                    <FontAwesomeIcon icon={faYoutube} />
+                                    &nbsp;
+                                </a> 
+                            )}
+
+                            {dataTvShow[channel].gitHubLink && (
+                                <a href={dataTvShow[channel].gitHubLink} target="_blank" rel="noreferrer">
+                                    <FontAwesomeIcon icon={faGithub} />
+                                    &nbsp;
+                                </a>
+                            )}
+
+                            {dataTvShow[channel].codePenLink && (
+                                <a href={dataTvShow[channel].codePenLink} target="_blank" rel="noreferrer">
+                                    <FontAwesomeIcon icon={faCodepen} />
+                                </a>
+                            )}
+
+                        </p>)
+                    }
                 </div>
-
-
             </div>
-
-
-
-
         </>
     )
 }

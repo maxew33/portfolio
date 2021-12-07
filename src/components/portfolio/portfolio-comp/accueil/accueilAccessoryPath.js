@@ -1,7 +1,7 @@
 const accueilAccessoryPath = [
     {
         src: mustache,
-        alt: "mustache",
+        path: '',
         width: 'calc(35 * var(--avatar-length-unit))',
         zIndex: 10,
         id: uuidv4()

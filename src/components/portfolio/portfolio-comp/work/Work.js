@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { Fragment, useState } from 'react'
 
-import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
 
 import TvShow from '../tv-show/TvShow'
@@ -9,8 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLevelUpAlt, faChevronDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import portfolioContentPartI from './portfolioContentPartI'
-import portfolioContentPartII from './portfolioContentPartII'
+import portfolioData from './portfolioData'
 
 import './work.css'
 
@@ -95,214 +93,135 @@ export default function Work() {
 
                 <div className="portfolio-container">
 
-                    <div className="portfolio-container__part portfolio-container__part1 portfolio-container__part--set-index">
-                        <button
-                            className="portfolio-container__tab portfolio-container__tab-part1 portfolio-container__part--set-opacity"
-                            onClick={() => { changePortfolioPart('part1') }}>
-                            <div>
-                                click me
-                            </div>
-                        </button>
+                    {/* creation of the 2 containers sgowing my work */}
+                    {portfolioData.map((data, index) => {
+                        return (
+                            <div className={'portfolio-container__part portfolio-container__part' + (index + 1) + (index === 0 ? ' portfolio-container__part--set-index' : '')}
+                                key={index}>
 
-                        <ul className="portfolio__cards">
-
-                            {portfolioContentPartI.map((item, index) => {
-                                return (
-                                    <li
-                                        className="portfolio__cards-item"
-                                        key={portfolioContentPartI[index].id}>
-                                        <div className="portfolio__card">
-
-                                            <div className="portfolio__card-work-wrapper" >
-
-                                                <h3 className="portfolio__card-work-title">
-                                                    {portfolioContentPartI[index].title}
-                                                </h3>
-
-                                                <div className="portfolio__card-text">
-                                                    <div className="portfolio__card-text-container">
-                                                        <p>
-                                                            {portfolioContentPartI[index].prez}
-                                                            <span className="text-separation"></span>
-                                                            {portfolioContentPartI[index].txt}
-                                                        </p>
-                                                    </div>
-                                                    <div className="portfolio__card--links">
-
-                                                        {portfolioContentPartI[index].directLink && (
-                                                            <a href={portfolioContentPartI[index].directLink} target="_blank" rel="noopener">
-                                                                <FontAwesomeIcon icon={faExternalLinkAlt} />
-                                                            </a>
-                                                        )}
-                                                        {portfolioContentPartI[index].gitLink && (
-                                                            <a href={portfolioContentPartI[index].gitLink} target="_blank" rel="noopener">
-                                                                <FontAwesomeIcon icon={faGithub} />
-                                                            </a>
-                                                        )}
-                                                        {portfolioContentPartI[index].codePenLink && (
-                                                            <a href={portfolioContentPartI[index].codePenLink} target="_blank" rel="noopener">
-                                                                <FontAwesomeIcon icon={faCodepen} />
-                                                            </a>
-                                                        )}
-                                                    </div>
-                                                </div>
-
-                                                <div className="portfolio__card-work-img" id={"portfolio-container__part1-wrapper" + index}>
-                                                    <img
-                                                        src={portfolioContentPartI[index].img}
-                                                        alt={portfolioContentPartI[index].title} />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* draggable btn, pull => hide img wtih clip path / let text appear*/}
-                                        <div className="portfolio__card-btn-container">
-
-                                            <div
-                                                className="portfolio__card-pull-me-front"
-                                                data-pullme={"portfolio-container__part1-wrapper" + index}
-                                            >
-                                            </div>
-                                            <Draggable
-                                                axis="y"
-                                                bounds="parent"
-                                                onDrag={handleDrag}>
-                                                <button
-                                                    className="portfolio__card-pull-me pull-me"
-                                                    data-id={"portfolio-container__part1-wrapper" + index}
-                                                >
-                                                    pull
-                                                    <FontAwesomeIcon icon={faChevronDown} />
-                                                </button>
-                                            </Draggable>
-                                        </div>
-
-                                    </li>
-                                )
-                            })}
-
-                        </ul>
-
-                    </div>
-
-                    <div className="portfolio-container__part portfolio-container__part2">
-
-                        <button
-                            className="portfolio-container__tab portfolio-container__tab-part2 "
-                            onClick={() => { changePortfolioPart('part2') }}>
-
-                            <div>
-                                click me
-                            </div>
-                        </button>
-
-                        <ul className="portfolio__cards">
-
-                            {portfolioContentPartII.map((item, index) => {
-                                return (
-                                    <li
-                                        className="portfolio__cards-item"
-                                        key={portfolioContentPartII[index].id}>
-                                        <div className="portfolio__card">
-
-                                            <div className="portfolio__card-work-wrapper">
-
-                                                <h3 className="portfolio__card-work-title">
-                                                    {portfolioContentPartII[index].title}
-                                                </h3>
-
-                                                <div className="portfolio__card-text">
-                                                    <div className="portfolio__card-text-container">
-                                                        <p>
-                                                            {portfolioContentPartII[index].prez}
-                                                            <span className="text-separation"></span>
-                                                            {portfolioContentPartII[index].txt}
-                                                        </p>
-                                                    </div>
-                                                    <div className="portfolio__card--links">
-
-                                                        {portfolioContentPartII[index].directLink && (
-                                                            <a href={portfolioContentPartII[index].directLink} target="_blank" rel="noopener">
-                                                                <FontAwesomeIcon icon={faExternalLinkAlt} />
-                                                            </a>
-                                                        )}
-                                                        {portfolioContentPartII[index].gitLink && (
-                                                            <a href={portfolioContentPartII[index].gitLink} target="_blank" rel="noopener">
-                                                                <FontAwesomeIcon icon={faGithub} />
-                                                            </a>
-                                                        )}
-                                                        {portfolioContentPartII[index].codePenLink && (
-                                                            <a href={portfolioContentPartII[index].codePenLink} target="_blank" rel="noopener">
-                                                                <FontAwesomeIcon icon={faCodepen} />
-                                                            </a>
-                                                        )}
-                                                    </div>
-                                                </div>
-
-                                                <div
-                                                    className="portfolio__card-work-img"
-                                                    id={"portfolio-container__part2-wrapper" + index}>
-                                                    <img
-                                                        src={portfolioContentPartII[index].img}
-                                                        alt={portfolioContentPartII[index].title} />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* draggable btn, pull => hide img wtih clip path / let text appear*/}
-                                        <div className="portfolio__card-btn-container">
-
-                                            <div
-                                                className="portfolio__card-pull-me-front"
-                                                data-pullme={"portfolio-container__part2-wrapper" + index}
-                                            >
-                                            </div>
-
-                                            <Draggable
-                                                axis="y"
-                                                bounds="parent"
-                                                onDrag={handleDrag}>
-                                                <button
-                                                    className="portfolio__card-pull-me pull-me"
-                                                    data-id={"portfolio-container__part2-wrapper" + index}
-                                                >
-                                                    pull
-                                                    <FontAwesomeIcon icon={faChevronDown} />
-                                                </button>
-                                            </Draggable>
-
-                                        </div>
-                                    </li>
-                                )
-                            })}
-                            <li className="work-to-tv">
-                                <div className="work-to-tv__btn-container">
-                                    <button
-                                        className="toggle-section-work"
-                                        onClick={toggleSectionWork}>
-                                        Davantage en vidéo
-                                    </button>
-
-                                    <div className="work-to-tv__rightSide">
-                                        <div className="work-to-tv__rightSide--tvButton">
-                                            <div className="work-to-tv__rightSide--tvButton-line">
-                                            </div>
-                                        </div>
-                                        <div
-                                            className="work-to-tv__rightSide--tvButton">
-                                            <div className="work-to-tv__rightSide--tvButton-line">
-                                            </div>
-                                        </div>
-                                        <div className="work-to-tv__rightSide--sound">
-                                            <div></div>
-                                            <div></div>
-                                            <div></div>
-                                        </div>
+                                <button
+                                    className={'portfolio-container__tab portfolio-container__tab-part' + (index + 1) + (index === 0 ? ' portfolio-container__part--set-opacity' : '')}
+                                    onClick={() => { changePortfolioPart('part' + (index + 1)) }}>
+                                    <div>
+                                        click me
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
+                                </button>
 
-                    </div>
+                                {/* Creation of the 7 cards of my work, the 8th is a link to the tv section called TvShow */}
+                                <ul className="portfolio__cards">
+                                    {data.map((item, idx) => {
+                                        return (
+                                            <Fragment key={item.id}>
+                                                {item.title !== "TvShow" ?
+                                                    (
+                                                        <li
+                                                            className="portfolio__cards-item"
+                                                        >
+                                                            <div className="portfolio__card">
+
+                                                                <div className="portfolio__card-work-wrapper" >
+
+                                                                    <h3 className="portfolio__card-work-title">
+                                                                        {item.title}
+                                                                    </h3>
+
+                                                                    <div className="portfolio__card-text">
+                                                                        <div className="portfolio__card-text-container">
+                                                                            <p>
+                                                                                {item.prez}
+                                                                                <span className="text-separation"></span>
+                                                                                {item.txt}
+                                                                            </p>
+                                                                        </div>
+                                                                        <div className="portfolio__card--links">
+
+                                                                            {item.directLink && (
+                                                                                <a href={item.directLink} target="_blank" rel="noopener">
+                                                                                    <FontAwesomeIcon icon={faExternalLinkAlt} />
+                                                                                </a>
+                                                                            )}
+                                                                            {item.gitLink && (
+                                                                                <a href={item.gitLink} target="_blank" rel="noopener">
+                                                                                    <FontAwesomeIcon icon={faGithub} />
+                                                                                </a>
+                                                                            )}
+                                                                            {item.codePenLink && (
+                                                                                <a href={item.codePenLink} target="_blank" rel="noopener">
+                                                                                    <FontAwesomeIcon icon={faCodepen} />
+                                                                                </a>
+                                                                            )}
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div className="portfolio__card-work-img" id={'portfolio-container__part' + (index + 1) + '-wrapper' + idx}>
+                                                                        <img
+                                                                            src={item.img}
+                                                                            alt={item.title} />
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="portfolio__card-btn-container">
+
+                                                                <div
+                                                                    className="portfolio__card-pull-me-front"
+                                                                    data-pullme={'portfolio-container__part' + (index + 1) + '-wrapper' + idx}
+                                                                >
+                                                                </div>
+                                                                <Draggable
+                                                                    axis="y"
+                                                                    bounds="parent"
+                                                                    onDrag={handleDrag}>
+                                                                    <button
+                                                                        className="portfolio__card-pull-me pull-me"
+                                                                        data-id={'portfolio-container__part' + (index + 1) + '-wrapper' + idx}
+                                                                    >
+                                                                        pull
+                                                                        <FontAwesomeIcon icon={faChevronDown} />
+                                                                    </button>
+                                                                </Draggable>
+                                                            </div>
+                                                        </li>
+                                                    ) : (
+                                                        <li className="work-to-tv"
+                                                            key={item.id}>
+                                                            <div className="work-to-tv__btn-container">
+                                                                <button
+                                                                    className="toggle-section-work"
+                                                                    onClick={toggleSectionWork}>
+                                                                    Davantage en vidéo
+                                                                </button>
+
+                                                                <div className="work-to-tv__rightSide">
+                                                                    <div className="work-to-tv__rightSide--tvButton">
+                                                                        <div className="work-to-tv__rightSide--tvButton-line">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        className="work-to-tv__rightSide--tvButton">
+                                                                        <div className="work-to-tv__rightSide--tvButton-line">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="work-to-tv__rightSide--sound">
+                                                                        <div></div>
+                                                                        <div></div>
+                                                                        <div></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    )}
+                                            </Fragment>
+                                        )
+                                    }
+                                    )}
+                                </ul>
+
+                            </div>
+                        )
+                    })
+                    }
 
                 </div>
 
@@ -335,7 +254,7 @@ export default function Work() {
                         className="toggle-section-work toggle-section-work--left"
                         onClick={toggleSectionWork}>
                         <span className="toggle-section-work-icon"
-                        style={{display:'inline-block',transform:'rotateY(180deg'}}><FontAwesomeIcon icon={faLevelUpAlt} /></span> Retour
+                            style={{ display: 'inline-block', transform: 'rotateY(180deg' }}><FontAwesomeIcon icon={faLevelUpAlt} /></span> Retour
                     </button>
                     <TvShow face={faceDisplayed} />
 

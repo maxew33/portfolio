@@ -45,7 +45,8 @@ export default function Portfolio() {
             !drag && changeAngle(90)
         },
         preventDefaultTouchmoveEvent: true,
-        trackMouse: false
+        trackMouse: false,
+        delta: 40  
     })
 
     let prevPage = face - 1

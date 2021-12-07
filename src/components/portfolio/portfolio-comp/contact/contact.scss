@@ -16,7 +16,7 @@
 
 .container{
     position: absolute;
-    height: 100vh;
+    height: calc(100vh - 8rem);
     width: 100vw;
     font-family: 'Euphoria Script', cursive;
     font-size: 2rem;

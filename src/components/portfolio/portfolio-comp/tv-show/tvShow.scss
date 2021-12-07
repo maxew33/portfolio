@@ -6,22 +6,50 @@
     transition: transform 0.5s ease-in-out;
 
     .tv-show-wrapper{
+        position: absolute;
+        bottom: 0;
         width: 100vw;
-        height: calc(100vh - 8rem);
+        height: calc(100vh - 12rem);
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-around;
+        align-items: flex-start;
+        justify-content: space-evenly;
     }
 
     .tv-show-prez{
-        width: 60vmin;
-        border: 2px solid green;
+        font-family: var(--font-2b);
+        width: calc(90vw - 100vh);
+        margin-top: 2vh;
+
+        p{
+            margin: 0 0 1vw 1vw;
+        }
+
+        p:nth-child(1){
+
+            span:nth-child(1){
+                font-size: 1.75vw; 
+            }
+
+            span:nth-child(2){
+                margin-left: 1vw;
+                font-size: 2.5vw; 
+            }
+        }
+
+        p:nth-child(2){
+           font-size: 1.75vw; 
+           font-style: italic;
+        }
+
+        p:nth-child(3), p:nth-child(4){
+           font-size: 1.25vw; 
+           margin-left: 0;
+        }
     }
 
     .tv {
-        height: 65vmin;
-        width: 100vmin;
+        height: 65vh;
+        width: 100vh;
         background: #5b4dcd;
         display: flex;
         align-items: center;
@@ -44,9 +72,10 @@
             .channel{
                 position: absolute;
                 font-family: 'VT323', monospace;
-                top: 5vmin;
-                right: 8vmin;
+                top: 7.5vmin;
+                right: 9vmin;
                 font-size: 3vmin;
+                font-weight: bolder;
                 color: lime;
             }
 
@@ -109,4 +138,83 @@
             }
         }
     }
+}
+
+@media (orientation : portrait) {
+    .section__tv-show{
+
+        .tv-show-wrapper{
+            flex-direction: column;
+        }
+
+        .tv-show-prez{
+            width: 100vw;
+            height: calc(90vh - calc(8rem + 85vw));
+
+            p:nth-child(1){
+                text-align: center;
+    
+                span:nth-child(1){
+                    font-size: 2.5vh; 
+                }
+    
+                span:nth-child(2){
+                    font-size: 4vh; 
+                }
+            }
+    
+            p:nth-child(2){
+               font-size: 2.5vh; 
+               font-style: italic;
+               margin-left: 2vh;
+            }
+    
+            p:nth-child(3), p:nth-child(4){
+               font-size: 1.5vh; 
+               margin: 0 2vh;
+            }
+        }
+    
+        .tv {
+            height: 85vw;
+            width: 100vw;
+            flex-direction: column;
+    
+            .tv-screen {
+                width: 95%;
+                height: 80%;
+    
+                .channel{
+                    font-size: 3rem;
+                }
+    
+                .my-video {
+                    height: 90%;
+                    width: 95%;
+                }
+            }
+    
+            .rightSide {
+                width: 90%;
+                height: 10%;
+                flex-direction: row-reverse;
+                justify-content: space-evenly;
+    
+                .rightSide--tvButton {
+                    width: 10vmin;
+                    height: 10vmin;
+                }
+    
+                .rightSide--sound {
+                    width: 40%;
+                    height: 100%;
+                }
+    
+                .rightSide--sound > div {
+                    width: 5%;
+                }
+            }
+        }
+    }
+    
 }

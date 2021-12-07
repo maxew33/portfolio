@@ -94,57 +94,57 @@ h1 span:nth-child(2) {
 }
 
 .accessory-container1 {
-  left: 41%;
-  bottom: 43%;
+  left: 59%;
+  bottom: 49%;
 }
 
 .accessory-container2 {
-  left: 56%;
-  bottom: 50%;
+  left: 46%;
+  bottom: 43%;
 }
 
 .accessory-container3 {
-  left: 53%;
-  bottom: 45%;
+  left: 43%;
+  bottom: 48%;
 }
 
 .accessory-container4 {
-  left: 59%;
+  left: 47%;
   bottom: 39%;
 }
 
 .accessory-container5 {
-  left: 45%;
-  bottom: 40%;
+  left: 58%;
+  bottom: 46%;
 }
 
 .accessory-container6 {
-  left: 53%;
-  bottom: 47%;
+  left: 56%;
+  bottom: 38%;
 }
 
 .accessory-container7 {
-  left: 59%;
-  bottom: 40%;
+  left: 60%;
+  bottom: 47%;
 }
 
 .accessory-container8 {
-  left: 53%;
-  bottom: 36%;
+  left: 48%;
+  bottom: 44%;
 }
 
 .accessory-container9 {
-  left: 41%;
-  bottom: 49%;
+  left: 59%;
+  bottom: 48%;
 }
 
 .accessory-container10 {
-  left: 42%;
-  bottom: 40%;
+  left: 45%;
+  bottom: 39%;
 }
 
 .accessory-container11 {
-  left: 49%;
+  left: 47%;
   bottom: 49%;
 }
 
@@ -319,7 +319,7 @@ h1 span:nth-child(2) {
   }
 
   .accessory-container1 {
-    left: 16%;
+    left: 18%;
   }
 
   .accessory-container2 {
@@ -327,39 +327,39 @@ h1 span:nth-child(2) {
   }
 
   .accessory-container3 {
-    left: 17%;
+    left: 24%;
   }
 
   .accessory-container4 {
-    left: 15%;
+    left: 13%;
   }
 
   .accessory-container5 {
-    left: 15%;
+    left: 28%;
   }
 
   .accessory-container6 {
-    left: 16%;
+    left: 17%;
   }
 
   .accessory-container7 {
-    left: 11%;
+    left: 27%;
   }
 
   .accessory-container8 {
-    left: 29%;
-  }
-
-  .accessory-container9 {
-    left: 29%;
-  }
-
-  .accessory-container10 {
     left: 19%;
   }
 
-  .accessory-container11 {
+  .accessory-container9 {
     left: 20%;
+  }
+
+  .accessory-container10 {
+    left: 11%;
+  }
+
+  .accessory-container11 {
+    left: 30%;
   }
 
   .accessory-hidden {
