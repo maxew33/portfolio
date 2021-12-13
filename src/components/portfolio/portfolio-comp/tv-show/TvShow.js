@@ -96,12 +96,14 @@ export default function TvShow(props) {
                     <div className="rightSide">
                         <button
                             className="rightSide--tvButton"
+                            aria-label="channel up"
                             onClick={() => handleClick(1)}>
                             <div className="rightSide--tvButton-line">
                             </div>
                         </button>
                         <button
                             className="rightSide--tvButton"
+                            aria-label="channel down"
                             onClick={() => handleClick(-1)}>
                             <div className="rightSide--tvButton-line">
                             </div>
@@ -127,21 +129,30 @@ export default function TvShow(props) {
                         <p>En savoir plus : &nbsp;
 
                             {dataTvShow[channel].youtubeLink && (
-                                <a href={dataTvShow[channel].youtubeLink} target="_blank" rel="noreferrer">
+                                <a href={dataTvShow[channel].youtubeLink} 
+                                target="_blank" 
+                                rel="noreferrer"
+                                aria-label={'link to ' + dataTvShow[channel].name + ' video on youtube'}>
                                     <FontAwesomeIcon icon={faYoutube} />
                                     &nbsp;
                                 </a> 
                             )}
 
                             {dataTvShow[channel].gitHubLink && (
-                                <a href={dataTvShow[channel].gitHubLink} target="_blank" rel="noreferrer">
+                                <a href={dataTvShow[channel].gitHubLink} 
+                                target="_blank" 
+                                rel="noreferrer"
+                                aria-label={'link to ' + dataTvShow[channel].name + ' on github'}>
                                     <FontAwesomeIcon icon={faGithub} />
                                     &nbsp;
                                 </a>
                             )}
 
                             {dataTvShow[channel].codePenLink && (
-                                <a href={dataTvShow[channel].codePenLink} target="_blank" rel="noreferrer">
+                                <a href={dataTvShow[channel].codePenLink} 
+                                target="_blank" 
+                                rel="noreferrer"
+                                aria-label={'link to ' + dataTvShow[channel].name + ' on codepen'}>
                                     <FontAwesomeIcon icon={faCodepen} />
                                 </a>
                             )}

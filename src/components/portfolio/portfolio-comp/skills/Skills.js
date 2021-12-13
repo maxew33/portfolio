@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-// import avatar from '../../assets/avatar.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileDownload } from '@fortawesome/free-solid-svg-icons'
 
 import './skills.css'
 
@@ -36,7 +37,14 @@ export default function Skills() {
 
                 <div className="intro-of-myself">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil iusto eius impedit, saepe animi, aperiam modi blanditiis asperiores quo magnam dolor molestias nostrum quaerat? Explicabo.
+                        Formé aux principaux langages de programmation , j’aime créer des interfaces efficaces, originales et interactives.
+                    </p>
+                    <p>Pour en savoir plus, je vous invite à consulter mon CV : &nbsp;
+                        <a href={process.env.PUBLIC_URL + ' /cv-malfilatre-maxime.pdf'}
+                        download
+                        aria-label="Resume download">
+                        <FontAwesomeIcon icon={faFileDownload} />
+                    </a>
                     </p>
                 </div>
 

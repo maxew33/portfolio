@@ -136,17 +136,26 @@ export default function Work() {
                                                                         <div className="portfolio__card--links">
 
                                                                             {item.directLink && (
-                                                                                <a href={item.directLink} target="_blank" rel="noopener">
+                                                                                <a href={item.directLink} 
+                                                                                target="_blank" 
+                                                                                rel="noopener"
+                                                                                aria-label={'link to ' + item.title + ' site'}>
                                                                                     <FontAwesomeIcon icon={faExternalLinkAlt} />
                                                                                 </a>
                                                                             )}
                                                                             {item.gitLink && (
-                                                                                <a href={item.gitLink} target="_blank" rel="noopener">
+                                                                                <a href={item.gitLink} 
+                                                                                target="_blank" 
+                                                                                rel="noopener"
+                                                                                aria-label={'link to ' + item.title + ' on github'}>
                                                                                     <FontAwesomeIcon icon={faGithub} />
                                                                                 </a>
                                                                             )}
                                                                             {item.codePenLink && (
-                                                                                <a href={item.codePenLink} target="_blank" rel="noopener">
+                                                                                <a href={item.codePenLink} 
+                                                                                target="_blank" 
+                                                                                rel="noopener"
+                                                                                aria-label={'link to ' + item.title + ' on codepen'}>
                                                                                     <FontAwesomeIcon icon={faCodepen} />
                                                                                 </a>
                                                                             )}
@@ -263,31 +272,21 @@ export default function Work() {
                 <svg className="section__work-bg-svg-1 section-bg-svg section__work-bg-svg-top"
                     viewBox="0 0 100 100">
                     <path
-                        d="M 0,0 V 0 C 2,5 70,5 80,0 Z"
+                        d="M 0,0 V 26 C 0,26 63,47 80,0 Z"
                     />
                 </svg>
 
                 <svg className="section__work-bg-svg-2 section-bg-svg section__work-bg-svg-top"
                     viewBox="0 0 100 100">
                     <path
-                        d="m 51.867461,-0.132292 c 0,0 16.796301,2.180679 25.239682,2.1419652 7.620296,-0.03494 22.760563,-2.1419652 22.760563,-2.1419652 z"
-                    />
-                </svg>
-
-
-
-                <svg className="section__work-bg-svg-1 section-bg-svg"
-                    viewBox="0 0 100 100">
-                    <path
-                        d="m 77,14 c 24,16 2.8,86 2.8,86 H 0 V 43 C 0,43 54,-1 77,14 Z"
+                        d="m 100,0 c 0,0 -48,0 -48,0 6,22 11,27 24,30 10,2 24,-7 24,-13 z"
                     />
                 </svg>
 
                 <svg className="section__work-bg-svg-2 section-bg-svg"
                     viewBox="0 0 100 100">
                     <path
-                        d="M 100,100 H 52 c 0,0 -8.38193,-37.800392 -2,-55 4.266893,-11.499481 14.356887,-20.903396 25,-27 7.40394,-4.241136 25,-5.5 25,-5.5 z"
-                    />
+                d="M 0,100 H 100 C 100,100 70,60 50,60 30,60 8.5,80 0,100 Z"/>
                 </svg>
 
             </section>

@@ -1,25 +1,43 @@
-import { React, useEffect } from 'react'
+import { React, useRef } from 'react'
+import emailjs from 'emailjs-com'
+
 import './contact.css'
 
 export default function Contact() {
 
-  useEffect(() => {
-    const container = document.querySelector('.container'),
-      postcard = document.querySelector('.postcard-border'),
-      animationContainer = document.querySelector('.animation-container'),
-      form = document.querySelector('.postcard-left-form')
+  const form = useRef()
 
+  const sendEmail = e => {
+    e.preventDefault()
 
-    form.addEventListener('submit', (event) => {
-      event.preventDefault()
-      container.style.overflow = 'hidden'
-      animationContainer.style.display = 'block'
-      setTimeout(function () {
-        postcard.style.display = 'none'
-      }, 1000);
-    }
-    )
-  }, [])
+    emailjs.sendForm(process.env.REACT_APP_EMAILKEY_SERVICE_ID, process.env.REACT_APP_EMAILKEY_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAILKEY_USER_ID)
+      .then(result => {
+        console.log(result.text)
+        const container = document.querySelector('.container'),
+          postcard = document.querySelector('.postcard-border'),
+          animationContainer = document.querySelector('.animation-container')
+
+        container.style.overflow = 'hidden'
+        animationContainer.style.display = 'block'
+
+        setTimeout(function () {
+          postcard.style.display = 'none'
+        }, 1000)
+
+        setTimeout(function () {
+          let words = "message envoyé".split('')
+          let delay = 0
+          for (let i = 0; i < words.length; i++) {
+            setTimeout(function () { document.querySelector('.message-container').innerHTML += words[i] }, 150 * delay)
+            delay++
+          }
+
+        }, 2250);
+      }, error => {
+        console.log(error.text)
+        alert('le message n\'a pas pu être envoyé.')
+      })
+  }
 
   return (
 
@@ -35,19 +53,22 @@ export default function Contact() {
           <div className="postcard-border">
             <div className="postcard">
               <div className="postcard-left">
-                <form className="postcard-left-form">
+                <form
+                  ref={form}
+                  onSubmit={sendEmail}
+                  className="postcard-left-form">
                   <div className="postcard-left-salutation">Cher Max,</div>
                   <div className="postcard-left-input postcard-left-message">
-                    <textarea name="message" required defaultValue={""} />
-                    <label>Message</label>
+                    <textarea id="message-input" name="message" required defaultValue={""} />
+                    <label htmlFor="message-input">Message</label>
                   </div>
                   <div className="postcard-left-input postcard-left-nom">
-                    <input type="text" name="nom" required />
-                    <label>Nom</label>
+                    <input id="name-input" type="text" name="from_name" required />
+                    <label htmlFor="name-input">Nom</label>
                   </div>
                   <div className="postcard-left-input postcard-left-mail">
-                    <input type="email" name="email" required />
-                    <label>Email</label>
+                    <input id="email-input" type="email" name="user_email" required />
+                    <label htmlFor="email-input" >Email</label>
                   </div>
                   <input type="submit" className="postcard-left-submit-btn" />
                 </form>
@@ -57,12 +78,10 @@ export default function Contact() {
                   TIMBRE
                 </div>
                 <div className="postcard-right-exp">
-                  <div className="postcard-right-nom">maxew</div>
+                  <div className="postcard-right-nom">Maxime Malfilâtre</div>
                   <div className="postcard-right-adresse">Bordeaux</div>
                   <div className="postcard-right-mail">
-                    <a>
-                      maxew@monadresse.com
-                    </a>
+                    malfilatre.dev@gmail.com
                   </div>
                 </div>
               </div>
@@ -75,31 +94,7 @@ export default function Contact() {
               </div>
             </div>
             {/* ------------- MESSAGE ENVOYE ------------- */}
-            <div className="confirmation-envoi">
-              <span className="message-container">
-                <span>message</span>
-                <span>envoyé</span>
-              </span>
-            </div>
-            {/* ------------- MAIL BOX N VAN ------------- */}
-            <div className="ground" />
-            <div className="van">
-              <div className="logo">
-                <i className="fab fa-mailchimp" />
-              </div>
-              <div className="vitre" />
-              <div className="roue avant">
-                <div className="boulons" />
-                <div className="boulons" />
-                <div className="boulons" />
-                <div className="boulons" />
-              </div>
-              <div className="roue arriere">
-                <div className="boulons" />
-                <div className="boulons" />
-                <div className="boulons" />
-                <div className="boulons" />
-              </div>
+            <div className="message-container">
             </div>
           </div>
         </div>

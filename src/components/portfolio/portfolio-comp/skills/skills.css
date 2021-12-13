@@ -18,14 +18,20 @@
   transition: transform 0.5s ease-in-out;
 }
 .section__skills .intro-of-myself {
-  width: 100vw;
-  height: 15vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  max-width: 75vmax;
+  max-height: 12vh;
+  font-family: var(--font-2);
+  line-height: 1.15;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-style: italic;
+}
+.section__skills .intro-of-myself > p:first-of-type {
+  padding-bottom: 0.5vmax;
 }
 .section__skills .my-skills-container {
+  position: absolute;
+  bottom: 1vh;
   width: 100vmin;
   height: 75vh;
   background: whitesmoke;
@@ -526,8 +532,8 @@
     height: 65vh;
   }
   .section__skills .my-skills {
-    width: 65vh;
-    height: 65vh;
+    width: min(92.5vw, 64vh);
+    height: min(92.5vw, 64vh);
   }
   .section__skills .my-skills .competence {
     font-size: 2rem;

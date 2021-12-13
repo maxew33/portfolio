@@ -304,21 +304,34 @@ export default function Accueil() {
 
                 <button
                     className="reload-status"
-                    onClick={handleReloadStatus}>
+                    onClick={handleReloadStatus}
+                    aria-label="relaod status">
                     <FontAwesomeIcon icon={faRedo} />
                 </button>
 
                 <div className="social-network__accueil">
-                    <a href="https://github.com/maxew33" target="_blank" rel="noopener">
+                    <a href="https://github.com/maxew33"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="link to my Github page">
                         <FontAwesomeIcon icon={faGithub} />
                     </a>
-                    <a href="https://www.linkedin.com/in/maxime-malfilatre-1a3b97204/" target="_blank" rel="noopener">
+                    <a href="https://www.linkedin.com/in/maxime-malfilatre-1a3b97204/"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="link to my Github page">
                         <FontAwesomeIcon icon={faLinkedin} />
                     </a>
-                    <a href="https://twitter.com/m4xew" target="_blank" rel="noopener">
+                    <a href="https://twitter.com/m4xew"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="link to my twitter page">
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>
-                    <a href="https://codepen.io/maxew33" target="_blank" rel="noopener">
+                    <a href="https://codepen.io/maxew33"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="link to my codepen page">
                         <FontAwesomeIcon icon={faCodepen} />
                     </a>
                 </div>
@@ -346,7 +359,7 @@ export default function Accueil() {
                     )
                 })}
 
-{/* 
+                {/* 
 <Draggable
 handle=".layer2"
 bounds=".section__accueil"

@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9195959"
-     inkscape:cx="41.159886"
-     inkscape:cy="32.600276"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="191.94294"
+     inkscape:cy="-165.38451"
      inkscape:document-units="mm"
      inkscape:current-layer="svg7651"
      showgrid="false"
@@ -75,7 +75,7 @@
   <path
      style="fill:none;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      d="M 3.9637411,50.965573 10.365651,57.304 16.767447,50.965573 11.483626,10.527183 13.985119,5.9701093 15.112893,7.5218636 20.00009,4.0014493 15.53228,1.1543124 10.535402,1.3061845 4.5356785,3.2465798e-6 6.0038818e-7,1.2854539 6.0077595,7.5218636 6.9155989,6.1552949 9.3154282,10.527183 Z"
-     id="path844"
+     id="handler"
      inkscape:connector-curvature="0"
      handler="path844" />
 </svg>
