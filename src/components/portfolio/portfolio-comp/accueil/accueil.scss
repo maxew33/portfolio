@@ -17,7 +17,7 @@
 h1 {
     font-family: var(--font-1);
     font-size: 8.5vw;
-    text-shadow: 0.3vw 0.1vw 0 hsl(0deg, 0%, 0%, 0.25);
+    text-shadow: 0.3vw 0.1vw 0 hsl(0deg, 0%, 100%, 0.25);
     letter-spacing: 0.25vw;
     grid-column: 1/4;
     grid-row: 1/5;
@@ -124,6 +124,11 @@ h1 {
         left: 55%;
         height: 11.25vmin;
     }
+
+    .pull-me-face{
+        opacity: 0;
+        transition: .5s opacity ease-in-out;
+    }
 }
 
 .accessory-container {
@@ -178,12 +183,13 @@ h1 {
     position: relative;
     grid-row: 6;
     font-size: 1.5vw;
+    color: var(--font-color-1);
     grid-column: 1 / 4;
     align-self: center;
     justify-self: center;
     border: none;
     background: none;
-    transition: transform 0.25s linear;
+    transition: transform 0.25s linear, .05s font-size ease-in-out;
     cursor: pointer;
 
     &:hover {
@@ -211,7 +217,7 @@ h1 {
             bottom: 0;
             height: 6.5vw;
             width: 15vw;
-            background: var(--color-1);
+            background: var(--color-4);
             border-radius: 999px 999px 0 0;
             transition: transform 0.25s ease-in-out;
             transform-origin: bottom left;
@@ -229,7 +235,7 @@ h1 {
     .chest-bottom {
         height: 6.5vw;
         width: 15vw;
-        background: var(--color-1);
+        background: var(--color-4);
         text-align: center;
         color: whitesmoke;
         font-family: var(--font-1);
@@ -249,14 +255,18 @@ h1 {
     a {
         justify-self: center;
         align-self: center;
+        transition: .05s font-size ease-in-out;
     }
 
     a:hover {
-        font-size: 3.25vw;
+        font-size: 3.5vw;
     }
-
-    a:visited {
-        color: black;
+    
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        color: var(--font-color-1);
     }
 }
 

@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFileDownload } from '@fortawesome/free-solid-svg-icons'
+import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
 
 import './skills.css'
 
@@ -12,13 +12,8 @@ export default function Skills() {
         ...state.faceDisplayedReducer
     }))
 
+    /*animation on the first skills face display */
     const [writeOnBoard, setWriteOnBoard] = useState(false)
-
-    const toggleSectionSkills = () => {
-        console.log('toggle')
-        document.querySelector('.section__skills').classList.toggle('section__skills--hidden')
-        document.querySelector('.section__my-life').classList.toggle('section__my-life--hidden')
-    }
 
     useEffect(() => {
         face === 2 && setWriteOnBoard(true)
@@ -39,12 +34,13 @@ export default function Skills() {
                     <p>
                         Formé aux principaux langages de programmation , j’aime créer des interfaces efficaces, originales et interactives.
                     </p>
-                    <p>Pour en savoir plus, je vous invite à consulter mon CV : &nbsp;
+                    <p>Pour en savoir plus, je vous invite à consulter mon CV : 
+                            &nbsp;
                         <a href={process.env.PUBLIC_URL + ' /cv-malfilatre-maxime.pdf'}
-                        download
-                        aria-label="Resume download">
-                        <FontAwesomeIcon icon={faFileDownload} />
-                    </a>
+                            className ="resume-download"
+                            aria-label="Resume download">
+                            <FontAwesomeIcon icon={faFileAlt} />
+                        </a>
                     </p>
                 </div>
 

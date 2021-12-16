@@ -29,6 +29,19 @@
         &>p:first-of-type{
             padding-bottom: .5vmax;
         }
+
+        .resume-download{
+            display: inline-block;
+            font-size: 1.5rem;
+            animation: 3s linear infinite remind-click;
+        }    
+        
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            color: var(--font-color-1);
+        }
     }
 
     .my-skills-container{
@@ -51,6 +64,7 @@
         display: grid;
         grid-template: repeat(10, 1fr) / repeat(10, 1fr);
         display: none;
+        color: var(--font-color-2);
 
         .competence{
             align-self: center;
@@ -241,6 +255,21 @@
     }
 }
 
+@keyframes remind-click {
+    0%, 45%{
+        transform: rotate(0deg);
+    }
+    47%, 53%{
+        transform: rotate(35deg);
+    }
+    50%{
+        transform: rotate(-5deg);
+    }
+    55%, 100%{
+        transform: rotate(0deg);
+    }
+    
+}
 
 $boardparts: drawing-front-end-dev 125, drawing-arrow-html 9, drawing-html 75, drawing-arrow-css 15, drawing-css 73, drawing-arrow-scss 15, drawing-scss 72, drawing-arrow-javascript 13, drawing-javascript 72, drawing-arrow-react 11, drawing-react 71, drawing-plus-vert 5, drawing-plus-hor 6, drawing-orthographe 81, drawing-figma 71, drawing-fast-learner 72, drawing-english-spoken 74;
 

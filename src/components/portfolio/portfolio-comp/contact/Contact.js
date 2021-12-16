@@ -1,6 +1,11 @@
 import { React, useRef } from 'react'
 import emailjs from 'emailjs-com'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
+
+import stamp from '../../assets/stamp.svg'
+
 import './contact.css'
 
 export default function Contact() {
@@ -13,26 +18,37 @@ export default function Contact() {
     emailjs.sendForm(process.env.REACT_APP_EMAILKEY_SERVICE_ID, process.env.REACT_APP_EMAILKEY_TEMPLATE_ID, form.current, process.env.REACT_APP_EMAILKEY_USER_ID)
       .then(result => {
         console.log(result.text)
-        const container = document.querySelector('.container'),
-          postcard = document.querySelector('.postcard-border'),
+        const postcard = document.querySelector('.postcard-border'),
           animationContainer = document.querySelector('.animation-container')
 
-        container.style.overflow = 'hidden'
         animationContainer.style.display = 'block'
 
         setTimeout(function () {
-          postcard.style.display = 'none'
-        }, 1000)
+          postcard.style.opacity = 0
+        }, 600)
 
         setTimeout(function () {
           let words = "message envoyé".split('')
           let delay = 0
           for (let i = 0; i < words.length; i++) {
-            setTimeout(function () { document.querySelector('.message-container').innerHTML += words[i] }, 150 * delay)
+            setTimeout(() => {
+              document.querySelector('.message-container').innerHTML += words[i]
+              if (i === words.length-1) {
+                setTimeout(() => {
+                  document.querySelector('.message-container').innerHTML = ''
+                  document.getElementById('message-input').value = ''
+                  document.getElementById('name-input').value = ''
+                  document.getElementById('email-input').value = ''
+                  postcard.style.opacity = 1       
+                  animationContainer.style.display = 'none'
+
+                }, 2000)
+              }
+            }, 150 * delay)
             delay++
           }
 
-        }, 2250);
+        }, 1750);
       }, error => {
         console.log(error.text)
         alert('le message n\'a pas pu être envoyé.')
@@ -44,12 +60,14 @@ export default function Contact() {
     <>
       <section className="section__contact">
 
-
         <h2 className="section__title">
           Contact
         </h2>
 
-        <div className="container">
+        {/* ------------- MESSAGE ENVOYE ------------- */}
+        <div className="message-container"></div>
+
+        <div className="postcard-container">
           <div className="postcard-border">
             <div className="postcard">
               <div className="postcard-left">
@@ -70,12 +88,16 @@ export default function Contact() {
                     <input id="email-input" type="email" name="user_email" required />
                     <label htmlFor="email-input" >Email</label>
                   </div>
-                  <input type="submit" className="postcard-left-submit-btn" />
+                  <button type="submit" className="postcard-left-submit-btn" >
+                    Envoyer <FontAwesomeIcon icon={faPaperPlane} /> </button>
                 </form>
               </div>
               <div className="postcard-right">
-                <div className="postcard-right-timbre">
-                  TIMBRE
+                <div className="postcard-right-stamp">
+                  <img
+                    className="gladys"
+                    src={stamp}
+                    alt='stamp' />
                 </div>
                 <div className="postcard-right-exp">
                   <div className="postcard-right-nom">Maxime Malfilâtre</div>
@@ -92,9 +114,6 @@ export default function Contact() {
             <div className="enveloppe-container">
               <div className="enveloppe">
               </div>
-            </div>
-            {/* ------------- MESSAGE ENVOYE ------------- */}
-            <div className="message-container">
             </div>
           </div>
         </div>

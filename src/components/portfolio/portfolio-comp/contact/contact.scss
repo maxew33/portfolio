@@ -5,79 +5,89 @@
     place-content: center;
 }
 
-.section__contact-bg-svg{
+.section__contact-bg-svg {
     left: 0;
 }
 
-:root{
-  --main-height: 600px;
-  --main-width: 800px;
-}
-
-.container{
+.postcard-container {
     position: absolute;
     height: 88vh;
     width: 100vw;
     font-family: var(--font-1);
-    font-size: calc((var(--main-width) * .035));
+    font-size: 3.5vmin;
+    color: hsl(0deg, 0%, 25%);
 }
 
-.animation-container{
+.animation-container {
     display: none;
 }
 
 /* ------------- POSTCARD ------------- */
 
-.postcard-border{
+.postcard-border {
     position: absolute;
+    width: 100vmin;
+    height: 75vmin;
     left: 50%;
-    margin-left: calc((var(--main-width) / -2));
     top: 50%;
-    margin-top: calc((var(--main-height) / -2));
-    width: var(--main-width);
-    height: var(--main-height);
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: repeating-linear-gradient(315deg, var(--color-1), var(--color-1) 2%, whitesmoke 2%, whitesmoke 3%, var(--color-2) 3%, var(--color-2) 5%, whitesmoke 5%, whitesmoke 6%);
-    border: 1px solid black;
-    border-radius: calc((var(--main-width) * .01));
+    background: repeating-linear-gradient(
+        315deg,
+        var(--color-2),
+        var(--color-2) 2%,
+        whitesmoke 2%,
+        whitesmoke 3%,
+        var(--color-3) 3%,
+        var(--color-3) 5%,
+        whitesmoke 5%,
+        whitesmoke 6%
+    );
+    border: 1px solid hsl(0deg, 0%, 25%);
+    border-radius: 1vmin;
+    transition: opacity 0.5s ease-in-out;
 }
 
-.postcard{
+.postcard {
     background: ivory;
-    width: calc((var(--main-width) * .95));
-    height: calc((var(--main-height) - calc(var(--main-width) * .05)));
-    border: 1px solid grey;
+    width: 95vmin;
+    height: 70vmin;
+    border: 1px solid hsl(0deg, 0%, 25%);
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    border-radius: 1vmin;
 }
 
 .postcard-left,
-.postcard-right{
-    padding: 5%;
+.postcard-right {
+    padding: 2.5%;
     margin-top: 2.5%;
     margin-bottom: 2.5%;
 }
 
-.postcard-left{
+.postcard-left {
     width: 60%;
-    border-right: 1px solid black;
+    border-right: 1px solid hsl(0deg, 0%, 25%);
 }
 
-.postcard-left-form{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.postcard-left-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.postcard-left-salutation {
+    margin-left: 5vw;
 }
 
 .postcard-left-input {
     width: 100%;
     margin: 1% 0;
     position: relative;
-    border: 1px solid #DDD;
+    border: 1px solid hsl(0deg, 0%, 75%);
+    background: whitesmoke;
     border-radius: 5px;
 }
 
@@ -86,18 +96,18 @@
     padding: 5%;
     border: 0;
     width: 100%;
-    background-color: white;
-    border-radius: 5px;
+    font-family: var(--font-1);
+    font-size: 3.5vmin;
 }
 
 .postcard-left-input label {
-    font-family: 'Poiret One', cursive;
-    font-size: 0.9rem;
-    color: #191919;
-    padding: .5vw;
     position: absolute;
     left: 0;
-    transition: all .25s ease;
+    padding: 0.5vw;
+    font-family: var(--font-2);
+    font-size: 2.5vmin;
+    color: hsl(0deg, 0%, 25%);
+    transition: padding 0.25s ease, font-size 0.25s ease;
     pointer-events: none;
 }
 
@@ -105,52 +115,45 @@ input:focus ~ label,
 textarea:focus ~ label,
 input:valid ~ label,
 textarea:valid ~ label {
-    font-size: 0.5rem;
+    font-size: 1.5vmin;
     padding: 0;
-    transition: all .25s ease;
 }
 
-.postcard-left-message{
-    height: calc(var(--main-height) / 5);
+.postcard-left-message {
+    height: 25vmin;
 }
 
 textarea {
-  height: 100%;
-}
-
-textarea, input {
-    font-family: 'Euphoria Script', cursive;
-    font-size: 2rem;
+    height: 100%;
 }
 
 .postcard-left-submit-btn {
-    height: 3rem;
+    height: 5vmin;
     width: 40%;
     align-self: end;
     border-radius: 5px;
-    border: 2px solid #4b8cfb;
-    background-color: #4b8cfb;
-    font-family: 'Poiret One', cursive;
-    font-size : 1.5rem;
-    color: white;
+    border: 2px solid var(--color-3);
+    background-color: var(--color-3);
+    font-size: 2.5vmin;
+    color: whitesmoke;
     cursor: pointer;
-    transition: all .25s ease;
+    transition: background-color 0.25s ease;
 }
 
 .postcard-left-submit-btn:hover {
-    background-color: ivory;
-    color: #4b8cfb;
+    background-color: whitesmoke;
+    color: var(--color-3);
 }
 
-.postcard-right{
-    height: 80%;
+.postcard-right {
+    height: 100%;
     width: 40%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 
-.postcard-right-timbre{    
+.postcard-right-stamp {
     position: absolute;
     top: 5%;
     right: 5%;
@@ -158,90 +161,81 @@ textarea, input {
     height: auto;
 }
 
-.postcard-right-timbre img{    
+.postcard-right-stamp img {
     width: 100%;
 }
 
-.postcard-right-exp{
+.postcard-right-exp {
     padding-bottom: 5%;
 }
 
-.postcard-right-exp>div{
-    border-bottom: 1px solid black;
+.postcard-right-exp > div {
+    border-bottom: 1px solid hsl(0deg, 0%, 25%);
     padding-top: 7.5%;
 }
 
-@media (max-width: 800px){
-    :root{
-        --main-width: 80vw;
-        --main-height: 60vw;
-      }
-}
-
-
 /* ------------- ENVELOPPE ------------- */
 
-.enveloppe-container{
+.enveloppe-container {
     transform: translateY(44vh);
 }
 
-.enveloppe{
+.enveloppe {
     position: absolute;
-    left: 50%;
-    margin-left: calc((var(--main-width)/-2));
-    top: 50%;
-    margin-top: calc((var(--main-height)/-2));
-    width: var(--main-width);
-    height: var(--main-height);
+    left: calc(50% - 50vmin);
+    top: calc(50% - 37.5vmin);
+    width: 100vmin;
+    height: 75vmin;
     background: transparent;
-    animation: .5s ease-out forwards apparition-enveloppe, .5s linear 1s forwards reduction, .75s linear 1.5s forwards deplacement;
+    animation: 0.5s ease-out forwards apparition-enveloppe, 0.5s linear 1s forwards reduction,
+        0.75s linear 1.5s forwards deplacement;
 }
 
 @keyframes apparition-enveloppe {
-    from{
-        transform: translateY(var(--main-height));
+    from {
+        transform: translateY(75vmin);
     }
-    to{
+    to {
         transform: translateY(0);
-    }    
+    }
 }
 
 @keyframes reduction {
-    to{
+    to {
         transform: scale(0.25);
-    }        
+    }
 }
 
 @keyframes deplacement {
-    to{
+    to {
         transform: scale(0.025) rotate(-35deg) translateX(2500vw);
         opacity: 0;
-    }        
+    }
 }
 
-.enveloppe::before{
+.enveloppe::before {
     /* languette */
-    content: '';
-    width: var(--main-width);
-    height: var(--main-height);
+    content: "";
+    width: 100vmin;
+    height: 75vmin;
     top: -40%;
     position: absolute;
-    background: #E1E1E1;
+    background: #e1e1e1;
     clip-path: polygon(0% 40%, 50% 0%, 100% 40%);
-    animation: .5s ease-in-out .5s forwards fermeture;
-    transform-origin: 0 calc((var(--main-height)*.4));
+    animation: 0.5s ease-in-out 0.5s forwards fermeture;
+    transform-origin: 0 30vmin;
 }
 
 @keyframes fermeture {
-    to{
+    to {
         transform: rotateX(-180deg);
-    }    
+    }
 }
 
-.enveloppe::after{
-    content: '';
-    width: var(--main-width);
-    height: var(--main-height);
+.enveloppe::after {
+    content: "";
+    width: 100vmin;
+    height: 80vmin;
     position: absolute;
     background: white;
     clip-path: polygon(0 0, 50% 37.5%, 100% 0, 100% 100%, 0 100%);
@@ -249,8 +243,170 @@ textarea, input {
 
 /* ------------- MESSAGE ENVOYE ------------- */
 
-.message-container{
-    inset: 0;
-    display: grid;
-    place-content: center;
+.message-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 8vw;
+    width: 65vw;
+    font-family: var(--font-2);
+    color: var(--font-color-1);
+    font-size: 7.5vw;
+}
+
+
+
+
+/* --- RESPONSIVE --- */
+
+@media (orientation: portrait) {
+
+    /* ------------- POSTCARD ------------- */
+    .postcard-container {
+        font-size: min( 1.5rem, 5vmin); 
+    }
+
+    .postcard-border {
+        width: 95vw;
+        height: 85vh;
+    }
+
+    .postcard {
+        width: 90vw;
+        height: calc(85vh - 5vw);
+        flex-direction: column-reverse;
+    }
+
+    .postcard-left {
+        width: 100%;
+        height: 75%;
+        border-right: none;
+    }
+
+    .postcard-left-form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .postcard-left-input input,
+    .postcard-left-input textarea {
+        padding: 2.5%;
+        font-size: min( 1.5rem, 5vmin); 
+    }
+
+    .postcard-left-input label {
+        font-size: min(0.75rem, 2.5vmin);
+    }
+    
+    input:focus ~ label,
+    textarea:focus ~ label,
+    input:valid ~ label,
+    textarea:valid ~ label {
+        font-size: min(0.5rem, 1.5vmin);
+    }
+    
+    .postcard-left-message {
+        height: 82.5%;
+    }
+
+    .postcard-left-submit-btn {
+        height: 20%;
+        align-self: center;
+    }
+
+    .postcard-right {
+        height: 17.5%;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .postcard-right-stamp {
+        width: 25%;
+    }
+
+    .postcard-right-exp {
+        padding-bottom: 5%;
+    }
+
+    .postcard-right-exp > div {
+        border-bottom: 0;
+    }
+
+    /* ------------- ENVELOPPE ------------- */
+
+.enveloppe-container {
+    transform: translateY(44vh);
+}
+
+.enveloppe {
+    left: calc(50% - 47.5vw);
+    top: calc(50% - 42.5vh);
+    width: 95vw;
+    height: 85vh;
+    border: 2px solid green;
+}
+
+@keyframes apparition-enveloppe {
+    from {
+        transform: translateY(75vmin);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes reduction {
+    to {
+        transform: scale(0.25);
+    }
+}
+
+@keyframes deplacement {
+    to {
+        transform: scale(0.025) rotate(-35deg) translateX(2500vw);
+        opacity: 0;
+    }
+}
+
+.enveloppe::before {
+    width: 95vw;
+    height: 85vh;
+    top: -40%;
+    position: absolute;
+    background: #e1e1e1;
+    clip-path: polygon(0% 40%, 50% 0%, 100% 40%);
+    animation: 0.5s ease-in-out 0.5s forwards fermeture;
+    transform-origin: 0 30vmin;
+}
+
+@keyframes fermeture {
+    to {
+        transform: rotateX(-180deg);
+    }
+}
+
+.enveloppe::after {
+    content: "";
+    width: 100vmin;
+    height: 80vmin;
+    position: absolute;
+    background: white;
+    clip-path: polygon(0 0, 50% 37.5%, 100% 0, 100% 100%, 0 100%);
+}
+    /* ------------- MESSAGE ENVOYE ------------- */
+
+    .message-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 8vw;
+        width: 65vw;
+        font-family: var(--font-2);
+        color: var(--font-color-1);
+        font-size: 7.5vw;
+    }
 }

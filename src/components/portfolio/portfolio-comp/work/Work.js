@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 import Draggable from 'react-draggable'
 
@@ -14,7 +15,32 @@ import './work.css'
 
 export default function Work() {
 
+    const { face } = useSelector(state => ({
+        ...state.faceDisplayedReducer
+    }))
+
     const [faceDisplayed, setFaceDisplayed] = useState('work')
+
+    /* launch animation on the first work page apparition */
+    /*
+    const [workFirstRendered, setWorkFirstRendered] = useState(false)
+
+    useEffect(() => {
+        face === 1 && setWorkFirstRendered(true)
+    }, [face])
+
+    useEffect(() => {
+        workFirstRendered && (setTimeout(() => {
+            changePortfolioPart()
+            setTimeout(() => {
+                changePortfolioPart('partI')
+            }, 750)
+        }, 500))
+    }, [workFirstRendered])
+    */
+
+
+    /* pull me animation = toggle img / text */
 
     const handleDrag = (e, ui) => {
 
@@ -103,7 +129,7 @@ export default function Work() {
                                     className={'portfolio-container__tab portfolio-container__tab-part' + (index + 1) + (index === 0 ? ' portfolio-container__part--set-opacity' : '')}
                                     onClick={() => { changePortfolioPart('part' + (index + 1)) }}>
                                     <div>
-                                        click me
+                                        page {index + 1}
                                     </div>
                                 </button>
 
@@ -136,26 +162,26 @@ export default function Work() {
                                                                         <div className="portfolio__card--links">
 
                                                                             {item.directLink && (
-                                                                                <a href={item.directLink} 
-                                                                                target="_blank" 
-                                                                                rel="noopener"
-                                                                                aria-label={'link to ' + item.title + ' site'}>
+                                                                                <a href={item.directLink}
+                                                                                    target="_blank"
+                                                                                    rel="noopener"
+                                                                                    aria-label={'link to ' + item.title + ' site'}>
                                                                                     <FontAwesomeIcon icon={faExternalLinkAlt} />
                                                                                 </a>
                                                                             )}
                                                                             {item.gitLink && (
-                                                                                <a href={item.gitLink} 
-                                                                                target="_blank" 
-                                                                                rel="noopener"
-                                                                                aria-label={'link to ' + item.title + ' on github'}>
+                                                                                <a href={item.gitLink}
+                                                                                    target="_blank"
+                                                                                    rel="noopener"
+                                                                                    aria-label={'link to ' + item.title + ' on github'}>
                                                                                     <FontAwesomeIcon icon={faGithub} />
                                                                                 </a>
                                                                             )}
                                                                             {item.codePenLink && (
-                                                                                <a href={item.codePenLink} 
-                                                                                target="_blank" 
-                                                                                rel="noopener"
-                                                                                aria-label={'link to ' + item.title + ' on codepen'}>
+                                                                                <a href={item.codePenLink}
+                                                                                    target="_blank"
+                                                                                    rel="noopener"
+                                                                                    aria-label={'link to ' + item.title + ' on codepen'}>
                                                                                     <FontAwesomeIcon icon={faCodepen} />
                                                                                 </a>
                                                                             )}
@@ -286,7 +312,7 @@ export default function Work() {
                 <svg className="section__work-bg-svg-2 section-bg-svg"
                     viewBox="0 0 100 100">
                     <path
-                d="M 0,100 H 100 C 100,100 70,60 50,60 30,60 8.5,80 0,100 Z"/>
+                        d="M 0,100 H 100 C 100,100 70,60 50,60 30,60 8.5,80 0,100 Z" />
                 </svg>
 
             </section>

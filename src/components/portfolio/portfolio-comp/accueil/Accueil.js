@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRedo, faChevronDown, faHandPointLeft } from '@fortawesome/free-solid-svg-icons'
+import { faRedo, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faLinkedin, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import body from '../../assets/body.svg'
@@ -123,7 +123,6 @@ export default function Accueil() {
 
 
     useEffect(() => {
-        console.log('montage')
 
         const chest = document.querySelector('.chest-container'),
             chestTop = document.querySelector('.chest-top-front'),
@@ -133,6 +132,35 @@ export default function Accueil() {
 
         let chestOpen = false
         let accessoryThrown = 0
+
+        // cta animation on page renddering
+        setTimeout(() => {
+
+            //arrows
+            Array.from(document.querySelectorAll('.arrow-cta')).forEach(arrow => {
+                arrow.classList.toggle('arrow-cta')
+            })
+
+            //status reload arrow
+            setTimeout(() => {
+                setReloadButtonRotation(reloadButtonRotation + 360)
+                document.querySelector('.reload-status').style.transform = 'rotate(' + reloadButtonRotation + 'deg)'
+            }
+                , 250)
+
+            //chest
+            setTimeout(() => { chestTop.classList.toggle('open') }
+                , 500)
+
+            //pull
+            setTimeout(() => { document.querySelector('.pull-me-face').style.opacity = 1 }
+                , 750)
+        }
+            , 500)
+
+
+        //chest opening / closing and stuff thrown
+
 
         accessoryContainer.forEach(container => container.classList.add('accessory-hidden'))
 
@@ -242,6 +270,78 @@ export default function Accueil() {
         }
     }
 
+    const handleClickColor1 = () => {
+        document.querySelector('.color-active').classList.toggle('color-active')
+        document.querySelector('.color1').classList.add('color-active')
+
+        document.documentElement.style.setProperty('--color-1', '#374785')
+        document.documentElement.style.setProperty('--color-2', '#e63946')
+        document.documentElement.style.setProperty('--color-3', '#d7e3fc')
+        document.documentElement.style.setProperty('--color-4', '#b6ccfe')
+        document.documentElement.style.setProperty('--color-5', '#abc4ff')
+        document.documentElement.style.setProperty('--font-color-1', 'black')
+    }
+
+    const handleClickColor2 = () => {
+        document.querySelector('.color-active').classList.toggle('color-active')
+        document.querySelector('.color2').classList.add('color-active')
+
+        document.documentElement.style.setProperty('--color-1', '#A64AC9')
+        document.documentElement.style.setProperty('--color-2', '#FCCD04')
+        document.documentElement.style.setProperty('--color-3', '#FFB48F')
+        document.documentElement.style.setProperty('--color-4', '#F5E6CC')
+        document.documentElement.style.setProperty('--color-5', '#17E9E0')
+        document.documentElement.style.setProperty('--font-color-1', 'black')
+    }
+
+    const handleClickColor3 = () => {
+        document.querySelector('.color-active').classList.toggle('color-active')
+        document.querySelector('.color3').classList.add('color-active')
+
+        document.documentElement.style.setProperty('--color-1', '#f8e9a1')
+        document.documentElement.style.setProperty('--color-2', '#f76c6c')
+        document.documentElement.style.setProperty('--color-3', '#a8d0e6')
+        document.documentElement.style.setProperty('--color-4', '#374785')
+        document.documentElement.style.setProperty('--color-5', '#24305e')
+        document.documentElement.style.setProperty('--font-color-1', 'black')
+    }
+
+    const handleClickColor4 = () => {
+        document.querySelector('.color-active').classList.toggle('color-active')
+        document.querySelector('.color4').classList.add('color-active')
+
+        document.documentElement.style.setProperty('--color-1', '#F78888')
+        document.documentElement.style.setProperty('--color-2', '#F3D250')
+        document.documentElement.style.setProperty('--color-3', '#ECECEC')
+        document.documentElement.style.setProperty('--color-4', '#90CCF4')
+        document.documentElement.style.setProperty('--color-5', '#5DA2D5')
+        document.documentElement.style.setProperty('--font-color-1', 'black')
+    }
+
+    const handleClickColor5 = () => {
+        document.querySelector('.color-active').classList.toggle('color-active')
+        document.querySelector('.color5').classList.add('color-active')
+
+        document.documentElement.style.setProperty('--color-1', '#026670')
+        document.documentElement.style.setProperty('--color-2', '#9FEDD7')
+        document.documentElement.style.setProperty('--color-3', '#FEF9C7')
+        document.documentElement.style.setProperty('--color-4', '#FCE181')
+        document.documentElement.style.setProperty('--color-5', '#EDEAE5')
+        document.documentElement.style.setProperty('--font-color-1', 'black')
+    }
+
+    const handleClickColor6 = () => {
+        document.querySelector('.color-active').classList.toggle('color-active')
+        document.querySelector('.color6').classList.add('color-active')
+
+        document.documentElement.style.setProperty('--color-1', '#FBE8A6')
+        document.documentElement.style.setProperty('--color-2', '#F4976C')
+        document.documentElement.style.setProperty('--color-3', '#303C6C')
+        document.documentElement.style.setProperty('--color-4', '#B4DFE5')
+        document.documentElement.style.setProperty('--color-5', '#D2FDFF')
+        document.documentElement.style.setProperty('--font-color-1', 'whitesmoke')
+    }
+
     return (
         <>
             <svg className="section__accueil-bg-svg section-bg-svg"
@@ -290,11 +390,10 @@ export default function Accueil() {
 
                 <div className="chest-container">
                     <div className="chest-top">
-                        <div className="chest-top-front">
+                        <div className="chest-top-front open">
                         </div>
                     </div>
                     <div className="chest-bottom">
-                        click me <FontAwesomeIcon icon={faHandPointLeft} />
                     </div>
                 </div>
 
@@ -305,7 +404,7 @@ export default function Accueil() {
                 <button
                     className="reload-status"
                     onClick={handleReloadStatus}
-                    aria-label="relaod status">
+                    aria-label="reload status">
                     <FontAwesomeIcon icon={faRedo} />
                 </button>
 
@@ -358,6 +457,21 @@ export default function Accueil() {
                         </Draggable>
                     )
                 })}
+
+                <div className="color-picker-container">
+                    <button onClick={handleClickColor1}
+                        className="color color1 color-active">set de couleur n°1</button>
+                    <button onClick={handleClickColor2}
+                        className="color color2">set de couleur n°2</button>
+                    <button onClick={handleClickColor3}
+                        className="color color3">set de couleur n°3</button>
+                    <button onClick={handleClickColor4}
+                        className="color color4">set de couleur n°4</button>
+                    <button onClick={handleClickColor5}
+                        className="color color5">set de couleur n°5</button>
+                    <button onClick={handleClickColor6}
+                        className="color color6">set de couleur n°6</button>
+                </div>
 
                 {/* 
 <Draggable

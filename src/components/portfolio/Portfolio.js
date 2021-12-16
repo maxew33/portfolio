@@ -22,8 +22,16 @@ export default function Portfolio() {
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        console.log('montage portfolio')
+    useEffect(() => { 
+        console.log(
+`               ____               _                  
+               |  _ \\            (_)                 
+               | |_) | ___  _ __  _  ___  _   _ _ __ 
+               |  _ < / _ \\| '_ \\| |/ _ \\| | | | '__|
+               | |_) | (_) | | | | | (_) | |_| | |   
+               |____/ \\___/|_| |_| |\\___/ \\__,_|_|   
+                                _/ |                 
+                               |__/               `)
     }, [])
 
     const changeAngle = (value) => {
@@ -91,7 +99,7 @@ export default function Portfolio() {
                         return (
                             <div key={arrayPages[index].id} className="face">
                                 <div className="content">
-                                    <button className="arrow arrow-left" onClick={() => changeAngle(90)}>
+                                    <button className="arrow arrow-cta arrow-left" onClick={() => changeAngle(90)}>
                                         <div className="chevron">
                                             <FontAwesomeIcon icon={faChevronLeft} />
                                         </div>
@@ -100,7 +108,7 @@ export default function Portfolio() {
                                         </span>
                                     </button>
                                     {arrayPages[index].pageDisplayed}
-                                    <button className="arrow arrow-right" onClick={() => changeAngle(-90)}>
+                                    <button className="arrow arrow-cta arrow-right" onClick={() => changeAngle(-90)}>
                                         <span className="component__navigation component__navigation-next-page">
                                             {pagesName[nextPage]}
                                         </span>

@@ -29,6 +29,18 @@
 .section__skills .intro-of-myself > p:first-of-type {
   padding-bottom: 0.5vmax;
 }
+.section__skills .intro-of-myself .resume-download {
+  display: inline-block;
+  font-size: 1.5rem;
+  -webkit-animation: 3s linear infinite remind-click;
+          animation: 3s linear infinite remind-click;
+}
+.section__skills .intro-of-myself a:link,
+.section__skills .intro-of-myself a:visited,
+.section__skills .intro-of-myself a:hover,
+.section__skills .intro-of-myself a:active {
+  color: var(--font-color-1);
+}
 .section__skills .my-skills-container {
   position: absolute;
   bottom: 1vh;
@@ -48,6 +60,7 @@
   display: grid;
   grid-template: repeat(10, 1fr)/repeat(10, 1fr);
   display: none;
+  color: var(--font-color-2);
 }
 .section__skills .my-skills .competence {
   align-self: center;
@@ -237,6 +250,35 @@
   stroke: blue;
 }
 
+@-webkit-keyframes remind-click {
+  0%, 45% {
+    transform: rotate(0deg);
+  }
+  47%, 53% {
+    transform: rotate(35deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  55%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes remind-click {
+  0%, 45% {
+    transform: rotate(0deg);
+  }
+  47%, 53% {
+    transform: rotate(35deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  55%, 100% {
+    transform: rotate(0deg);
+  }
+}
 @-webkit-keyframes drawing-front-end-dev {
   from {
     stroke-dashoffset: 125;
@@ -245,7 +287,6 @@
     stroke-dashoffset: 0;
   }
 }
-
 @keyframes drawing-front-end-dev {
   from {
     stroke-dashoffset: 125;

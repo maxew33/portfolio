@@ -35,6 +35,14 @@
     transform: translateX(-50%);
     top: 8rem;
     left: 50%;
+    color: var(--font-color-2);    
+    
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+        color: var(--font-color-2);
+    }
 
     .portfolio-container__part {
         position: absolute;
@@ -67,7 +75,11 @@
             div {
                 font-size: 1.5rem;
                 transform: rotate(-90deg);
-                transition: opacity 0.25s ease-in;
+                transition: .05s font-size ease-in-out;
+
+                &:hover{
+                    font-size: 1.75rem;
+                }
             }
         }
     }
@@ -99,7 +111,6 @@
     }
 
     .portfolio-container__part--set-opacity {
-        opacity: 0;
         pointer-events: none;
     }
 }
@@ -217,7 +228,7 @@
             height: 4vmin;
             width: 5vmin;
             left: calc(50% - 2.5vmin);
-            background: var(--color-1);
+            background: var(--color-3);
             border: none;
             border-radius: 0 0 25px 25px;
             transform-origin: top;
@@ -459,7 +470,6 @@
                 height: 4vmin;
                 width: 10vmin;
                 left: calc(50% - 5vmin);
-                background: var(--color-1);
 
                 &::after {
                     width: 15vmin;

@@ -9,15 +9,17 @@
 }
 
 :root {
-  --color-1: #374785;
-  --color-2: #e63946;
-  --color-3: #d7e3fc;
-  --color-4: #b6ccfe;
-  --color-5: #abc4ff;
+  --color-1: #FBE8A6;
+  --color-2: #F4976C;
+  --color-3: #303C6C;
+  --color-4: #B4DFE5;
+  --color-5: #D2FDFF;
   --font-1: "Kalam", cursive;
   --font-1b: "Festive", cursive;
   --font-2: "Ubuntu", sans-serif;
   --font-2b: "Baloo Da 2", cursive;
+  --font-color-1: whitesmoke;
+  --font-color-2: black;
 }
 
 .spinner-container {
@@ -27,6 +29,7 @@
 }
 
 .spinner {
+  color: var(--font-color-1);
   width: 100vw;
   height: 100vh;
   transform-style: preserve-3d;
@@ -67,7 +70,7 @@
 }
 .face .arrow {
   position: absolute;
-  top: calc(50vh - 2rem);
+  top: 50%;
   width: max(2.5vw, 2.5vh);
   height: max(2.5vw, 2.5vh);
   cursor: pointer;
@@ -85,7 +88,7 @@
   top: 50%;
   left: calc(50% - max(0.625vh, 0.625vw));
   width: max(1.25vh, 1.25vw);
-  border: 1px solid black;
+  border: 1px solid var(--font-color-1);
   border-radius: 50%;
   transition: 0.25s transform ease-in-out;
 }
@@ -95,6 +98,7 @@
   overflow: hidden;
   transition: transform 0.25s ease-in-out;
   font-size: 1.5vw;
+  color: var(--font-color-1);
 }
 .face .arrow .component__navigation-next-page {
   right: 1.25vw;
@@ -118,6 +122,19 @@
 }
 .face .arrow .chevron {
   display: none;
+  color: var(--font-color-1);
+}
+.face .arrow-cta .component__navigation-prev-page {
+  transform: scale(1) translateX(1.25vw);
+}
+.face .arrow-cta .component__navigation-next-page {
+  transform: scale(1) translateX(-1.25vw);
+}
+.face .arrow-cta::before {
+  transform: rotate(45deg);
+}
+.face .arrow-cta::after {
+  transform: rotate(-45deg);
 }
 .face .arrow-left {
   left: 2vmin;
@@ -156,11 +173,11 @@
   height: 4.5vmin;
   width: 5vmin;
   left: calc(50% - 2.5vmin);
-  background: var(--color-1);
+  background: var(--color-3);
   font-size: 1rem;
   font-family: var(--font-2);
   font-weight: bolder;
-  color: whitesmoke;
+  color: var(--font-color-1);
   display: flex;
   flex-direction: column;
   align-items: center;

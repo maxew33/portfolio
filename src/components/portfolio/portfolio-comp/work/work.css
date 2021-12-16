@@ -35,6 +35,13 @@
   transform: translateX(-50%);
   top: 8rem;
   left: 50%;
+  color: var(--font-color-2);
+}
+.portfolio-container a:link,
+.portfolio-container a:visited,
+.portfolio-container a:hover,
+.portfolio-container a:active {
+  color: var(--font-color-2);
 }
 .portfolio-container .portfolio-container__part {
   position: absolute;
@@ -66,7 +73,10 @@
 .portfolio-container .portfolio-container__part .portfolio-container__tab div {
   font-size: 1.5rem;
   transform: rotate(-90deg);
-  transition: opacity 0.25s ease-in;
+  transition: 0.05s font-size ease-in-out;
+}
+.portfolio-container .portfolio-container__part .portfolio-container__tab div:hover {
+  font-size: 1.75rem;
 }
 .portfolio-container .portfolio-container__part1 {
   transform-origin: bottom right;
@@ -92,7 +102,6 @@
   z-index: 5;
 }
 .portfolio-container .portfolio-container__part--set-opacity {
-  opacity: 0;
   pointer-events: none;
 }
 
@@ -199,7 +208,7 @@
   height: 4vmin;
   width: 5vmin;
   left: calc(50% - 2.5vmin);
-  background: var(--color-1);
+  background: var(--color-3);
   border: none;
   border-radius: 0 0 25px 25px;
   transform-origin: top;
@@ -416,7 +425,6 @@
     height: 4vmin;
     width: 10vmin;
     left: calc(50% - 5vmin);
-    background: var(--color-1);
   }
   .portfolio__cards .portfolio__card-btn-container .portfolio__card-pull-me-front::after {
     width: 15vmin;
