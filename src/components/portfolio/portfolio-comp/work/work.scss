@@ -74,6 +74,7 @@
 
             div {
                 font-size: 1.5rem;
+                font-family: var(--font-1);
                 transform: rotate(-90deg);
                 transition: .05s font-size ease-in-out;
 
@@ -254,17 +255,17 @@
 .toggle-section-work {
     cursor: pointer;
     position: absolute;
-    top: 2.5rem;
-    font-size: 2rem;
+    top: 2.5vmin;
+    font-size: 5vmin;
     background: none;
     border: none;
 }
 
 .toggle-section-work--right{
-    right: 2.5rem;
+    right: 2.5vmin;
 }
 .toggle-section-work--left{
-    left: 2.5rem;
+    left: 2.5vmin;
 }
 
 .work-to-tv {
@@ -290,9 +291,6 @@
             background: #293450;
             width: 80%;
             height: 90%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             border-radius: 5%;
             border: 2px solid #11103f;
         }
@@ -310,7 +308,6 @@
         width: 72%;
         border: 2px solid black;
         background: black;
-        object-fit: contain;
     }
 
     .work-to-tv__rightSide{
@@ -376,7 +373,7 @@
 }
 
 @media (orientation: portrait) {
-    /* Set classes for portfolio animation : index opacity */
+    
     .portfolio-container {
         width: 100vmin;
         height: 80vh;
@@ -393,7 +390,7 @@
                 top: 0;
 
                 div {
-                    font-size: 2.5rem;
+                    font-size: 5vw;
                     transform: rotate(0deg);
                 }
             }
@@ -416,8 +413,6 @@
             }
         }
     }
-
-    /* Set portfolio container content*/
 
     .portfolio__cards {
         position: relative;
@@ -445,7 +440,8 @@
 
             .portfolio__card-work-title {
                 height: 6.3vh;
-                font-size: 2rem;
+                font-size: 5vw;
+                text-align: center;
             }
         }
 
@@ -455,8 +451,13 @@
             width: inherit;
 
             .portfolio__card-text-container {
-                line-height: 2rem;
-                font-size: 1.75rem;
+                line-height: 3vw;
+                font-size: 3vw;
+            }
+
+            .portfolio__card--links {
+                font-size: 5vw;
+                padding-bottom: 0.5vw;
             }
         }
 
@@ -477,4 +478,58 @@
             }
         }
     }
+
+    .work-to-tv {
+        height: 100%;
+        width: 100%;
+    
+        .work-to-tv__btn-container {
+            height: 40vw;
+            width: 45vw;
+            flex-direction: column;
+    
+            &::before {
+                width: 95%;
+                height: 80%;
+            }
+        }
+    
+        button {
+            top: 42.5%;
+            left: 5%;
+            font-size: 5vw;
+            height: 70%;
+            width: 90%;
+        }
+    
+        .work-to-tv__rightSide{
+            width: 90%;
+            height: 10%;
+            flex-direction: row-reverse;
+            justify-content: space-evenly;
+    
+            .work-to-tv__rightSide--tvButton {
+                width: 4vw;
+                height: 4vw;
+    
+                .work-to-tv__rightSide--tvButton-line {
+                    height: 80%;
+                    width: 20%;
+                    transform: rotate(0deg);
+                    border: none;
+                }
+            }
+    
+            .work-to-tv__rightSide--sound {
+                width: 40%;
+                height: 100%;
+            }
+    
+            .work-to-tv__rightSide--sound > div {
+                width: 5%;
+            }
+        }
+    
+    }
+    
 }

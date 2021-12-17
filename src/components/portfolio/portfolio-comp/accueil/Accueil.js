@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Draggable from 'react-draggable'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRedo, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faRedo, faChevronDown, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faLinkedin, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import body from '../../assets/body.svg'
@@ -191,18 +191,19 @@ export default function Accueil() {
 
     const myStatus = [
         'est un développeur front-end...',
-        'vous dit bonjour! 👋 ',
-        'est un mari 💑 ...',
-        'et un papa 👦👦...',
-        'a codé ce site avec 💜 et React...',
-        'est aussi un grand gaillard de 2m ☝ ...',
-        'aime jouer à Hearthstone 🎮 ...',
-        'sait se former tout seul 📚 ...',
-        'aime le rugby 🏉 ...',
-        'n\'a pas de chance aux dés 🎲 ...',
-        'fait des blagues à papa 😅 ...',
-        'a hâte de vous rencontrer 🤝... ',
-        'n\'a plus rien à dire 🤫 ...'
+        'qui vous dit bonjour! 👋 ',
+        'Il a hâte de vous rencontrer 🤝. ',
+        'Il a codé ce site avec 💜 ...',
+        'et avec React 💻 .',
+        'Il sait se former tout seul 📚.',
+        'C\'est aussi un mari 💑 ...',
+        'et un papa 👦👦.',
+        'C\'est un grand gaillard de 2m ☝ ...',
+        'qui aime le rugby 🏉 ...',
+        'Jouer à Hearthstone 🎮 ...',
+        'mais n\'a pas de chance aux dés 🎲 .',
+        'Il fait des blagues à papa 😅 ...',
+        'et n\'a plus rien à dire 🤫 ...'
     ]
 
     const handleStart = e => {
@@ -381,8 +382,7 @@ export default function Accueil() {
                             onDrag={handlePullMeDrag}
                         >
                             <div className="pull-me-face pull-me">
-                                pull
-                                <FontAwesomeIcon icon={faChevronDown} />
+                                <FontAwesomeIcon icon={faArrowDown} />
                             </div>
                         </Draggable>
                     </div>
@@ -458,7 +458,7 @@ export default function Accueil() {
                     )
                 })}
 
-                <div className="color-picker-container">
+                {/* <div className="color-picker-container">
                     <button onClick={handleClickColor1}
                         className="color color1 color-active">set de couleur n°1</button>
                     <button onClick={handleClickColor2}
@@ -471,7 +471,7 @@ export default function Accueil() {
                         className="color color5">set de couleur n°5</button>
                     <button onClick={handleClickColor6}
                         className="color color6">set de couleur n°6</button>
-                </div>
+                </div> */}
 
                 {/* 
 <Draggable

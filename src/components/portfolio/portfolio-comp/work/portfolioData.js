@@ -60,8 +60,8 @@ const portfolioData =
                 gitLink: 'https://github.com/maxew33/maxamp',
                 codePenLink: 'https://codepen.io/maxew33/full/XWRvWdY',
                 directLink: false,
-                prez: 'Intégration d\'un lecteur de musique très fortement inspiré de winamp.',
-                txt: 'J\'ai codé le plus fidèlement possible une réplique de winamp avec ses fonctionnalités telles que : lecture, modification du volume, navigation dans la paylist, lecture aléatoire ...',
+                prez: 'Intégration d\'un lecteur de musique inspiré de winamp.',
+                txt: 'J\'ai codé le plus fidèlement possible une réplique de winamp avec de nombreuses fonctionnalités (lecture, volume, navigation, playlist, lecture aléatoire ...)',
                 id: uuidv4()
             },
             {

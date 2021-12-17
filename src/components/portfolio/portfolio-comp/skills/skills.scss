@@ -22,7 +22,7 @@
         max-height: 12vh;
         font-family: var(--font-2);
         line-height: 1.15;
-        font-size: 1.25rem;
+        font-size: min(1.75vw, 1.5rem);
         font-weight: bold;
         font-style: italic;
 
@@ -296,6 +296,18 @@ $boardparts: drawing-front-end-dev 125, drawing-arrow-html 9, drawing-html 75, d
 
 @media (orientation: portrait){
     .section__skills {
+
+        .intro-of-myself {
+            max-width: 90vw;
+            line-height: 1.5;
+            font-size: 3.5vw;
+    
+            .resume-download{
+                display: block;
+                text-align: center;
+                font-size: 7.5vw;
+            }    
+        }
     
         .my-skills-container{
             width: 95vw;
@@ -307,11 +319,11 @@ $boardparts: drawing-front-end-dev 125, drawing-arrow-html 9, drawing-html 75, d
             height: min(92.5vw, 64vh);
     
             .competence{
-                font-size: 2rem;
+                font-size: 4.15vw;
             }
         
             .comp1{
-                font-size: 2.25rem;           
+                font-size: 5vw;           
             }
         }
     }

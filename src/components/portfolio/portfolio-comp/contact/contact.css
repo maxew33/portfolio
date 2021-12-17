@@ -3,6 +3,7 @@
   height: 100vh;
   width: 100vw;
   place-content: center;
+  overflow: hidden;
 }
 
 .section__contact-bg-svg {
@@ -321,6 +322,7 @@ textarea:valid ~ label {
 
   .postcard-left-submit-btn {
     height: 20%;
+    font-size: min(1.5rem, 5vmin);
     align-self: center;
   }
 
@@ -348,84 +350,18 @@ textarea:valid ~ label {
   }
 
   .enveloppe {
-    left: calc(50% - 47.5vw);
+    left: 0;
     top: calc(50% - 42.5vh);
-    width: 95vw;
     height: 85vh;
-    border: 2px solid green;
   }
 
-  @-webkit-keyframes apparition-enveloppe {
-    from {
-      transform: translateY(75vmin);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes apparition-enveloppe {
-    from {
-      transform: translateY(75vmin);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
-  @-webkit-keyframes reduction {
-    to {
-      transform: scale(0.25);
-    }
-  }
-  @keyframes reduction {
-    to {
-      transform: scale(0.25);
-    }
-  }
-  @-webkit-keyframes deplacement {
-    to {
-      transform: scale(0.025) rotate(-35deg) translateX(2500vw);
-      opacity: 0;
-    }
-  }
-  @keyframes deplacement {
-    to {
-      transform: scale(0.025) rotate(-35deg) translateX(2500vw);
-      opacity: 0;
-    }
-  }
   .enveloppe::before {
-    width: 95vw;
     height: 85vh;
-    top: -40%;
-    position: absolute;
-    background: #e1e1e1;
-    -webkit-clip-path: polygon(0% 40%, 50% 0%, 100% 40%);
-            clip-path: polygon(0% 40%, 50% 0%, 100% 40%);
-    -webkit-animation: 0.5s ease-in-out 0.5s forwards fermeture;
-            animation: 0.5s ease-in-out 0.5s forwards fermeture;
-    transform-origin: 0 30vmin;
+    transform-origin: 0 34vh;
   }
 
-  @-webkit-keyframes fermeture {
-    to {
-      transform: rotateX(-180deg);
-    }
-  }
-
-  @keyframes fermeture {
-    to {
-      transform: rotateX(-180deg);
-    }
-  }
   .enveloppe::after {
-    content: "";
-    width: 100vmin;
-    height: 80vmin;
-    position: absolute;
-    background: white;
-    -webkit-clip-path: polygon(0 0, 50% 37.5%, 100% 0, 100% 100%, 0 100%);
-            clip-path: polygon(0 0, 50% 37.5%, 100% 0, 100% 100%, 0 100%);
+    height: 85vh;
   }
 
   /* ------------- MESSAGE ENVOYE ------------- */

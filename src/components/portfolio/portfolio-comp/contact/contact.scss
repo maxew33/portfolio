@@ -3,6 +3,7 @@
     height: 100vh;
     width: 100vw;
     place-content: center;
+    overflow: hidden;
 }
 
 .section__contact-bg-svg {
@@ -255,16 +256,12 @@ textarea {
     font-size: 7.5vw;
 }
 
-
-
-
 /* --- RESPONSIVE --- */
 
 @media (orientation: portrait) {
-
     /* ------------- POSTCARD ------------- */
     .postcard-container {
-        font-size: min( 1.5rem, 5vmin); 
+        font-size: min(1.5rem, 5vmin);
     }
 
     .postcard-border {
@@ -290,30 +287,31 @@ textarea {
         flex-direction: column;
         justify-content: space-between;
     }
-    
+
     .postcard-left-input input,
     .postcard-left-input textarea {
         padding: 2.5%;
-        font-size: min( 1.5rem, 5vmin); 
+        font-size: min(1.5rem, 5vmin);
     }
 
     .postcard-left-input label {
         font-size: min(0.75rem, 2.5vmin);
     }
-    
+
     input:focus ~ label,
     textarea:focus ~ label,
     input:valid ~ label,
     textarea:valid ~ label {
         font-size: min(0.5rem, 1.5vmin);
     }
-    
+
     .postcard-left-message {
         height: 82.5%;
     }
 
     .postcard-left-submit-btn {
         height: 20%;
+        font-size: min(1.5rem, 5vmin);
         align-self: center;
     }
 
@@ -337,65 +335,24 @@ textarea {
 
     /* ------------- ENVELOPPE ------------- */
 
-.enveloppe-container {
-    transform: translateY(44vh);
-}
-
-.enveloppe {
-    left: calc(50% - 47.5vw);
-    top: calc(50% - 42.5vh);
-    width: 95vw;
-    height: 85vh;
-    border: 2px solid green;
-}
-
-@keyframes apparition-enveloppe {
-    from {
-        transform: translateY(75vmin);
+    .enveloppe-container {
+        transform: translateY(44vh);
     }
-    to {
-        transform: translateY(0);
+
+    .enveloppe {
+        left: 0;
+        top: calc(50% - 42.5vh);
+        height: 85vh;
     }
-}
 
-@keyframes reduction {
-    to {
-        transform: scale(0.25);
+    .enveloppe::before {
+        height: 85vh;
+        transform-origin: 0 34vh;
     }
-}
 
-@keyframes deplacement {
-    to {
-        transform: scale(0.025) rotate(-35deg) translateX(2500vw);
-        opacity: 0;
+    .enveloppe::after {
+        height: 85vh;
     }
-}
-
-.enveloppe::before {
-    width: 95vw;
-    height: 85vh;
-    top: -40%;
-    position: absolute;
-    background: #e1e1e1;
-    clip-path: polygon(0% 40%, 50% 0%, 100% 40%);
-    animation: 0.5s ease-in-out 0.5s forwards fermeture;
-    transform-origin: 0 30vmin;
-}
-
-@keyframes fermeture {
-    to {
-        transform: rotateX(-180deg);
-    }
-}
-
-.enveloppe::after {
-    content: "";
-    width: 100vmin;
-    height: 80vmin;
-    position: absolute;
-    background: white;
-    clip-path: polygon(0 0, 50% 37.5%, 100% 0, 100% 100%, 0 100%);
-}
     /* ------------- MESSAGE ENVOYE ------------- */
 
     .message-container {

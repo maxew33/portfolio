@@ -1,12 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import Draggable from 'react-draggable'
 
 import TvShow from '../tv-show/TvShow'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLevelUpAlt, faChevronDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { faLevelUpAlt, faArrowDown, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import portfolioData from './portfolioData'
@@ -15,14 +15,20 @@ import './work.css'
 
 export default function Work() {
 
-    const { face } = useSelector(state => ({
-        ...state.faceDisplayedReducer
+    const dispatch = useDispatch()
+
+    const { drag } = useSelector(state => ({
+        ...state.dragWatchReducer
     }))
 
     const [faceDisplayed, setFaceDisplayed] = useState('work')
 
     /* launch animation on the first work page apparition */
-    /*
+    /*    
+    const { face } = useSelector(state => ({
+        ...state.faceDisplayedReducer
+    }))
+
     const [workFirstRendered, setWorkFirstRendered] = useState(false)
 
     useEffect(() => {
@@ -72,7 +78,19 @@ export default function Work() {
         console.log(faceDisplayed)
 
         let newFaceDisplayed
-        faceDisplayed === 'work' ? newFaceDisplayed = 'tv' : newFaceDisplayed = 'work'
+
+        if(faceDisplayed === 'work'){
+            newFaceDisplayed = 'tv'
+            dispatch({ type: 'DRAG_START' })
+
+        }
+        else{
+            console.log('work' + drag)
+            newFaceDisplayed = 'work'
+            setTimeout(() =>
+                dispatch({ type: 'DRAG_STOP' }), 50)
+        }
+
         setFaceDisplayed(newFaceDisplayed)
 
         console.log(faceDisplayed)
@@ -212,8 +230,7 @@ export default function Work() {
                                                                         className="portfolio__card-pull-me pull-me"
                                                                         data-id={'portfolio-container__part' + (index + 1) + '-wrapper' + idx}
                                                                     >
-                                                                        pull
-                                                                        <FontAwesomeIcon icon={faChevronDown} />
+                                                                        <FontAwesomeIcon icon={faArrowDown} />
                                                                     </button>
                                                                 </Draggable>
                                                             </div>
